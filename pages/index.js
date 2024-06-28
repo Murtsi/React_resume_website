@@ -19,9 +19,21 @@ import web3 from "../public/web3.png";
 import web4 from "../public/web4.png";
 import web5 from "../public/web5.png";
 import web6 from "../public/web6.png";
+import { useInView } from 'react-intersection-observer';
+import Modal from "react-modal"; // Import the modal library
+import { Worker, Viewer } from '@react-pdf-viewer/core'; // Import react-pdf components
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal
+
+  const { ref: workRef, inView: workInView } = useInView();
+  const { ref: educationRef, inView: educationInView } = useInView();
+  const { ref: languageRef, inView: languageInView } = useInView();
+  const { ref: offerRef, inView: offerInView } = useInView();
+  const { ref: portfolioRef, inView: portfolioInView } = useInView();
 
   return (
     <div className={darkMode ? "dark" : ""}>
@@ -42,12 +54,12 @@ export default function Home() {
                 />
               </li>
               <li>
-                <a
+                <button
                   className="bg-gradient-to-r from-cyan-500 text- to-teal-500 text-white px-4 py-2 border-none rounded-md ml-8"
-                  href="#"
+                  onClick={() => setIsModalOpen(true)} // Open modal on click
                 >
                   Resume
-                </a>
+                </button>
               </li>
             </ul>
           </nav>
@@ -76,20 +88,21 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section>
+        <section ref={offerRef} className={`transition-opacity duration-1000 ${offerInView ? 'opacity-100' : 'opacity-0'}`}>
           <div>
           <h3 className="text-5xl py-1 text-gray-900 dark:text-gray-100 font-bold">
               What I Can Offer
             </h3>
             <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
-              Since the beginning of my journey as a freelance designer and
-              developer, I've done remote work for
-              consulted for and collaborated with talanted people to create digital products
-              for both business and consumer use.
-            </p>
-            <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
-              I offer from a wide range of services, including brand design,
-              programming and teaching.
+            I am a dedicated and passionate individual with a strong background in automation engineering and frontend web development. My skills include:
+
+            - Proficiency in React and modern JavaScript frameworks
+            - Experience with HTML, CSS, and responsive design
+            - Knowledge of backend technologies and RESTful APIs
+            - Strong problem-solving abilities and attention to detail
+            - Excellent communication and teamwork skills
+
+            I am eager to bring my expertise and enthusiasm to a dynamic team, where I can contribute to innovative projects and continue to grow as a developer.
             </p>
           </div>
           <div className="lg:flex gap-10">
@@ -140,45 +153,50 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="py-10">
+        <section ref={portfolioRef} className={`py-10 transition-opacity duration-1000 ${portfolioInView ? 'opacity-100' : 'opacity-0'}`}>
           <div>
             <div className="bg-white shadow-lg rounded-xl p-10 dark:bg-gray-800">
               <h3 className="text-3xl py-1 text-gray-900 dark:text-gray-100 font-bold">Portofolio</h3>
               <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
-                Since the beginning of my journey as a freelance designer and
-                developer, I've done remote work for
-                <span className="text-teal-500"> agencies </span>
-                consulted for <span className="text-teal-500">startups </span>
-                and collaborated with talanted people to create digital products
-                for both business and consumer use.
               </p>
               <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
-                I offer from a wide range of services, including brand design,
-                programming and teaching.
+                Further details on my skills and competencies
               </p>
               <section className="py-10">
-                <div className="bg-light-blue-500 shadow-lg rounded-xl p-10 dark:bg-gray-700">
+                <div
+                  ref={workRef}
+                  className={`bg-light-blue-500 shadow-lg rounded-xl p-10 dark:bg-gray-700 transition-opacity duration-1000 ${workInView ? 'opacity-100' : 'opacity-0'}`}
+                >
                   <h3 className="text-3xl py-1 text-gray-900 dark:text-gray-100 font-bold">Work Experience</h3>
                   <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
-                    I have worked on various projects as a freelance designer and developer, collaborating with talented people to create digital products for both business and consumer use.
+                    I have worked in the automation field and with technology, including IT support and other related areas, collaborating with talented individuals to implement efficient and innovative solutions.
                   </p>
                   <ul className="list-disc list-inside text-gray-900 dark:text-gray-100">
-                    <li>Freelance Designer at XYZ Agency (2020 - Present)</li>
-                    <li>Frontend Developer at ABC Startup (2018 - 2020)</li>
-                    <li>Intern at DEF Corporation (2017 - 2018)</li>
+                    <li>Porting user interfaces to Codesys html5 ()</li>
+                    <li>Production supervisor at Olvi ()</li>
+                    <li>Production operator at Keitele timber()</li>
+                    <li>It Support for local highschool for final work()</li>
                   </ul>
                 </div>
-                <div className="mt-10 bg-light-blue-500 shadow-lg rounded-xl p-10 dark:bg-gray-700">
+                <div
+                  ref={educationRef}
+                  className={`mt-10 bg-light-blue-500 shadow-lg rounded-xl p-10 dark:bg-gray-700 transition-opacity duration-1000 ${educationInView ? 'opacity-100' : 'opacity-0'}`}
+                >
                   <h3 className="text-3xl py-1 text-gray-900 dark:text-gray-100 font-bold">Education</h3>
                   <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
-                    I have a strong educational background in both design and development.
+                    My education in Technology is comprehensive and well-rounded, providing me with a strong foundation in the field.
                   </p>
                   <ul className="list-disc list-inside text-gray-900 dark:text-gray-100">
-                    <li>Bachelor's Degree in Automation Engineering, University of Technology (2015 - 2019)</li>
-                    <li>Certificate in Web Development, Online Course (2020)</li>
+                  <li>Course to Automation in the wind power sector (2024)</li>
+                    <li>Bachelor's Degree in Automation Engineering, Seinäjoki University of Applied Sciences (2021 - Present)</li>
+                    <li>Leadership Training/Military Police Officer  (2019-2020)</li>
+                    <li>Vocational Qualification in Business Information Technology, Järviseutu Vocational Institute (2015-2018)</li>
                   </ul>
                 </div>
-                <div className="mt-10 bg-light-blue-500 shadow-lg rounded-xl p-10 dark:bg-gray-700">
+                <div
+                  ref={languageRef}
+                  className={`mt-10 bg-light-blue-500 shadow-lg rounded-xl p-10 dark:bg-gray-700 transition-opacity duration-1000 ${languageInView ? 'opacity-100' : 'opacity-0'}`}
+                >
                   <h3 className="text-3xl py-1 text-gray-900 dark:text-gray-100 font-bold">Language Skills</h3>
                   <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
                     I am proficient in multiple languages, which allows me to work with a diverse range of clients.
@@ -186,7 +204,8 @@ export default function Home() {
                   <ul className="list-disc list-inside text-gray-900 dark:text-gray-100">
                     <li>English (Fluent)</li>
                     <li>Finnish (Native)</li>
-                    <li>Swedish (Intermediate)</li>
+                    <li>Germany (Intermediate)</li>
+                    <li>Estonian (Intermediate)</li>
                   </ul>
                 </div>
               </section>
@@ -194,6 +213,58 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        contentLabel="Resume Modal"
+        className="modal"
+        overlayClassName="overlay"
+      >
+        <button onClick={() => setIsModalOpen(false)} className="close-button">
+          Close
+        </button>
+        <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.js">
+          <Viewer fileUrl="/CV.pdf" />
+        </Worker>
+      </Modal>
+      <style jsx global>{`
+        .modal {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          right: auto;
+          bottom: auto;
+          margin-right: -50%;
+          transform: translate(-50%, -50%);
+          background: white;
+          padding: 20px;
+          border-radius: 10px;
+          max-width: 90%;
+          max-height: 90%;
+          overflow: auto;
+        }
+        .overlay {
+          background: rgba(0, 0, 0, 0.75);
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 1000;
+        }
+        .close-button {
+          background: #ff5f5f;
+          color: white;
+          border: none;
+          padding: 10px;
+          border-radius: 5px;
+          cursor: pointer;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        }
+      `}</style>
     </div>
   );
 }
