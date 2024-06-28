@@ -20,6 +20,7 @@ import web3 from "../public/web3.png";
 import web4 from "../public/web4.png";
 import web5 from "../public/web5.png";
 import web6 from "../public/web6.png";
+import Typewriter from 'typewriter-effect';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -57,23 +58,23 @@ export default function Home() {
             </ul>
           </nav>
           <div className="text-center p-10 py-10">
-            <h2 className="text-5xl py-2 text-teal-600 font-medium dark:text-teal-400 md:text-6xl">
+            <h2 className="text-5xl py-2 text-teal-600 font-medium dark:text-teal-400 md:text-6xl text-shadow">
               Antti Murtokangas
             </h2>
-            <h3 className="text-2xl py-2 dark:text-white md:text-3xl">
+            <h3 className="text-2xl py-2 dark:text-white md:text-3xl text-shadow">
               Student & Hobbyist frontend coder
             </h3>
             <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-xl">
-            Automation Engineering Student & Hobbyist Coder Passionate About React Web Development
+              Automation Engineering Student & Hobbyist Coder Passionate About React Web Development
             </p>
             <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400">
-            <a href="mailto:antti.murtsi@gmail.com" target="_blank" rel="noopener noreferrer">
-              <AiFillMail />
-            </a>
-            <a href="https://www.linkedin.com/in/antti-murtokangas-562725158/" target="_blank" rel="noopener noreferrer">
-              <AiFillLinkedin />
-            </a>
-                <a href="https://github.com/Murtsi" target="_blank" rel="noopener noreferrer">
+              <a href="mailto:antti.murtsi@gmail.com" target="_blank" rel="noopener noreferrer">
+                <AiFillMail />
+              </a>
+              <a href="https://www.linkedin.com/in/antti-murtokangas-562725158/" target="_blank" rel="noopener noreferrer">
+                <AiFillLinkedin />
+              </a>
+              <a href="https://github.com/Murtsi" target="_blank" rel="noopener noreferrer">
                 <AiFillGithub />
               </a>
             </div>
@@ -83,12 +84,12 @@ export default function Home() {
           </div>
         </section>
         <section ref={offerRef} className={`transition-opacity duration-1000 ${offerInView ? 'opacity-100' : 'opacity-0'}`}>
-          <div>
-          <h3 className="text-5xl py-1 text-gray-900 dark:text-gray-100 font-bold">
+          <div className={`transition-transform duration-2000 transform ${offerInView ? 'translate-y-0' : 'translate-y-10'}`}>
+            <h3 className="text-5xl py-1 text-gray-900 dark:text-gray-100 font-bold">
               What I Can Offer
             </h3>
             <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
-            I am a dedicated and passionate individual with a strong background in automation engineering and hobbyist coding. My skills include:
+              I am a dedicated and passionate individual with a strong background in automation engineering and hobbyist coding. My skills include:
             </p>
             <ul className="list-disc pl-5 text-md leading-8 text-gray-900 dark:text-gray-100">
               <li>Extensive experience in automation engineering, including PLC programming, SCADA systems, and industrial automation planning</li>
@@ -100,17 +101,17 @@ export default function Home() {
               <li>Excellent communication and teamwork skills</li>
             </ul>
             <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
-            I am eager to bring my expertise and enthusiasm to a dynamic team, where I can contribute to innovative projects and continue to grow.
+              I am eager to bring my expertise and enthusiasm to a dynamic team, where I can contribute to innovative projects and continue to grow.
             </p>
           </div>
           <div className="lg:flex gap-10">
-            <div className={`text-center shadow-lg p-10 rounded-xl my-10 bg-light-blue-500 dark:bg-gray-700 flex-1 transition-opacity duration-2000 ${offerInView ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`text-center shadow-lg p-10 rounded-xl my-10 bg-light-blue-500 dark:bg-gray-700 flex-1 transition-transform duration-1000 ${offerInView ? 'transform translate-x-0' : 'transform -translate-x-full'}`}>
               <Image src={design} width={100} height={100} />
               <h3 className="text-lg font-bold pt-8 pb-2 text-gray-900 dark:text-gray-100">
                 Automation Engineering
               </h3>
               <p className="py-2 text-gray-900 dark:text-gray-100 font-semibold">
-              Tools that I&apos;ve used in my studies and work and have knowledge in:
+                Tools that I&apos;ve used in my studies and work and have knowledge in:
               </p>
               <ul className="list-disc pl-5 text-gray-900 dark:text-gray-100">
                 <li className="py-1">Codesys V3.5 Sp17 Patch 3</li>
@@ -119,7 +120,7 @@ export default function Home() {
                 <li className="py-1">Visual components Premium</li>
               </ul>
             </div>
-            <div className={`text-center shadow-lg p-10 rounded-xl my-10 bg-light-blue-500 dark:bg-gray-700 flex-1 transition-opacity duration-2000 ${offerInView ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`text-center shadow-lg p-10 rounded-xl my-10 bg-light-blue-500 dark:bg-gray-700 flex-1 transition-transform duration-1000 ${offerInView ? 'transform translate-x-0' : 'transform translate-x-full'}`}>
               <Image src={code} width={100} height={100} />
               <h3 className="text-lg font-bold pt-8 pb-2 text-gray-900 dark:text-gray-100">
                 My technical background
@@ -137,10 +138,10 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section ref={portfolioRef} className={`py-10 transition-opacity duration-1000 ${portfolioInView ? 'opacity-100' : 'opacity-0'}`}>
+        <section ref={portfolioRef} className={`py-10 transition-transform duration-1000 ${portfolioInView ? 'transform translate-y-0' : 'transform translate-y-10'}`}>
           <div>
             <div className="bg-white shadow-lg rounded-xl p-10 dark:bg-gray-800">
-              <h3 className="text-3xl py-1 text-gray-900 dark:text-gray-100 font-bold">Portofolio</h3>
+              <h3 className="text-3xl py-1 text-gray-900 dark:text-gray-100 font-bold">Portfolio</h3>
               <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
               </p>
               <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
@@ -149,22 +150,22 @@ export default function Home() {
               <section className="py-10">
                 <div
                   ref={workRef}
-                  className={`bg-light-blue-500 shadow-lg rounded-xl p-10 dark:bg-gray-700 transition-opacity duration-1000 ${workInView ? 'opacity-100' : 'opacity-0'}`}
+                  className={`bg-light-blue-500 shadow-lg rounded-xl p-10 dark:bg-gray-700 transition-transform duration-1000 ${workInView ? 'transform translate-y-0' : 'transform translate-y-10'}`}
                 >
                   <h3 className="text-3xl py-1 text-gray-900 dark:text-gray-100 font-bold">Work Experience</h3>
                   <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
                     I have worked in the automation field and with technology, including IT support and other related areas, collaborating with talented individuals to implement efficient and innovative solutions.
                   </p>
                   <ul className="list-disc list-inside text-gray-900 dark:text-gray-100 space-y-4">
-                    <li>Porting user interfaces to Codesys html5 ()</li>
-                    <li>Production supervisor at Olvi ()</li>
-                    <li>Production operator at Keitele timber()</li>
-                    <li>It Support for local highschool for final work()</li>
+                    <li>Porting user interfaces to Codesys html5 </li>
+                    <li>Production supervisor at Olvi </li>
+                    <li>Production operator at Keitele timber</li>
+                    <li>It Support for local highschool for final work</li>
                   </ul>
                 </div>
                 <div
                   ref={educationRef}
-                  className={`mt-10 bg-light-blue-500 shadow-lg rounded-xl p-10 dark:bg-gray-700 transition-opacity duration-1000 ${educationInView ? 'opacity-100' : 'opacity-0'}`}
+                  className={`mt-10 bg-light-blue-500 shadow-lg rounded-xl p-10 dark:bg-gray-700 transition-transform duration-1000 ${educationInView ? 'transform translate-y-0' : 'transform translate-y-10'}`}
                 >
                   <h3 className="text-3xl py-1 text-gray-900 dark:text-gray-100 font-bold">Education</h3>
                   <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
@@ -179,7 +180,7 @@ export default function Home() {
                 </div>
                 <div
                   ref={languageRef}
-                  className={`mt-10 bg-light-blue-500 shadow-lg rounded-xl p-10 dark:bg-gray-700 transition-opacity duration-1000 ${languageInView ? 'opacity-100' : 'opacity-0'}`}
+                  className={`mt-10 bg-light-blue-500 shadow-lg rounded-xl p-10 dark:bg-gray-700 transition-transform duration-1000 ${languageInView ? 'transform translate-y-0' : 'transform translate-y-10'}`}
                 >
                   <h3 className="text-3xl py-1 text-gray-900 dark:text-gray-100 font-bold">Language Skills</h3>
                   <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
