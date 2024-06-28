@@ -10,7 +10,7 @@ import {
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { useState } from "react";
 import code from "../public/code.png";
-import design from "../public/design.png";
+import design from "../public/automation.png";
 import consulting from "../public/consulting.png";
 import Image from "next/image";
 import web1 from "../public/web1.png";
@@ -20,14 +20,9 @@ import web4 from "../public/web4.png";
 import web5 from "../public/web5.png";
 import web6 from "../public/web6.png";
 import { useInView } from 'react-intersection-observer';
-import Modal from "react-modal"; // Import the modal library
-import { Worker, Viewer } from '@react-pdf-viewer/core'; // Import react-pdf components
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal
 
   const { ref: workRef, inView: workInView } = useInView();
   const { ref: educationRef, inView: educationInView } = useInView();
@@ -45,21 +40,13 @@ export default function Home() {
       <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40">
         <section className="min-h-screen">
           <nav className="py-10 mb-12 flex justify-between dark:text-white">
-            <h1 className="font-burtons text-xl">Antti murtokangas</h1>
+            <h1 className="font-burtons text-xl">My Portfolio</h1>
             <ul className="flex items-center">
               <li>
                 <BsFillMoonStarsFill
                   onClick={() => setDarkMode(!darkMode)}
                   className=" cursor-pointer text-2xl"
                 />
-              </li>
-              <li>
-                <button
-                  className="bg-gradient-to-r from-cyan-500 text- to-teal-500 text-white px-4 py-2 border-none rounded-md ml-8"
-                  onClick={() => setIsModalOpen(true)} // Open modal on click
-                >
-                  Resume
-                </button>
               </li>
             </ul>
           </nav>
@@ -85,6 +72,7 @@ export default function Home() {
               </a>
             </div>
             <div className="mx-auto bg-gradient-to-b from-gray-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96">
+              <Image src="/omakuva.jpg" layout="fill" objectFit="cover" alt="Omakuva" />
             </div>
           </div>
         </section>
@@ -94,62 +82,51 @@ export default function Home() {
               What I Can Offer
             </h3>
             <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
-            I am a dedicated and passionate individual with a strong background in automation engineering and frontend web development. My skills include:
-
-            - Proficiency in React and modern JavaScript frameworks
-            - Experience with HTML, CSS, and responsive design
-            - Knowledge of backend technologies and RESTful APIs
-            - Strong problem-solving abilities and attention to detail
-            - Excellent communication and teamwork skills
-
-            I am eager to bring my expertise and enthusiasm to a dynamic team, where I can contribute to innovative projects and continue to grow as a developer.
+            I am a dedicated and passionate individual with a strong background in automation engineering and hobbyist coding. My skills include:
+            </p>
+            <ul className="list-disc pl-5 text-md leading-8 text-gray-900 dark:text-gray-100">
+              <li>Extensive experience in automation engineering, including PLC programming, SCADA systems, and industrial automation planning</li>
+              <li>Basic understanding of React and modern JavaScript frameworks</li>
+              <li>Experience with Python for scripting and automation tasks</li>
+              <li>Knowledge of HTML, CSS, and responsive design</li>
+              <li>Reading and writing of electrical circuit diagrams</li>
+              <li>Strong problem-solving abilities and attention to detail</li>
+              <li>Excellent communication and teamwork skills</li>
+            </ul>
+            <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
+            I am eager to bring my expertise and enthusiasm to a dynamic team, where I can contribute to innovative projects and continue to grow.
             </p>
           </div>
           <div className="lg:flex gap-10">
             <div className="text-center shadow-lg p-10 rounded-xl my-10 bg-light-blue-500 dark:bg-gray-700 flex-1">
               <Image src={design} width={100} height={100} />
               <h3 className="text-lg font-bold pt-8 pb-2 text-gray-900 dark:text-gray-100">
-                My skills
+                Automation Engineering
               </h3>
-              <p className="py-2 text-gray-900 dark:text-gray-100">
-                Creating elegant designs suited for your needs following core
-                design theory.
+              <p className="py-2 text-gray-900 dark:text-gray-100 font-semibold">
+                Tools that I've used in my studies and work and have knowledge in:
               </p>
-              <h4 className="py-4 text-teal-600">Design Tools I Use</h4>
-              <p className="text-gray-900 dark:text-gray-100 py-1">Photoshop</p>
-              <p className="text-gray-900 dark:text-gray-100 py-1">Illustrator</p>
-              <p className="text-gray-900 dark:text-gray-100 py-1">Figma</p>
-              <p className="text-gray-900 dark:text-gray-100 py-1">Indesign</p>
+              <ul className="list-disc pl-5 text-gray-900 dark:text-gray-100">
+                <li className="py-1">Codesys V3.5 Sp17 Patch 3</li>
+                <li className="py-1">Eplan</li>
+                <li className="py-1">Cognex in-sight Explorer</li>
+                <li className="py-1">Visual components Premium</li>
+              </ul>
             </div>
             <div className="text-center shadow-lg p-10 rounded-xl my-10 bg-light-blue-500 dark:bg-gray-700 flex-1">
               <Image src={code} width={100} height={100} />
               <h3 className="text-lg font-bold pt-8 pb-2 text-gray-900 dark:text-gray-100">
                 My technical background
               </h3>
-              <p className="py-2 text-gray-900 dark:text-gray-100">
-                Do you have an idea for your next great website? Let's make it a
-                reality.
+              <p className="py-2 text-gray-900 dark:text-gray-100 font-semibold">
+                Additional tools in my technical field that I am proficient in
               </p>
-              <h4 className="py-4 text-teal-600">Design Tools I Use</h4>
-              <p className="text-gray-900 dark:text-gray-100 py-1">Photoshop</p>
-              <p className="text-gray-900 dark:text-gray-100 py-1">Illustrator</p>
-              <p className="text-gray-900 dark:text-gray-100 py-1">Figma</p>
-              <p className="text-gray-900 dark:text-gray-100 py-1">Indesign</p>
-            </div>
-            <div className="text-center shadow-lg p-10 rounded-xl my-10 bg-light-blue-500 dark:bg-gray-700 flex-1">
-              <Image src={consulting} width={100} height={100} />
-              <h3 className="text-lg font-bold pt-8 pb-2 text-gray-900 dark:text-gray-100">
-                My personal traits
-              </h3>
-              <p className="py-2 text-gray-900 dark:text-gray-100">
-                Are you interested in feedback for your current project? I can
-                give you tips and tricks to level it up.
-              </p>
-              <h4 className="py-4 text-teal-600">Design Tools I Use</h4>
-              <p className="text-gray-900 dark:text-gray-100 py-1">Photoshop</p>
-              <p className="text-gray-900 dark:text-gray-100 py-1">Illustrator</p>
-              <p className="text-gray-900 dark:text-gray-100 py-1">Figma</p>
-              <p className="text-gray-900 dark:text-gray-100 py-1">Indesign</p>
+              <ul className="list-disc pl-5 text-gray-900 dark:text-gray-100">
+                <li className="py-1">Photoshop</li>
+                <li className="py-1">Illustrator</li>
+                <li className="py-1">Figma</li>
+                <li className="py-1">Indesign</li>
+              </ul>
             </div>
           </div>
         </section>
@@ -171,7 +148,7 @@ export default function Home() {
                   <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
                     I have worked in the automation field and with technology, including IT support and other related areas, collaborating with talented individuals to implement efficient and innovative solutions.
                   </p>
-                  <ul className="list-disc list-inside text-gray-900 dark:text-gray-100">
+                  <ul className="list-disc list-inside text-gray-900 dark:text-gray-100 space-y-4">
                     <li>Porting user interfaces to Codesys html5 ()</li>
                     <li>Production supervisor at Olvi ()</li>
                     <li>Production operator at Keitele timber()</li>
@@ -186,8 +163,8 @@ export default function Home() {
                   <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
                     My education in Technology is comprehensive and well-rounded, providing me with a strong foundation in the field.
                   </p>
-                  <ul className="list-disc list-inside text-gray-900 dark:text-gray-100">
-                  <li>Course to Automation in the wind power sector (2024)</li>
+                  <ul className="list-disc list-inside text-gray-900 dark:text-gray-100 space-y-4">
+                    <li>Course to Automation in the wind power sector (2024)</li>
                     <li>Bachelor's Degree in Automation Engineering, Seinäjoki University of Applied Sciences (2021 - Present)</li>
                     <li>Leadership Training/Military Police Officer  (2019-2020)</li>
                     <li>Vocational Qualification in Business Information Technology, Järviseutu Vocational Institute (2015-2018)</li>
@@ -201,10 +178,10 @@ export default function Home() {
                   <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
                     I am proficient in multiple languages, which allows me to work with a diverse range of clients.
                   </p>
-                  <ul className="list-disc list-inside text-gray-900 dark:text-gray-100">
+                  <ul className="list-disc list-inside text-gray-900 dark:text-gray-100 space-y-4">
                     <li>English (Fluent)</li>
                     <li>Finnish (Native)</li>
-                    <li>Germany (Intermediate)</li>
+                    <li>German (Intermediate)</li>
                     <li>Estonian (Intermediate)</li>
                   </ul>
                 </div>
@@ -213,58 +190,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={() => setIsModalOpen(false)}
-        contentLabel="Resume Modal"
-        className="modal"
-        overlayClassName="overlay"
-      >
-        <button onClick={() => setIsModalOpen(false)} className="close-button">
-          Close
-        </button>
-        <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.js">
-          <Viewer fileUrl="/CV.pdf" />
-        </Worker>
-      </Modal>
-      <style jsx global>{`
-        .modal {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          right: auto;
-          bottom: auto;
-          margin-right: -50%;
-          transform: translate(-50%, -50%);
-          background: white;
-          padding: 20px;
-          border-radius: 10px;
-          max-width: 90%;
-          max-height: 90%;
-          overflow: auto;
-        }
-        .overlay {
-          background: rgba(0, 0, 0, 0.75);
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 1000;
-        }
-        .close-button {
-          background: #ff5f5f;
-          color: white;
-          border: none;
-          padding: 10px;
-          border-radius: 5px;
-          cursor: pointer;
-          position: absolute;
-          top: 10px;
-          right: 10px;
-        }
-      `}</style>
     </div>
   );
 }
