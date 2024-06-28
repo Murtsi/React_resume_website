@@ -32,6 +32,7 @@ export default function Home() {
   const { ref: offerRef, inView: offerInView } = useInView();
   const { ref: portfolioRef, inView: portfolioInView } = useInView();
   const { ref: landingRef, inView: landingInView } = useInView({ triggerOnce: true });
+  const { ref: contactRef, inView: contactInView } = useInView();
 
   useEffect(() => {
     setIsPageLoaded(true);
@@ -63,10 +64,16 @@ export default function Home() {
                   className="cursor-pointer text-2xl"
                 />
               </li>
+              <li className="ml-8">
+                <a href="#portfolio" className="text-lg" onClick={() => document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })}>Portfolio</a>
+              </li>
+              <li className="ml-8">
+                <a href="#contact" className="text-lg">Contact Me</a>
+              </li>
             </ul>
           </nav>
           <div className="text-center p-10 py-10">
-            <h2 className="text-5xl py-2 text-teal-600 font-medium dark:text-teal-400 md:text-6xl text-shadow">
+            <h2 className="text-5xl py-2 text-gradient-to-r from-gray-400 to-gray-500 font-extrabold dark:text-gradient-to-r dark:from-gray-200 dark:to-gray-300 md:text-6xl text-shadow font-poppins">
               Antti Murtokangas
             </h2>
             <h3 className="text-2xl py-2 dark:text-white md:text-3xl text-shadow">
@@ -86,12 +93,12 @@ export default function Home() {
                 <AiFillGithub />
               </a>
             </div>
-            <div className="mx-auto bg-white border-4 border-gray-300 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96 shadow-lg">
+            <div className="mx-auto bg-white border-4 border-gray-300 rounded-full w-60 h-60 sm:w-80 sm:h-80 md:h-96 md:w-96 relative overflow-hidden mt-20 shadow-lg">
               <Image src="/omakuva.jpg" layout="fill" objectFit="cover" alt="Professional Profile Picture" className="rounded-full" />
             </div>
           </div>
         </section>
-        <section ref={offerRef} className={`transition-opacity duration-1000 ${offerInView ? 'opacity-100' : 'opacity-0'}`}>
+        <section id="portfolio" ref={offerRef} className={`transition-opacity duration-1000 ${offerInView ? 'opacity-100' : 'opacity-0'}`}>
           <div className={`transition-transform duration-2000 transform ${offerInView ? 'translate-y-0' : 'translate-y-10'}`}>
             <h3 className="text-5xl py-1 text-gray-900 dark:text-gray-100 font-bold">
               What I Can Offer
@@ -113,7 +120,7 @@ export default function Home() {
             </p>
           </div>
           <div className="lg:flex gap-10">
-            <div className={`text-center shadow-lg p-10 rounded-xl my-10 bg-light-blue-500 dark:bg-gray-700 flex-1 transition-transform duration-1000 ${offerInView ? 'transform translate-x-0' : 'transform -translate-x-full'}`}>
+            <div className={`text-center shadow-lg p-10 rounded-xl my-10 bg-light-blue-500 dark:bg-gray-700 flex-1 transition-transform duration-1000 ${offerInView ? 'transform translate-y-0' : 'transform translate-y-full'}`}>
               <Image src={design} width={100} height={100} />
               <h3 className="text-lg font-bold pt-8 pb-2 text-gray-900 dark:text-gray-100">
                 Automation Engineering
@@ -128,7 +135,7 @@ export default function Home() {
                 <li className="py-1">Visual components Premium</li>
               </ul>
             </div>
-            <div className={`text-center shadow-lg p-10 rounded-xl my-10 bg-light-blue-500 dark:bg-gray-700 flex-1 transition-transform duration-1000 ${offerInView ? 'transform translate-x-0' : 'transform translate-x-full'}`}>
+            <div className={`text-center shadow-lg p-10 rounded-xl my-10 bg-light-blue-500 dark:bg-gray-700 flex-1 transition-transform duration-1000 ${offerInView ? 'transform translate-y-0' : 'transform translate-y-full'}`}>
               <Image src={code} width={100} height={100} />
               <h3 className="text-lg font-bold pt-8 pb-2 text-gray-900 dark:text-gray-100">
                 My technical background
@@ -149,10 +156,10 @@ export default function Home() {
         <section ref={portfolioRef} className={`py-10 transition-transform duration-1000 ${portfolioInView ? 'transform translate-y-0' : 'transform translate-y-10'}`}>
           <div>
             <div className="bg-white shadow-lg rounded-xl p-10 dark:bg-gray-800">
-              <h3 className="text-3xl py-1 text-gray-900 dark:text-gray-100 font-bold">Portfolio</h3>
+              <h1 className="text-4xl py-2 text-gray-900 dark:text-gray-100 font-extrabold">My Experience and Education</h1>
               <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
               </p>
-              <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
+              <p className="text-lg py-4 leading-8 text-gray-900 dark:text-gray-100 font-bold">
                 Further details on my skills and competencies
               </p>
               <section className="py-10">
@@ -220,6 +227,27 @@ export default function Home() {
                   </p>
                 </div>
               </section>
+            </div>
+          </div>
+        </section>
+        <section id="contact" ref={contactRef} className={`transition-opacity duration-1000 ${contactInView ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`transition-transform duration-2000 transform ${contactInView ? 'translate-y-0' : 'translate-y-10'}`}>
+            <h3 className="text-5xl py-1 text-gray-900 dark:text-gray-100 font-bold">
+              Contact Me
+            </h3>
+            <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
+              Feel free to reach out to me via email or connect with me on LinkedIn.
+            </p>
+            <div className="text-5xl flex justify-center gap-8 py-3 text-gray-600 dark:text-gray-400">
+              <a href="mailto:antti.murtsi@gmail.com" target="_blank" rel="noopener noreferrer">
+                <AiFillMail />
+              </a>
+              <a href="https://www.linkedin.com/in/antti-murtokangas-562725158/" target="_blank" rel="noopener noreferrer">
+                <AiFillLinkedin />
+              </a>
+              <a href="https://github.com/Murtsi" target="_blank" rel="noopener noreferrer">
+                <AiFillGithub />
+              </a>
             </div>
           </div>
         </section>
