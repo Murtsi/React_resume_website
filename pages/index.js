@@ -214,15 +214,6 @@ export default function Home() {
                     </li>
                   </ul>
                 </div>
-                <div className="mt-10 bg-light-blue-500 shadow-lg rounded-xl p-5 dark:bg-gray-700">
-                  <h4 className="text-2xl py-1 text-gray-900 dark:text-gray-100 font-Extrabold">Contact Information</h4>
-                  <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
-                    <span role="img" aria-label="email">📧</span> Email: antti.murtsi@gmail.com
-                  </p>
-                  <p className="text-md py-2 leading-8 text-gray-900 dark:text-gray-100">
-                    <span role="img" aria-label="phone">📞</span> Phone: +358417532487
-                  </p>
-                </div>
               </section>
             </div>
           </div>
