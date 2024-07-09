@@ -26,13 +26,13 @@ export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
-  const { ref: workRef, inView: workInView } = useInView();
-  const { ref: educationRef, inView: educationInView } = useInView();
-  const { ref: languageRef, inView: languageInView } = useInView();
-  const { ref: offerRef, inView: offerInView } = useInView();
-  const { ref: portfolioRef, inView: portfolioInView } = useInView();
+  const { ref: workRef, inView: workInView } = useInView({ triggerOnce: true });
+  const { ref: educationRef, inView: educationInView } = useInView({ triggerOnce: true });
+  const { ref: languageRef, inView: languageInView } = useInView({ triggerOnce: true });
+  const { ref: offerRef, inView: offerInView } = useInView({ triggerOnce: true });
+  const { ref: portfolioRef, inView: portfolioInView } = useInView({ triggerOnce: true });
   const { ref: landingRef, inView: landingInView } = useInView({ triggerOnce: true });
-  const { ref: contactRef, inView: contactInView } = useInView();
+  const { ref: contactRef, inView: contactInView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     setIsPageLoaded(true);
