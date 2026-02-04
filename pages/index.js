@@ -6,7 +6,6 @@ import QuickStatsSection from "../components/QuickStatsSection";
 import WhatICanOfferSection from "../components/WhatICanOfferSection";
 import OffersSection from "../components/OffersSection";
 import ExperienceEducationSection from "../components/ExperienceEducationSection";
-import TestimonialsSection from "../components/TestimonialsSection";
 import ContactSection from "../components/ContactSection";
 import { translations } from "../utils/translations";
 
@@ -31,12 +30,12 @@ export default function Home() {
   return (
     <div className={`${isPageLoaded ? "animate-fade-in" : ""}`}>
       <Head>
-        <title>Antti Murtokangas - Automation Engineer & Full-Stack Developer</title>
-        <meta name="description" content="Professional portfolio of Antti Murtokangas - Automation Engineering Student and React Developer. Expertise in industrial automation, PLC programming, and modern web development." />
+        <title>Antti Murtokangas - Automation Engineering Student & Fiber Optic Specialist</title>
+        <meta name="description" content="Professional portfolio of Antti Murtokangas - Automation Engineering Student and Fiber Optic Specialist. Expertise in industrial automation, PLC programming, and fiber network operations." />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#5865f2" />
         <meta property="og:title" content="Antti Murtokangas - Portfolio" />
-        <meta property="og:description" content="Automation Engineer & Full-Stack Developer" />
+        <meta property="og:description" content="Automation Engineering Student & Fiber Optic Specialist" />
         <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -50,7 +49,6 @@ export default function Home() {
           <WhatICanOfferSection t={t} />
           <OffersSection t={t} />
           <ExperienceEducationSection t={t} />
-          <TestimonialsSection />
           <ContactSection t={t} />
         </main>
       </div>
