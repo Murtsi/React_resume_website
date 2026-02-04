@@ -59,6 +59,31 @@ export default function HeroSection({ t }) {
               </span>
             </div>
 
+            <div className="pt-2">
+              <p className="text-xs font-semibold text-gray-600 dark:text-gray-300 mb-2">
+                Core tools:
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "iMaster",
+                  "Altiplano",
+                  "Optopro Fiber",
+                  "Keycom",
+                  "Codesys",
+                  "Eplan",
+                  "Cognex",
+                  "Visual Components",
+                ].map((tool) => (
+                  <span
+                    key={tool}
+                    className="inline-block px-2.5 py-1 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 rounded-full text-xs font-medium"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 pt-4">
               <a
