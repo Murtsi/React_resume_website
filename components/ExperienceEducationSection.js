@@ -7,17 +7,51 @@ export default function ExperienceEducationSection() {
   const { ref: languageRef, inView: languageInView } = useInView({ triggerOnce: true });
 
   const workExperience = [
-    { title: "Porting user interfaces to Codesys HTML5", year: "Recent" },
-    { title: "Production supervisor at Olvi", year: "2023" },
-    { title: "Production operator at Keitele timber", year: "2022" },
-    { title: "IT Support for local highschool", year: "2021-2022" }
+    { 
+      title: "Fiber Optic Network Technician", 
+      company: "Leading Fiber Optic Company",
+      year: "2025 - Present",
+      description: "Design, deployment, and maintenance of fiber optic network infrastructure. Utilizing advanced platforms including iMaster for comprehensive network monitoring, Altiplano (Nokia OSS) for network automation and orchestration, Optopro Fiber for project management and documentation, and Keycom for telecom network management and fault detection."
+    },
+    { 
+      title: "Production Supervisor", 
+      company: "Olvi",
+      year: "2023",
+      description: "Supervised production operations, quality control, and team management in manufacturing environment."
+    },
+    { 
+      title: "Production Operator", 
+      company: "Keitele Timber",
+      year: "2022",
+      description: "Operated machinery, maintained safety protocols, and ensured production efficiency."
+    }
   ];
 
   const education = [
-    { degree: "Automation in the wind power sector", school: "Course", year: "2024" },
-    { degree: "Bachelor's Degree in Automation Engineering", school: "Seinäjoki University of Applied Sciences", year: "2021 - Present" },
-    { degree: "Leadership Training", school: "Military Police Officer Programme", year: "2019-2020" },
-    { degree: "Vocational Qualification in Business Information Technology", school: "Järviseutu Vocational Institute", year: "2015-2018" }
+    { 
+      degree: "Bachelor's Degree in Automation Engineering", 
+      school: "Seinäjoki University of Applied Sciences",
+      year: "2021 - Present",
+      status: "In Progress"
+    },
+    { 
+      degree: "Automation in Wind Power Sector", 
+      school: "Professional Development Course",
+      year: "2024",
+      status: "Completed"
+    },
+    { 
+      degree: "Leadership Training", 
+      school: "Military Police Officer Programme",
+      year: "2019-2020",
+      status: "Completed"
+    },
+    { 
+      degree: "Vocational Qualification in Business Information Technology", 
+      school: "Järviseutu Vocational Institute",
+      year: "2015-2018",
+      status: "Completed"
+    }
   ];
 
   const languages = [
@@ -32,11 +66,11 @@ export default function ExperienceEducationSection() {
       <div className="max-w-6xl mx-auto">
         {/* Section title */}
         <div className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
             Experience & Education
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            A comprehensive overview of my professional journey and technical training
+          <p className="text-base text-gray-600 dark:text-gray-300 max-w-2xl">
+            Professional experience and educational background shaping my technical expertise
           </p>
         </div>
 
@@ -46,29 +80,36 @@ export default function ExperienceEducationSection() {
             ref={workRef}
             className={`space-y-6 ${workInView ? 'animate-fade-in' : 'opacity-0'}`}
           >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center text-white">
-                <BriefcaseIcon className="w-6 h-6" />
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center text-white shadow-md">
+                <BriefcaseIcon className="w-5 h-5" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                 Work Experience
               </h3>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {workExperience.map((job, index) => (
                 <div
                   key={index}
-                  className="relative pl-8 border-l-2 border-primary-300 dark:border-primary-700 hover:border-primary-600 dark:hover:border-primary-500 transition-colors"
+                  className="p-5 rounded-lg bg-white dark:bg-slate-800 border-l-4 border-primary-500 shadow-sm hover:shadow-md transition-all duration-200"
                 >
-                  <div className="absolute left-0 top-0 w-4 h-4 bg-primary-600 rounded-full transform -translate-x-2.5"></div>
-                  <div>
-                    <p className="font-semibold text-gray-900 dark:text-white">
-                      {job.title}
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  <div className="flex justify-between items-start gap-3">
+                    <div className="flex-1">
+                      <p className="font-semibold text-gray-900 dark:text-gray-100 text-base">
+                        {job.title}
+                      </p>
+                      <p className="text-sm text-primary-600 dark:text-primary-400 font-medium mt-1">
+                        {job.company}
+                      </p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+                        {job.description}
+                      </p>
+                    </div>
+                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 whitespace-nowrap">
                       {job.year}
-                    </p>
+                    </span>
                   </div>
                 </div>
               ))}
@@ -80,30 +121,39 @@ export default function ExperienceEducationSection() {
             ref={educationRef}
             className={`space-y-6 ${educationInView ? 'animate-fade-in' : 'opacity-0'}`}
           >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center text-white">
-                <AcademicCapIcon className="w-6 h-6" />
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white shadow-md">
+                <AcademicCapIcon className="w-5 h-5" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                 Education
               </h3>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {education.map((edu, index) => (
                 <div
                   key={index}
-                  className="p-4 bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 hover:border-primary-300 dark:hover:border-primary-700 transition-colors"
+                  className="p-5 rounded-lg bg-white dark:bg-slate-800 border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-all duration-200"
                 >
-                  <p className="font-semibold text-gray-900 dark:text-white text-sm">
-                    {edu.degree}
-                  </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    {edu.school}
-                  </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
-                    {edu.year}
-                  </p>
+                  <div className="flex justify-between items-start gap-3">
+                    <div className="flex-1">
+                      <p className="font-semibold text-gray-900 dark:text-gray-100 text-base">
+                        {edu.degree}
+                      </p>
+                      <p className="text-sm text-blue-600 dark:text-blue-400 font-medium mt-1">
+                        {edu.school}
+                      </p>
+                      <div className="flex items-center gap-2 mt-2">
+                        <span className="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-900/70 text-blue-700 dark:text-blue-200">
+                          {edu.status}
+                        </span>
+                      </div>
+                    </div>
+                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                      {edu.year}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -115,35 +165,37 @@ export default function ExperienceEducationSection() {
           ref={languageRef}
           className={`mt-16 ${languageInView ? 'animate-fade-in' : 'opacity-0'}`}
         >
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center text-white">
-              <GlobeAltIcon className="w-6 h-6" />
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center text-white shadow-md">
+              <GlobeAltIcon className="w-5 h-5" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
               Language Skills
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {languages.map((lang, index) => (
               <div
                 key={index}
-                className="bg-gray-50 dark:bg-slate-800 rounded-lg p-6 border border-gray-200 dark:border-slate-700"
+                className="group p-5 bg-white dark:bg-slate-800 rounded-lg border-l-4 border-purple-500 shadow-sm hover:shadow-md transition-all duration-200"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl">{lang.flag}</span>
-                  <div>
-                    <p className="font-semibold text-gray-900 dark:text-white">
-                      {lang.name}
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      {lang.level}
-                    </p>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">{lang.flag}</span>
+                    <div>
+                      <p className="font-semibold text-gray-900 dark:text-gray-100">
+                        {lang.name}
+                      </p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                        {lang.level}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2">
+                <div className="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5 overflow-hidden">
                   <div
-                    className="bg-gradient-to-r from-primary-500 to-primary-600 h-2 rounded-full transition-all duration-300"
+                    className="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 h-2.5 rounded-full transition-all duration-300 shadow-sm"
                     style={{ width: `${lang.proficiency}%` }}
                   ></div>
                 </div>

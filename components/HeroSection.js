@@ -34,26 +34,26 @@ export default function HeroSection({ t }) {
           {/* Left content */}
           <div className="space-y-6 animate-fade-in">
             <div>
-              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-2">
+              <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white mb-2">
                 {t.hero.title}
               </h1>
-              <p className="text-xl text-primary-600 dark:text-primary-400 font-semibold">
+              <p className="text-lg text-primary-600 dark:text-primary-400 font-semibold">
                 {t.hero.subtitle}
               </p>
             </div>
 
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-base text-gray-700 dark:text-gray-200 leading-relaxed max-w-2xl">
               {t.hero.description}
             </p>
 
             <div className="flex flex-wrap gap-2">
-              <span className="inline-block px-4 py-1.5 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded-full text-sm font-medium">
+              <span className="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded-full text-xs font-semibold">
                 {t.hero.badge1}
               </span>
-              <span className="inline-block px-4 py-1.5 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded-full text-sm font-medium">
+              <span className="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded-full text-xs font-semibold">
                 {t.hero.badge2}
               </span>
-              <span className="inline-block px-4 py-1.5 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded-full text-sm font-medium">
+              <span className="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded-full text-xs font-semibold">
                 {t.hero.badge3}
               </span>
             </div>

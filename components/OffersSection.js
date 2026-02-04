@@ -50,28 +50,44 @@ export default function OffersSection({ t }) {
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {t.offers2.title}
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl">
-            Professional expertise across fiber networks, automation engineering, and web development technologies.
+          <p className="text-lg text-gray-700 dark:text-gray-200 max-w-3xl">
+            Core competencies spanning fiber optic network engineering, industrial automation, customer engagement, and professional excellence in high-pressure environments.
           </p>
         </div>
 
-        {/* Skills list */}
+        {/* Core Competencies */}
         <div
-          className={`mb-12 grid grid-cols-1 md:grid-cols-2 gap-6 ${
+          className={`mb-12 grid grid-cols-1 md:grid-cols-2 gap-8 ${
             offerInView ? 'animate-fade-in' : 'opacity-0'
           }`}
         >
-          {mainSkills.map((skill, index) => (
-            <div
-              key={index}
-              className="flex gap-4 p-4 rounded-lg bg-white dark:bg-slate-700 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center text-white font-bold text-sm">
-                ✓
-              </div>
-              <p className="text-gray-700 dark:text-gray-200">{skill}</p>
-            </div>
-          ))}
+          <div className="p-6 rounded-xl bg-white dark:bg-slate-800 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-primary-600">
+            <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Fiber Optic Network Engineering</h4>
+            <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
+              Extensive hands-on experience in designing, deploying, and maintaining fiber optic network infrastructure. Proficient in advanced network management platforms and diagnostics tools for enterprise-level telecommunications systems.
+            </p>
+          </div>
+          
+          <div className="p-6 rounded-xl bg-white dark:bg-slate-800 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-blue-600">
+            <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Industrial Automation Engineering</h4>
+            <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
+              Comprehensive knowledge in PLC programming and SCADA systems with hands-on experience in electrical circuit design and industrial automation planning. Proficient in utilizing industry-standard tools including Codesys for control systems, Eplan for electrical engineering documentation, Cognex for machine vision integration, and Visual Components for production line simulation and optimization.
+            </p>
+          </div>
+          
+          <div className="p-6 rounded-xl bg-white dark:bg-slate-800 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-purple-600">
+            <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Customer Engagement & Team Leadership</h4>
+            <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
+              Proven track record in customer-facing roles with exceptional interpersonal and communication skills. Experienced in managing client relationships, addressing customer needs efficiently, and maintaining professional dialogue in high-pressure environments. Strong team collaboration abilities with demonstrated leadership in coordinating cross-functional projects and supervising production teams.
+            </p>
+          </div>
+          
+          <div className="p-6 rounded-xl bg-white dark:bg-slate-800 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-green-600">
+            <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Problem-Solving & Performance Under Pressure</h4>
+            <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
+              Strong analytical mindset with the ability to diagnose and resolve complex technical challenges efficiently. Thrive in fast-paced, high-pressure situations while maintaining attention to detail and quality standards. Military leadership training background provides disciplined approach to time management, task prioritization, and maintaining composure in demanding scenarios.
+            </p>
+          </div>
         </div>
 
         {/* Skill cards */}
@@ -116,7 +132,7 @@ export default function OffersSection({ t }) {
               </ul>
             </div>
 
-            {/* Web Development */}
+            {/* Web Development & Team Skills */}
             <div className="p-6 rounded-xl bg-white dark:bg-slate-700 border border-gray-200 dark:border-slate-600 hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-lg transition-all">
               <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
                 {t.offers2.webDev}
@@ -132,6 +148,23 @@ export default function OffersSection({ t }) {
                   </li>
                 ))}
               </ul>
+              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-slate-600">
+                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Team & Customer Skills:</p>
+                <ul className="space-y-1">
+                  <li className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-200">
+                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                    Cross-functional team collaboration
+                  </li>
+                  <li className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-200">
+                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                    Customer engagement & communication
+                  </li>
+                  <li className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-200">
+                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                    Rapid technical issue diagnosis & resolution
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
