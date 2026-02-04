@@ -6,6 +6,7 @@ import WhatICanOfferSection from "../components/WhatICanOfferSection";
 import OffersSection from "../components/OffersSection";
 import ExperienceEducationSection from "../components/ExperienceEducationSection";
 import ContactSection from "../components/ContactSection";
+import { translations } from "../utils/translations";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -22,6 +23,8 @@ export default function Home() {
       document.documentElement.classList.remove('dark');
     }
   }, [darkMode]);
+
+  const t = translations['en'];
 
   return (
     <div className={`${isPageLoaded ? "animate-fade-in" : ""}`}>
@@ -40,11 +43,11 @@ export default function Home() {
         <Navigation darkMode={darkMode} setDarkMode={setDarkMode} />
         
         <main>
-          <HeroSection />
-          <WhatICanOfferSection />
-          <OffersSection />
-          <ExperienceEducationSection />
-          <ContactSection />
+          <HeroSection t={t} />
+          <WhatICanOfferSection t={t} />
+          <OffersSection t={t} />
+          <ExperienceEducationSection t={t} />
+          <ContactSection t={t} />
         </main>
       </div>
     </div>

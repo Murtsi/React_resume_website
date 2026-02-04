@@ -6,33 +6,33 @@ import {
   CheckCircleIcon,
 } from '@heroicons/react/24/outline';
 
-export default function WhatICanOfferSection() {
+export default function WhatICanOfferSection({ t }) {
   const { ref: sectionRef, inView: sectionInView } = useInView({ triggerOnce: true });
 
   const coreCompetencies = [
     {
       icon: CodeBracketIcon,
-      title: "Fiber Optic & Network Platforms",
-      description: "Expert-level proficiency with iMaster, Altiplano (Nokia OSS), Optopro Fiber, and Keycom for enterprise network management"
+      title: t.offers.competency1Title,
+      description: t.offers.competency1Desc
     },
     {
       icon: AcademicCapIcon,
-      title: "Automation Engineering",
-      description: "PLC programming, SCADA systems, industrial process orchestration, and electrical schematic design from SEAMK curriculum"
+      title: t.offers.competency2Title,
+      description: t.offers.competency2Desc
     },
     {
       icon: SparklesIcon,
-      title: "Modern Development",
-      description: "Python scripting, React/JavaScript frameworks, HTML/CSS mastery for responsive, user-centric interfaces"
+      title: t.offers.competency3Title,
+      description: t.offers.competency3Desc
     }
   ];
 
   const professionalAttributes = [
-    "Analytical excellence in high-pressure scenarios with consistent problem resolution",
-    "Superior interpersonal skills fostering seamless technical collaboration",
-    "Proven ability in customer-facing technical support environments",
-    "Enterprise-grade telecom automation expertise",
-    "Scalable and future-proof solution architecture mindset"
+    t.offers.attribute1,
+    t.offers.attribute2,
+    t.offers.attribute3,
+    t.offers.attribute4,
+    t.offers.attribute5
   ];
 
   return (
@@ -49,18 +49,18 @@ export default function WhatICanOfferSection() {
           <div className="flex items-center gap-3 mb-4">
             <SparklesIcon className="w-8 h-8 text-primary-600 dark:text-primary-400" />
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
-              What I Can Offer
+              {t.offers.title}
             </h2>
           </div>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
-            Results-driven automation engineering student and technical support specialist, possessing deep expertise in fiber optic networks and industrial automation systems. Demonstrated excellence in high-stakes troubleshooting for leading Internet service providers, augmented by proficient development capabilities—primed to drive immediate impact across cutting-edge automation and software development initiatives.
+            {t.offers.intro}
           </p>
         </div>
 
         {/* Core Technical Competencies */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
-            Core Technical Competencies
+            {t.offers.competencies}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {coreCompetencies.map((competency, index) => {
@@ -89,7 +89,7 @@ export default function WhatICanOfferSection() {
         {/* Strategic Professional Attributes */}
         <div>
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
-            Strategic Professional Attributes
+            {t.offers.attributes}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {professionalAttributes.map((attribute, index) => (
@@ -119,7 +119,7 @@ export default function WhatICanOfferSection() {
             }}
             className="inline-flex items-center justify-center px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
           >
-            Get In Touch
+            {t.offers.cta}
           </a>
         </div>
       </div>

@@ -5,28 +5,28 @@ import {
 } from '@heroicons/react/24/outline';
 import { useInView } from 'react-intersection-observer';
 
-export default function ContactSection() {
+export default function ContactSection({ t }) {
   const { ref: contactRef, inView: contactInView } = useInView({ triggerOnce: true });
 
   const contactLinks = [
     {
       href: "mailto:antti.murtsi@gmail.com",
       icon: EnvelopeIcon,
-      label: "Email",
+      label: t.contact.email,
       ariaLabel: "Send email to Antti",
       title: "antti.murtsi@gmail.com"
     },
     {
       href: "https://www.linkedin.com/in/antti-murtokangas-562725158/",
       icon: LinkIcon,
-      label: "LinkedIn",
+      label: t.contact.linkedin,
       ariaLabel: "Visit LinkedIn profile",
       title: "LinkedIn Profile"
     },
     {
       href: "https://github.com/Murtsi",
       icon: CodeBracketSquareIcon,
-      label: "GitHub",
+      label: t.contact.github,
       ariaLabel: "Visit GitHub profile",
       title: "GitHub Profile"
     }
@@ -42,10 +42,10 @@ export default function ContactSection() {
     >
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Let's Work Together
+          {t.contact.title}
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-          I'm always interested in hearing about new opportunities and challenges. Whether you have a question or just want to say hello, feel free to reach out.
+          {t.contact.description}
         </p>
 
         {/* Contact Cards */}
@@ -82,7 +82,7 @@ export default function ContactSection() {
           href="mailto:antti.murtsi@gmail.com"
           className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
         >
-          Send Me an Email
+          {t.contact.button}
         </a>
 
         {/* Footer Note */}
