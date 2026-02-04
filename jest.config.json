@@ -1,0 +1,20 @@
+{
+  "testEnvironment": "jsdom",
+  "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
+  "moduleNameMapper": {
+    "^@/components/(.*)$": "<rootDir>/components/$1",
+    "^@/pages/(.*)$": "<rootDir>/pages/$1",
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+  },
+  "testMatch": [
+    "**/__tests__/**/*.[jt]s?(x)",
+    "**/?(*.)+(spec|test).[jt]s?(x)"
+  ],
+  "collectCoverageFrom": [
+    "components/**/*.{js,jsx}",
+    "pages/**/*.{js,jsx}",
+    "!**/*.d.ts",
+    "!**/node_modules/**",
+    "!**/.next/**"
+  ]
+}
