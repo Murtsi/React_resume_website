@@ -3,7 +3,6 @@ import {
   EnvelopeIcon,
   LinkIcon,
   CodeBracketSquareIcon,
-  DocumentArrowDownIcon,
 } from '@heroicons/react/24/outline';
 
 export default function HeroSection({ t }) {
@@ -95,14 +94,6 @@ export default function HeroSection({ t }) {
                 className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
               >
                 {t.hero.cta1}
-              </a>
-              <a
-                href="/resume.pdf"
-                download="Antti_Murtokangas_Resume.pdf"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 font-semibold rounded-lg hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-colors"
-              >
-                <DocumentArrowDownIcon className="w-5 h-5" />
-                Download CV
               </a>
             </div>
 
