@@ -109,7 +109,7 @@ export default function WhatICanOfferSection({ t }) {
         {/* CTA */}
         <div className="mt-16 text-center">
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-            Ready to partner and architect tomorrow's technological landscape? Let's connect and explore how I can drive innovation for your organization.
+            Ready to partner and architect tomorrow&apos;s technological landscape? Let&apos;s connect and explore how I can drive innovation for your organization.
           </p>
           <a
             href="#contact"
