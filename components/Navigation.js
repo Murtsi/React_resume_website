@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { MoonIcon, SunIcon, Bars3Icon, XMarkIcon, DocumentArrowDownIcon } from '@heroicons/react/24/outline';
 
 export default function Navigation({ darkMode, setDarkMode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -48,6 +47,17 @@ export default function Navigation({ darkMode, setDarkMode }) {
 
           {/* Right side controls */}
           <div className="flex items-center gap-4">
+            {/* Download CV Button */}
+            <a
+              href="/resume.pdf"
+              download="Antti_Murtokangas_Resume.pdf"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold text-sm rounded-lg transition-colors"
+              aria-label="Download CV"
+            >
+              <DocumentArrowDownIcon className="w-4 h-4" />
+              CV
+            </a>
+
             {/* Theme toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
@@ -90,6 +100,14 @@ export default function Navigation({ darkMode, setDarkMode }) {
                 {link.label}
               </button>
             ))}
+            <a
+              href="/resume.pdf"
+              download="Antti_Murtokangas_Resume.pdf"
+              className="flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold text-sm rounded-lg transition-colors sm:hidden"
+            >
+              <DocumentArrowDownIcon className="w-4 h-4" />
+              Download CV
+            </a>
           </div>
         )}
       </div>

@@ -2,9 +2,11 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 import Navigation from "../components/Navigation";
 import HeroSection from "../components/HeroSection";
+import QuickStatsSection from "../components/QuickStatsSection";
 import WhatICanOfferSection from "../components/WhatICanOfferSection";
 import OffersSection from "../components/OffersSection";
 import ExperienceEducationSection from "../components/ExperienceEducationSection";
+import TestimonialsSection from "../components/TestimonialsSection";
 import ContactSection from "../components/ContactSection";
 import { translations } from "../utils/translations";
 
@@ -44,9 +46,11 @@ export default function Home() {
         
         <main>
           <HeroSection t={t} />
+          <QuickStatsSection />
           <WhatICanOfferSection t={t} />
           <OffersSection t={t} />
           <ExperienceEducationSection t={t} />
+          <TestimonialsSection />
           <ContactSection t={t} />
         </main>
       </div>
