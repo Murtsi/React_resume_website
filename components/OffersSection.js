@@ -29,6 +29,11 @@ export default function OffersSection({ t }) {
     "Keycom"
   ];
 
+  const githubProjects = [
+    // Add your GitHub projects here
+    // Example: { name: "Project Name", url: "https://github.com/username/repo", description: "Brief description" }
+  ];
+
   const mainSkills = [
     "Extensive experience in automation engineering, including PLC programming, SCADA systems, and industrial automation planning",
     "Proficient in React and modern JavaScript frameworks",
@@ -51,8 +56,9 @@ export default function OffersSection({ t }) {
             {t.offers2.title}
           </h2>
           <p className="text-lg text-gray-700 dark:text-gray-200 max-w-3xl">
-            Core competencies spanning fiber optic network engineering, industrial automation, customer engagement, and professional excellence in high-pressure environments.
+            Professional experience in fiber optic network technical support, production operations, and IT infrastructure. Currently advancing skills in industrial automation engineering while maintaining excellence in telecommunications technical support.
           </p>
+
         </div>
 
         {/* Core Competencies */}
@@ -62,32 +68,36 @@ export default function OffersSection({ t }) {
           }`}
         >
           <div className="p-6 rounded-xl bg-white dark:bg-slate-800 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-primary-600">
-            <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Fiber Optic Network Engineering</h4>
+            <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Fiber Optic Network Technical Support</h4>
             <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
-              Extensive hands-on experience in designing, deploying, and maintaining fiber optic network infrastructure. Proficient in advanced network management platforms and diagnostics tools for enterprise-level telecommunications systems.
+              Current role providing technical support for fiber optic network infrastructure. Daily work with industry platforms including iMaster for network monitoring, Altiplano (Nokia OSS) for automation, Optopro Fiber for project management, and Keycom for fault detection. Specialized in customer service and rapid troubleshooting.
             </p>
           </div>
+
           
           <div className="p-6 rounded-xl bg-white dark:bg-slate-800 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-blue-600">
-            <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Industrial Automation Engineering</h4>
+            <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Industrial Automation Engineering (In Progress)</h4>
             <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
-              Comprehensive knowledge in PLC programming and SCADA systems with hands-on experience in electrical circuit design and industrial automation planning. Proficient in utilizing industry-standard tools including Codesys for control systems, Eplan for electrical engineering documentation, Cognex for machine vision integration, and Visual Components for production line simulation and optimization.
+              Currently pursuing Bachelor's degree in Automation Engineering at Seinäjoki University of Applied Sciences. Developing skills in PLC programming with Codesys, SCADA systems, electrical design with Eplan, machine vision with Cognex, and production simulation with Visual Components. Complemented by real-world production experience from Olvi and Keitele Timber.
             </p>
           </div>
+
           
           <div className="p-6 rounded-xl bg-white dark:bg-slate-800 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-purple-600">
-            <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Customer Engagement & Team Leadership</h4>
+            <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Technical Support & Team Leadership</h4>
             <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
-              Proven track record in customer-facing roles with exceptional interpersonal and communication skills. Experienced in managing client relationships, addressing customer needs efficiently, and maintaining professional dialogue in high-pressure environments. Strong team collaboration abilities with demonstrated leadership in coordinating cross-functional projects and supervising production teams.
+              Extensive customer-facing experience in technical support for fiber networks, requiring clear communication of complex technical issues. Production supervision experience at Olvi managing teams and ensuring quality standards. IT support background providing technical assistance to students and staff. Strong interpersonal skills developed across diverse professional environments.
             </p>
           </div>
+
           
           <div className="p-6 rounded-xl bg-white dark:bg-slate-800 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-green-600">
-            <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Problem-Solving & Performance Under Pressure</h4>
+            <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Problem-Solving & Adaptability</h4>
             <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
-              Strong analytical mindset with the ability to diagnose and resolve complex technical challenges efficiently. Thrive in fast-paced, high-pressure situations while maintaining attention to detail and quality standards. Military leadership training background provides disciplined approach to time management, task prioritization, and maintaining composure in demanding scenarios.
+              Proven ability to diagnose and resolve technical issues across fiber networks, production systems, and IT infrastructure. Experience working in high-pressure telecommunications support, fast-paced manufacturing environments, and time-sensitive IT troubleshooting. Military leadership training (2019-2020) provides disciplined approach to task management and decision-making under pressure.
             </p>
           </div>
+
         </div>
 
         {/* Skill cards */}
@@ -168,6 +178,36 @@ export default function OffersSection({ t }) {
             </div>
           </div>
         </div>
+
+        {/* GitHub Projects Section */}
+        {githubProjects.length > 0 && (
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              {t.offers2.githubProjects}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
+              {t.offers2.githubDesc}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {githubProjects.map((project, index) => (
+                <a
+                  key={index}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-5 rounded-xl bg-white dark:bg-slate-700 border border-gray-200 dark:border-slate-600 hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-lg transition-all group"
+                >
+                  <h5 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                    {project.name}
+                  </h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    {project.description}
+                  </p>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

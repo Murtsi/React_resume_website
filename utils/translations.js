@@ -7,8 +7,9 @@ export const translations = {
     },
     hero: {
       title: 'Antti Murtokangas',
-      subtitle: 'Automation Engineering Student & Fiber Optic Specialist',
-      description: 'Results-driven professional specializing in fiber optic networks and industrial automation systems. Proven expertise in high-pressure environments with demonstrated technical excellence and a passion for hobbyist coding.',
+      subtitle: 'Network Specialist & Automation Engineering Student',
+      description: 'Technical support specialist with hands-on experience in fiber optic network infrastructure and enterprise telecom platforms. Currently advancing automation engineering expertise while delivering high-quality technical support in production environments.',
+
       badge1: 'Automation Applications',
       badge2: 'Fiber Network Applications',
       badge3: 'Working Under Pressure',
@@ -18,20 +19,23 @@ export const translations = {
     },
     offers: {
       title: 'What I Can Offer',
-      intro: 'Results-driven automation engineering student and technical support specialist with deep expertise in fiber optic networks and industrial automation systems. Demonstrated excellence in high-stakes troubleshooting for leading Internet service providers, complemented by hobbyist coding and continuous learning—primed to drive immediate impact across modern technical initiatives.',
+      intro: 'Network specialist currently working in technical support for fiber optic infrastructure, with proven experience across telecommunications, production supervision, and IT support. Pursuing advanced automation engineering education while delivering excellence in high-pressure technical environments and developing modern web development skills.',
+
       competencies: 'Core Technical Competencies',
       attributes: 'Strategic Professional Attributes',
-      competency1Title: 'Fiber Optic & Network Platforms',
-      competency1Desc: 'Expert-level proficiency with iMaster, Altiplano (Nokia OSS), Optopro Fiber, and Keycom for enterprise network management',
-      competency2Title: 'Automation Engineering',
-      competency2Desc: 'PLC programming, SCADA systems, industrial process orchestration, and electrical schematic design from SEAMK curriculum',
-      competency3Title: 'Hobbyist Development',
-      competency3Desc: 'Personal coding projects using Python and web technologies, focused on rapid prototyping and learning-by-building',
-      attribute1: 'Analytical excellence in high-pressure scenarios with consistent problem resolution',
-      attribute2: 'Superior interpersonal skills fostering seamless technical collaboration',
-      attribute3: 'Proven ability in customer-facing technical support environments',
-      attribute4: 'Enterprise-grade telecom automation expertise',
-      attribute5: 'Scalable and future-proof solution architecture mindset',
+      competency1Title: 'Fiber Optic Network Operations',
+      competency1Desc: 'Professional experience with industry platforms including iMaster, Altiplano (Nokia OSS), Optopro Fiber, and Keycom. Network troubleshooting, fault detection, and customer technical support in telecommunications.',
+      competency2Title: 'Automation Engineering Education',
+      competency2Desc: 'Pursuing Bachelor\'s degree in Automation Engineering at SEAMK. Coursework in PLC programming with Codesys, SCADA systems, electrical design with Eplan, machine vision with Cognex, and production simulation.',
+      competency3Title: 'Web Development & Programming',
+      competency3Desc: 'Self-taught web development with React.js, Next.js, and Tailwind CSS. Python programming for automation tasks. Building modern, responsive applications as personal projects.',
+
+      attribute1: '3+ years of professional experience across telecommunications, production, and IT support',
+      attribute2: 'Strong technical troubleshooting and problem-solving in fiber optic networks',
+      attribute3: 'Proven customer service excellence in high-pressure technical support',
+      attribute4: 'Production supervision experience with quality control and team leadership',
+      attribute5: 'Continuous learning mindset with active pursuit of automation engineering degree',
+
       cta: 'Get In Touch',
     },
     offers2: {
@@ -42,7 +46,8 @@ export const translations = {
         'iMaster',
         'Altiplano (Nokia OSS - Network Automation Software)',
         'Optopro Fiber (Project Management System)',
-        'Keycom (Telecom Network Management System)'
+        'Keycom (Telecom Network Management System)',
+        'And many others'
       ],
       automation: 'Automation Engineering',
       automationDesc: 'Advanced proficiency in industrial automation tools:',
@@ -50,6 +55,8 @@ export const translations = {
       webDev: 'Hobbyist Coding',
       webDesc: 'Personal projects and prototyping:',
       webTools: ['React.js & Next.js', 'Python', 'CSS & Tailwind', 'HTML & JavaScript', 'Microsoft Office Suite'],
+      githubProjects: 'GitHub Projects',
+      githubDesc: 'Personal coding projects and open-source contributions:',
     },
     contact: {
       title: "Let's Work Together",
