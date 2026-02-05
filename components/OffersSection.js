@@ -78,7 +78,7 @@ export default function OffersSection({ t }) {
           <div className="p-6 rounded-xl bg-white dark:bg-slate-800 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-blue-600">
             <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Industrial Automation Engineering (In Progress)</h4>
             <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
-              Currently pursuing Bachelor's degree in Automation Engineering at Seinäjoki University of Applied Sciences. Developing skills in PLC programming with Codesys, SCADA systems, electrical design with Eplan, machine vision with Cognex, and production simulation with Visual Components. Complemented by real-world production experience from Olvi and Keitele Timber.
+              Currently pursuing Bachelor&apos;s degree in Automation Engineering at Seinäjoki University of Applied Sciences. Developing skills in PLC programming with Codesys, SCADA systems, electrical design with Eplan, machine vision with Cognex, and production simulation with Visual Components. Complemented by real-world production experience from Olvi and Keitele Timber.
             </p>
           </div>
 
