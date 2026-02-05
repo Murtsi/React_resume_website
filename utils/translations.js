@@ -14,6 +14,7 @@ export const translations = {
       badge3: 'Working Under Pressure',
       cta1: 'Get In Touch',
       cta2: 'View My Work',
+      downloadCV: 'Download CV',
     },
     offers: {
       title: 'What I Can Offer',

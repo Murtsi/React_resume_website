@@ -7,20 +7,20 @@ export default function QuickStatsSection() {
   const stats = [
     {
       icon: BriefcaseIcon,
-      number: "2+",
-      label: "Years in Fiber Optics",
+      number: "3+",
+      label: "Years Professional Experience",
       color: "primary"
     },
     {
       icon: SparklesIcon,
-      number: "100%",
-      label: "Safety & Quality Focus",
+      number: "5+",
+      label: "Industry Platforms Mastered",
       color: "blue"
     },
     {
       icon: GlobeAltIcon,
       number: "4",
-      label: "Languages",
+      label: "Languages Spoken",
       color: "purple"
     }
   ];

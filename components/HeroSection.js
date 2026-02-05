@@ -95,6 +95,14 @@ export default function HeroSection({ t }) {
               >
                 {t.hero.cta1}
               </a>
+              <a
+                href="/CV-Antti-Murtokangas.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white dark:bg-slate-800 border-2 border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-slate-700 font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
+              >
+                {t.hero.downloadCV}
+              </a>
             </div>
 
             {/* Social Links */}

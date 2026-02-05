@@ -8,22 +8,58 @@ export default function ExperienceEducationSection() {
 
   const workExperience = [
     { 
-      title: "Fiber Optic Network Technician", 
-      company: "Leading Fiber Optic Company",
+      title: "Network Specialist - Technical Support", 
+      company: "Leading Fiber Optic Operator",
       year: "2025 - Present",
-      description: "Design, deployment, and maintenance of fiber optic network infrastructure. Utilizing advanced platforms including iMaster for comprehensive network monitoring, Altiplano (Nokia OSS) for network automation and orchestration, Optopro Fiber for project management and documentation, and Keycom for telecom network management and fault detection."
+      description: [
+        "Fiber optic network infrastructure design, deployment, and maintenance",
+        "Utilizing advanced platforms: iMaster, Altiplano (Nokia OSS), Optopro Fiber, and Keycom",
+        "Customer service and technical troubleshooting in fiber network issues",
+        "Fault detection, analysis and rapid resolution"
+      ]
     },
     { 
       title: "Production Supervisor", 
-      company: "Olvi",
+      company: "Olvi Oyj",
       year: "2023",
-      description: "Supervised production operations, quality control, and team management in manufacturing environment."
+      description: [
+        "Beverage production line supervision and automation system control",
+        "Process automation management and troubleshooting",
+        "Production equipment adjustment and optimization",
+        "Quality control and team cooperation"
+      ]
     },
     { 
-      title: "Production Operator", 
-      company: "Keitele Timber",
-      year: "2022",
-      description: "Operated machinery, maintained safety protocols, and ensured production efficiency."
+      title: "Production Line Operator", 
+      company: "Keitele Timber Oy",
+      year: "Summer 2022",
+      description: [
+        "Automated production line control and monitoring",
+        "PLC-controlled system adjustment and parameter optimization",
+        "Quick analysis and resolution of fault situations",
+        "Production efficiency monitoring and safety protocol compliance"
+      ]
+    },
+    { 
+      title: "Assembler", 
+      company: "Tikli Group Oy",
+      year: "Summer 2018, 2021",
+      description: [
+        "Smoke extraction system assembly and testing",
+        "Quality assurance and fire protection installation expertise",
+        "Technical documentation interpretation and compliance"
+      ]
+    },
+    { 
+      title: "IT Support", 
+      company: "Alajärvi High School",
+      year: "2017 - 2018",
+      description: [
+        "IT infrastructure maintenance and technical support",
+        "Server management and Google Workspace administration",
+        "Network environment maintenance and user support",
+        "Digital content production and technical problem-solving"
+      ]
     }
   ];
 
@@ -103,9 +139,14 @@ export default function ExperienceEducationSection() {
                       <p className="text-sm text-primary-600 dark:text-primary-400 font-medium mt-1">
                         {job.company}
                       </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
-                        {job.description}
-                      </p>
+                      <ul className="mt-2 space-y-1">
+                        {job.description.map((item, i) => (
+                          <li key={i} className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed flex items-start">
+                            <span className="text-primary-500 mr-2 mt-0.5">•</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                     <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 whitespace-nowrap">
                       {job.year}
