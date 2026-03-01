@@ -107,20 +107,22 @@ export default function WhatICanOfferSection({ t }) {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 text-center">
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-            Ready to partner and architect tomorrow&apos;s technological landscape? Let&apos;s connect and explore how I can drive innovation for your organization.
-          </p>
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="inline-flex items-center justify-center px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
-          >
-            {t.offers.cta}
-          </a>
+        <div className="mt-20 text-center">
+          <div className="inline-block max-w-2xl">
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+              Ready to explore how my expertise can drive innovation for your organization? Let&apos;s discuss how we can work together to solve complex technical challenges.
+            </p>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-lg"
+            >
+              Start a Conversation →
+            </a>
+          </div>
         </div>
       </div>
     </section>

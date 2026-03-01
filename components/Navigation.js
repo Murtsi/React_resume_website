@@ -12,6 +12,7 @@ export default function Navigation({ darkMode, setDarkMode }) {
 
   const navLinks = [
     { label: 'About', id: 'about' },
+    { label: 'Projects', id: 'projects' },
     { label: 'Experience', id: 'portfolio' },
     { label: 'Contact', id: 'contact' },
   ];
