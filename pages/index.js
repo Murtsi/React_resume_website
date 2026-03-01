@@ -5,6 +5,7 @@ import HeroSection from "../components/HeroSection";
 import QuickStatsSection from "../components/QuickStatsSection";
 import WhatICanOfferSection from "../components/WhatICanOfferSection";
 import OffersSection from "../components/OffersSection";
+import GitHubProjectsSection from "../components/GitHubProjectsSection";
 import ExperienceEducationSection from "../components/ExperienceEducationSection";
 import ContactSection from "../components/ContactSection";
 import { translations } from "../utils/translations";
@@ -48,6 +49,7 @@ export default function Home() {
           <QuickStatsSection />
           <WhatICanOfferSection t={t} />
           <OffersSection t={t} />
+          <GitHubProjectsSection />
           <ExperienceEducationSection t={t} />
           <ContactSection t={t} />
         </main>
