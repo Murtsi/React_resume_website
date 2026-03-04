@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Professional, subtle corporate color palette
+        // Professional, subtle corporate color palette with accent warmth
         primary: {
           50: '#f8fafb',
           100: '#eef2f7',
@@ -34,16 +34,28 @@ module.exports = {
           900: '#1d2936',
         },
         accent: {
-          50: '#f0f6fb',
-          100: '#dceaf6',
-          200: '#b3d0ed',
-          300: '#8ab6e3',
-          400: '#5a96d6',
-          500: '#2e76c6',
-          600: '#1e5ba8',
-          700: '#154685',
-          800: '#0f3565',
-          900: '#0a254b',
+          50: '#ecf8ff',
+          100: '#d4effe',
+          200: '#a3e4fd',
+          300: '#7dd8fc',
+          400: '#3fcff8',
+          500: '#00b4e8',
+          600: '#0091c4',
+          700: '#0070a0',
+          800: '#005a84',
+          900: '#004568',
+        },
+        warm: {
+          50: '#fff7ed',
+          100: '#ffeed5',
+          200: '#ffd9a8',
+          300: '#ffbb70',
+          400: '#ff9d3d',
+          500: '#ff7e1a',
+          600: '#f56c0a',
+          700: '#d95a00',
+          800: '#b94800',
+          900: '#983d00',
         },
       },
       fontFamily: {
