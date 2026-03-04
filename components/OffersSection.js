@@ -106,12 +106,12 @@ export default function OffersSection({ t }) {
           <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
             Expertise Areas
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Fiber Network Applications */}
-            <div className="group p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-2xl transition-all duration-300 hover:scale-105 transform cursor-pointer overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent dark:from-primary-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="group p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:border-warm-500 dark:hover:border-warm-500 hover:shadow-2xl transition-all duration-300 hover:scale-105 transform cursor-pointer overflow-hidden relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-warm-50 to-transparent dark:from-warm-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="text-4xl mb-4 group-hover:scale-125 transition-transform duration-300 inline-block">🌐</div>
-              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-warm-600 dark:group-hover:text-warm-400 transition-colors">
                 {t.offers2.fiberNetworks}
               </h4>
               <p className="text-xs text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
@@ -120,7 +120,7 @@ export default function OffersSection({ t }) {
               <ul className="space-y-2">
                 {t.offers2.fiberTools.map((tool, index) => (
                   <li key={index} className="flex items-center gap-2 text-gray-700 dark:text-gray-200 text-xs">
-                    <span className="w-2 h-2 bg-primary-600 dark:bg-primary-400 rounded-full flex-shrink-0"></span>
+                    <span className="w-2 h-2 bg-warm-600 dark:bg-warm-400 rounded-full flex-shrink-0"></span>
                     <span className="font-medium">{tool}</span>
                   </li>
                 ))}
@@ -128,10 +128,10 @@ export default function OffersSection({ t }) {
             </div>
 
             {/* Automation Engineering */}
-            <div className="group p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-2xl transition-all duration-300 hover:scale-105 transform cursor-pointer overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent dark:from-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="group p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:border-warm-600 dark:hover:border-warm-500 hover:shadow-2xl transition-all duration-300 hover:scale-105 transform cursor-pointer overflow-hidden relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-warm-50 to-transparent dark:from-warm-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="text-4xl mb-4 group-hover:scale-125 transition-transform duration-300 inline-block">⚙️</div>
-              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-warm-700 dark:group-hover:text-warm-400 transition-colors">
                 {t.offers2.automation}
               </h4>
               <p className="text-xs text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
@@ -140,7 +140,7 @@ export default function OffersSection({ t }) {
               <ul className="space-y-2">
                 {t.offers2.automationTools.map((tool, index) => (
                   <li key={index} className="flex items-center gap-2 text-gray-700 dark:text-gray-200 text-xs">
-                    <span className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full flex-shrink-0"></span>
+                    <span className="w-2 h-2 bg-warm-600 dark:bg-warm-400 rounded-full flex-shrink-0"></span>
                     <span className="font-medium">{tool}</span>
                   </li>
                 ))}
@@ -148,10 +148,10 @@ export default function OffersSection({ t }) {
             </div>
 
             {/* Web Development & Programming */}
-            <div className="group p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:border-purple-500 dark:hover:border-purple-500 hover:shadow-2xl transition-all duration-300 hover:scale-105 transform cursor-pointer overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-transparent dark:from-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="group p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:border-primary-500 dark:hover:border-primary-400 hover:shadow-2xl transition-all duration-300 hover:scale-105 transform cursor-pointer overflow-hidden relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent dark:from-primary-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="text-4xl mb-4 group-hover:scale-125 transition-transform duration-300 inline-block">💻</div>
-              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                 {t.offers2.webDev}
               </h4>
               <p className="text-xs text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
@@ -160,27 +160,7 @@ export default function OffersSection({ t }) {
               <ul className="space-y-2">
                 {t.offers2.webTools.map((tool, index) => (
                   <li key={index} className="flex items-center gap-2 text-gray-700 dark:text-gray-200 text-xs">
-                    <span className="w-2 h-2 bg-purple-600 dark:bg-purple-400 rounded-full flex-shrink-0"></span>
-                    <span className="font-medium">{tool}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* UI/UX Design */}
-            <div className="group p-8 rounded-2xl bg-gradient-to-br from-pink-50 to-amber-50 dark:from-pink-900/20 dark:to-amber-900/20 border-2 border-pink-200 dark:border-pink-800 hover:border-pink-500 dark:hover:border-pink-500 hover:shadow-2xl transition-all duration-300 hover:scale-105 transform cursor-pointer overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-pink-100 to-transparent dark:from-pink-800/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="text-4xl mb-4 group-hover:scale-125 group-hover:animate-spin transition-transform duration-300 inline-block">✨</div>
-              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
-                {t.offers2.uiux}
-              </h4>
-              <p className="text-xs text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                {t.offers2.uiuxDesc}
-              </p>
-              <ul className="space-y-2">
-                {t.offers2.uiuxTools.map((tool, index) => (
-                  <li key={index} className="flex items-center gap-2 text-gray-700 dark:text-gray-200 text-xs group-hover:text-pink-700 dark:group-hover:text-pink-300 transition-colors">
-                    <span className="w-2 h-2 bg-gradient-to-r from-pink-500 to-amber-500 rounded-full flex-shrink-0"></span>
+                    <span className="w-2 h-2 bg-primary-600 dark:bg-primary-400 rounded-full flex-shrink-0"></span>
                     <span className="font-medium">{tool}</span>
                   </li>
                 ))}

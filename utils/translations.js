@@ -50,8 +50,8 @@ export const translations = {
         'And many others'
       ],
       automation: 'Automation Engineering',
-      automationDesc: 'Advanced proficiency in industrial automation tools:',
-      automationTools: ['Codesys V3.5 Sp17 Patch 3', 'Eplan', 'Cognex in-sight Explorer', 'Visual components Premium'],
+      automationDesc: 'Comprehensive expertise in industrial automation and control systems:',
+      automationTools: ['Codesys V3.5 Sp17 Patch 3', 'Eplan Electrical Design', 'Cognex Machine Vision', 'Visual Components Production Sim', 'PLC Programming', 'SCADA Systems', 'CAD Design', 'Industrial Control Systems'],
       webDev: 'Hobbyist Coding',
       webDesc: 'Personal projects and prototyping:',
       webTools: ['React.js & Next.js', 'Python', 'CSS & Tailwind', 'HTML & JavaScript', 'Microsoft Office Suite'],
