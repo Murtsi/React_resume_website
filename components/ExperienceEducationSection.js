@@ -65,17 +65,16 @@ export default function ExperienceEducationSection() {
 
   const education = [
     {
-      degree: "Bachelor's Degree in Automation Engineering (240 credits)",
+      degree: "Bachelor's Degree in Automation Engineering",
       school: "Seinäjoki University of Applied Sciences (SeAMK)",
-      year: "2021 - 2025",
+      year: "Ongoing",
       status: "In Progress",
       details: [
-        "240-credit 4-year program combining mechanical design, electrical engineering, and industrial automation",
+        "Comprehensive program combining mechanical design, electrical engineering, and industrial automation",
         "Specialization in Mechanical/Electrical Automation with focus on PLC programming and SCADA systems",
-        "Expertise in CAD design, Codesys V3.5, Eplan, Cognex machine vision, and Visual Components production simulation",
-        "Core competencies: control circuits, programmable logic controllers, process automation, industrial robotics",
-        "Practical hands-on experience in modern automation laboratories with industry-standard equipment",
-        "Two internships and capstone thesis project as part of curriculum"
+        "Advanced skills: CAD design, Codesys V3.5 Sp17, Eplan electrical design, Cognex machine vision, Visual Components production simulation",
+        "Core competencies: control circuits, programmable logic controllers, process automation, industrial robotics, automation engineering principles",
+        "Hands-on experience in modern automation laboratories with industry-standard equipment and real-world automation projects"
       ]
     },
     {

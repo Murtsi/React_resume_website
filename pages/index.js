@@ -5,7 +5,6 @@ import HeroSection from "../components/HeroSection";
 import QuickStatsSection from "../components/QuickStatsSection";
 import WhatICanOfferSection from "../components/WhatICanOfferSection";
 import OffersSection from "../components/OffersSection";
-import AnimatedSkillsShowcase from "../components/AnimatedSkillsShowcase";
 import GitHubProjectsSection from "../components/GitHubProjectsSection";
 import ExperienceEducationSection from "../components/ExperienceEducationSection";
 import ContactSection from "../components/ContactSection";
@@ -35,7 +34,7 @@ export default function Home() {
         <title>Antti Murtokangas - Automation Engineering Student & Fiber Optic Specialist</title>
         <meta name="description" content="Professional portfolio of Antti Murtokangas - Automation Engineering Student and Fiber Optic Specialist. Expertise in industrial automation, PLC programming, and fiber network operations." />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta name="theme-color" content="#5865f2" />
+        <meta name="theme-color" content="#e8825f" />
         <meta property="og:title" content="Antti Murtokangas - Portfolio" />
         <meta property="og:description" content="Automation Engineering Student & Fiber Optic Specialist" />
         <meta property="og:type" content="website" />
@@ -50,7 +49,6 @@ export default function Home() {
           <QuickStatsSection />
           <WhatICanOfferSection t={t} />
           <OffersSection t={t} />
-          <AnimatedSkillsShowcase />
           <GitHubProjectsSection />
           <ExperienceEducationSection t={t} />
           <ContactSection t={t} />
