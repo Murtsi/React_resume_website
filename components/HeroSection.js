@@ -47,13 +47,13 @@ export default function HeroSection({ t }) {
 
           {/* Badges */}
           <div className="flex flex-wrap gap-3">
-            <span className="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-200 rounded-full text-sm font-semibold border border-primary-200 dark:border-primary-800">
+            <span className="inline-block px-4 py-2 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded-lg text-sm font-semibold border border-accent-200 dark:border-accent-800">
               {t.hero.badge1}
             </span>
-            <span className="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-200 rounded-full text-sm font-semibold border border-primary-200 dark:border-primary-800">
+            <span className="inline-block px-4 py-2 bg-warm-100 dark:bg-warm-900/30 text-warm-700 dark:text-warm-300 rounded-lg text-sm font-semibold border border-warm-200 dark:border-warm-800">
               {t.hero.badge2}
             </span>
-            <span className="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-200 rounded-full text-sm font-semibold border border-primary-200 dark:border-primary-800">
+            <span className="inline-block px-4 py-2 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded-lg text-sm font-semibold border border-accent-200 dark:border-accent-800">
               {t.hero.badge3}
             </span>
           </div>
@@ -73,10 +73,14 @@ export default function HeroSection({ t }) {
                 "Eplan",
                 "Cognex",
                 "Visual Components",
-              ].map((tool) => (
+              ].map((tool, idx) => (
                 <span
                   key={tool}
-                  className="inline-block px-4 py-2 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-slate-800 dark:to-slate-700 text-gray-700 dark:text-gray-200 rounded-lg text-sm font-medium border border-gray-200 dark:border-slate-600 hover:border-primary-500 dark:hover:border-primary-400 transition-colors"
+                  className={`inline-block px-4 py-2 text-sm font-medium rounded-lg border transition-all hover:shadow-md ${
+                    idx % 2 === 0
+                      ? 'bg-accent-50 dark:bg-accent-900/20 text-accent-700 dark:text-accent-300 border-accent-200 dark:border-accent-700 hover:bg-accent-100 dark:hover:bg-accent-900/30'
+                      : 'bg-warm-50 dark:bg-warm-900/20 text-warm-700 dark:text-warm-300 border-warm-200 dark:border-warm-700 hover:bg-warm-100 dark:hover:bg-warm-900/30'
+                  }`}
                 >
                   {tool}
                 </span>
@@ -92,7 +96,7 @@ export default function HeroSection({ t }) {
                 e.preventDefault();
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-lg"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-lg"
             >
               Get In Touch →
             </a>

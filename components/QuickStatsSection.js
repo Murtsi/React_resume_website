@@ -26,7 +26,7 @@ export default function QuickStatsSection() {
   ];
 
   return (
-    <section ref={statsRef} className={`py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary-700 to-primary-600 dark:from-primary-800 dark:to-primary-700 ${statsInView ? 'animate-fade-in' : 'opacity-0'}`}>
+    <section ref={statsRef} className={`py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary-700 via-accent-600 to-accent-700 dark:from-primary-800 dark:via-accent-700 dark:to-accent-800 ${statsInView ? 'animate-fade-in' : 'opacity-0'}`}>
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {stats.map((stat, index) => {

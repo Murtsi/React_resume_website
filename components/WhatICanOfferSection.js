@@ -67,17 +67,23 @@ export default function WhatICanOfferSection({ t }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {coreCompetencies.map((competency, index) => {
               const Icon = competency.icon;
+              const colors = [
+                { bg: 'bg-accent-50', darkBg: 'dark:bg-accent-900/20', accent: 'bg-accent-100', darkAccent: 'dark:bg-accent-900/30', icon: 'text-accent-600 dark:text-accent-400', border: 'hover:border-accent-600 dark:hover:border-accent-500', hover: 'group-hover:text-accent-700 dark:group-hover:text-accent-300' },
+                { bg: 'bg-warm-50', darkBg: 'dark:bg-warm-900/20', accent: 'bg-warm-100', darkAccent: 'dark:bg-warm-900/30', icon: 'text-warm-600 dark:text-warm-400', border: 'hover:border-warm-600 dark:hover:border-warm-500', hover: 'group-hover:text-warm-700 dark:group-hover:text-warm-300' },
+                { bg: 'bg-primary-50', darkBg: 'dark:bg-primary-900/20', accent: 'bg-primary-100', darkAccent: 'dark:bg-primary-900/30', icon: 'text-primary-700 dark:text-primary-400', border: 'hover:border-primary-600 dark:hover:border-primary-500', hover: 'group-hover:text-primary-700 dark:group-hover:text-primary-300' },
+              ];
+              const color = colors[index % colors.length];
               return (
                 <div
                   key={index}
-                  className="relative p-8 rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-primary-600 dark:hover:border-primary-500 hover:shadow-lg transition-all duration-300 group overflow-hidden"
+                  className={`relative p-8 rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 ${color.border} hover:shadow-lg transition-all duration-300 group overflow-hidden`}
                 >
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary-100 dark:bg-primary-900/20 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500" />
+                  <div className={`absolute top-0 right-0 w-24 h-24 ${color.bg} ${color.darkBg} rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500`} />
                   <div className="relative">
-                    <div className="w-14 h-14 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                      <Icon className="w-7 h-7 text-primary-700 dark:text-primary-400" />
+                    <div className={`w-14 h-14 rounded-lg ${color.accent} ${color.darkAccent} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform`}>
+                      <Icon className={`w-7 h-7 ${color.icon}`} />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors">
+                    <h4 className={`text-xl font-bold text-gray-900 dark:text-white mb-3 ${color.hover} transition-colors`}>
                       {competency.title}
                     </h4>
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed">

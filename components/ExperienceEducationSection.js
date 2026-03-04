@@ -117,7 +117,7 @@ export default function ExperienceEducationSection() {
             className={`space-y-6 ${workInView ? 'animate-fade-in' : 'opacity-0'}`}
           >
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center text-white shadow-sm">
+              <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center text-white shadow-sm">
                 <BriefcaseIcon className="w-6 h-6" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -171,7 +171,7 @@ export default function ExperienceEducationSection() {
             className={`space-y-6 ${educationInView ? 'animate-fade-in' : 'opacity-0'}`}
           >
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-accent-600 rounded-lg flex items-center justify-center text-white shadow-sm">
+              <div className="w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-lg flex items-center justify-center text-white shadow-sm">
                 <AcademicCapIcon className="w-6 h-6" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -223,7 +223,7 @@ export default function ExperienceEducationSection() {
           className={`mt-16 ${languageInView ? 'animate-fade-in' : 'opacity-0'}`}
         >
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-12 bg-secondary-600 rounded-lg flex items-center justify-center text-white shadow-sm">
+            <div className="w-12 h-12 bg-gradient-to-br from-warm-500 to-warm-600 rounded-lg flex items-center justify-center text-white shadow-sm">
               <GlobeAltIcon className="w-6 h-6" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -235,18 +235,18 @@ export default function ExperienceEducationSection() {
             {languages.map((lang, index) => (
               <div
                 key={index}
-                className="group p-6 bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 hover:border-secondary-600 dark:hover:border-secondary-500 shadow-sm hover:shadow-md transition-all duration-300 text-center"
+                className="group p-6 bg-white dark:bg-slate-800 rounded-lg border-2 border-warm-100 dark:border-warm-900/30 hover:border-warm-400 dark:hover:border-warm-600 shadow-sm hover:shadow-md transition-all duration-300 text-center bg-gradient-to-b from-white via-white to-warm-50 dark:from-slate-800 dark:via-slate-800 dark:to-slate-800"
               >
                 <span className="text-4xl block mb-3 group-hover:scale-110 transition-transform">{lang.flag}</span>
                 <p className="font-bold text-gray-900 dark:text-gray-100 text-lg">
                   {lang.name}
                 </p>
-                <p className="text-sm text-secondary-700 dark:text-secondary-300 font-semibold mt-1 mb-3">
+                <p className="text-sm text-warm-700 dark:text-warm-300 font-semibold mt-1 mb-3">
                   {lang.level}
                 </p>
                 <div className="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
                   <div
-                    className="bg-gradient-to-r from-secondary-600 to-secondary-700 h-2 rounded-full transition-all duration-500"
+                    className="bg-gradient-to-r from-warm-500 to-warm-600 h-2 rounded-full transition-all duration-500"
                     style={{ width: `${lang.proficiency}%` }}
                   />
                 </div>
