@@ -117,7 +117,7 @@ export default function ExperienceEducationSection() {
             className={`space-y-6 ${workInView ? 'animate-fade-in' : 'opacity-0'}`}
           >
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center text-white shadow-lg">
+              <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center text-white shadow-sm">
                 <BriefcaseIcon className="w-6 h-6" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -127,7 +127,7 @@ export default function ExperienceEducationSection() {
 
             <div className="space-y-4 relative">
               {/* Timeline line */}
-              <div className="absolute left-[7px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-primary-500 via-primary-300 to-transparent dark:from-primary-400 dark:via-primary-600 hidden md:block" />
+              <div className="absolute left-[7px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-primary-600 to-transparent dark:from-primary-500 dark:to-transparent hidden md:block" />
 
               {workExperience.map((job, index) => (
                 <div
@@ -135,27 +135,27 @@ export default function ExperienceEducationSection() {
                   className="group relative pl-0 md:pl-8"
                 >
                   {/* Timeline dot */}
-                  <div className="hidden md:block absolute left-0 top-6 w-4 h-4 rounded-full bg-primary-500 dark:bg-primary-400 border-4 border-white dark:border-slate-900 shadow-sm z-10 group-hover:scale-125 transition-transform" />
+                  <div className="hidden md:block absolute left-0 top-6 w-4 h-4 rounded-full bg-primary-600 dark:bg-primary-500 border-4 border-white dark:border-slate-900 shadow-sm z-10 group-hover:scale-125 transition-transform" />
 
-                  <div className="p-6 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-primary-500 dark:hover:border-primary-400 shadow-sm hover:shadow-lg transition-all duration-300">
+                  <div className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-primary-600 dark:hover:border-primary-500 shadow-sm hover:shadow-md transition-all duration-300">
                     <div className="flex justify-between items-start gap-3">
                       <div className="flex-1">
                         <p className="font-bold text-gray-900 dark:text-gray-100 text-lg">
                           {job.title}
                         </p>
-                        <p className="text-sm text-primary-600 dark:text-primary-400 font-semibold mt-1">
+                        <p className="text-sm text-primary-700 dark:text-primary-300 font-semibold mt-1">
                           {job.company}
                         </p>
                         <ul className="mt-3 space-y-1.5">
                           {job.description.map((item, i) => (
-                            <li key={i} className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed flex items-start">
-                              <span className="text-primary-500 mr-2 mt-0.5 flex-shrink-0">•</span>
+                            <li key={i} className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex items-start">
+                              <span className="text-primary-600 mr-2 mt-0.5 flex-shrink-0">•</span>
                               <span>{item}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
-                      <span className="text-xs font-bold text-white bg-primary-600 dark:bg-primary-500 px-3 py-1 rounded-full whitespace-nowrap">
+                      <span className="text-xs font-semibold text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/30 px-3 py-1 rounded whitespace-nowrap">
                         {job.year}
                       </span>
                     </div>
@@ -171,7 +171,7 @@ export default function ExperienceEducationSection() {
             className={`space-y-6 ${educationInView ? 'animate-fade-in' : 'opacity-0'}`}
           >
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center text-white shadow-lg">
+              <div className="w-12 h-12 bg-accent-600 rounded-lg flex items-center justify-center text-white shadow-sm">
                 <AcademicCapIcon className="w-6 h-6" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -181,7 +181,7 @@ export default function ExperienceEducationSection() {
 
             <div className="space-y-4 relative">
               {/* Timeline line */}
-              <div className="absolute left-[7px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-blue-500 via-blue-300 to-transparent dark:from-blue-400 dark:via-blue-600 hidden md:block" />
+              <div className="absolute left-[7px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-accent-600 to-transparent dark:from-accent-500 dark:to-transparent hidden md:block" />
 
               {education.map((edu, index) => (
                 <div
@@ -189,24 +189,24 @@ export default function ExperienceEducationSection() {
                   className="group relative pl-0 md:pl-8"
                 >
                   {/* Timeline dot */}
-                  <div className="hidden md:block absolute left-0 top-6 w-4 h-4 rounded-full bg-blue-500 dark:bg-blue-400 border-4 border-white dark:border-slate-900 shadow-sm z-10 group-hover:scale-125 transition-transform" />
+                  <div className="hidden md:block absolute left-0 top-6 w-4 h-4 rounded-full bg-accent-600 dark:bg-accent-500 border-4 border-white dark:border-slate-900 shadow-sm z-10 group-hover:scale-125 transition-transform" />
 
-                  <div className="p-6 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 shadow-sm hover:shadow-lg transition-all duration-300">
+                  <div className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-accent-600 dark:hover:border-accent-500 shadow-sm hover:shadow-md transition-all duration-300">
                     <div className="flex justify-between items-start gap-3">
                       <div className="flex-1">
                         <p className="font-bold text-gray-900 dark:text-gray-100 text-lg">
                           {edu.degree}
                         </p>
-                        <p className="text-sm text-blue-600 dark:text-blue-400 font-semibold mt-1">
+                        <p className="text-sm text-accent-700 dark:text-accent-300 font-semibold mt-1">
                           {edu.school}
                         </p>
                         <div className="flex items-center gap-2 mt-3">
-                          <span className={`text-xs font-bold px-3 py-1 rounded-full ${edu.status === 'In Progress' ? 'bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 border border-green-300 dark:border-green-700' : 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 border border-blue-300 dark:border-blue-700'}`}>
+                          <span className={`text-xs font-semibold px-3 py-1 rounded ${edu.status === 'In Progress' ? 'bg-accent-100 dark:bg-accent-900/40 text-accent-700 dark:text-accent-300' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'}`}>
                             {edu.status}
                           </span>
                         </div>
                       </div>
-                      <span className="text-xs font-bold text-white bg-blue-600 dark:bg-blue-500 px-3 py-1 rounded-full whitespace-nowrap">
+                      <span className="text-xs font-semibold text-accent-700 dark:text-accent-300 bg-accent-100 dark:bg-accent-900/30 px-3 py-1 rounded whitespace-nowrap">
                         {edu.year}
                       </span>
                     </div>
@@ -223,7 +223,7 @@ export default function ExperienceEducationSection() {
           className={`mt-16 ${languageInView ? 'animate-fade-in' : 'opacity-0'}`}
         >
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center text-white shadow-lg">
+            <div className="w-12 h-12 bg-secondary-600 rounded-lg flex items-center justify-center text-white shadow-sm">
               <GlobeAltIcon className="w-6 h-6" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -235,18 +235,18 @@ export default function ExperienceEducationSection() {
             {languages.map((lang, index) => (
               <div
                 key={index}
-                className="group p-6 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 hover:border-purple-500 dark:hover:border-purple-400 shadow-sm hover:shadow-lg transition-all duration-300 text-center"
+                className="group p-6 bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 hover:border-secondary-600 dark:hover:border-secondary-500 shadow-sm hover:shadow-md transition-all duration-300 text-center"
               >
                 <span className="text-4xl block mb-3 group-hover:scale-110 transition-transform">{lang.flag}</span>
                 <p className="font-bold text-gray-900 dark:text-gray-100 text-lg">
                   {lang.name}
                 </p>
-                <p className="text-sm text-purple-600 dark:text-purple-400 font-semibold mt-1 mb-3">
+                <p className="text-sm text-secondary-700 dark:text-secondary-300 font-semibold mt-1 mb-3">
                   {lang.level}
                 </p>
                 <div className="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
                   <div
-                    className="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full transition-all duration-500"
+                    className="bg-gradient-to-r from-secondary-600 to-secondary-700 h-2 rounded-full transition-all duration-500"
                     style={{ width: `${lang.proficiency}%` }}
                   />
                 </div>
