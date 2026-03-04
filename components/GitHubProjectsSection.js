@@ -11,23 +11,23 @@ export default function GitHubProjectsSection() {
   const projects = [
     {
       title: "API Scanner",
-      description: "Advanced API security scanning and reconnaissance tool. Discovers API endpoints, analyzes security vulnerabilities, and maps API structures for security testing and vulnerability assessment.",
-      technologies: ["Python", "API Testing", "Security", "Automation"],
+      description: "Client-side web security auditing tool that identifies vulnerabilities and exposed secrets without external data transmission. Detects 49+ secret patterns (AWS keys, tokens, JWTs), analyzes headers and bundles, and performs active security testing including SQL/NoSQL injection, XSS, path traversal detection.",
+      technologies: ["React", "TypeScript", "Vite", "Security", "Web Security"],
       link: "https://github.com/Murtsi/API-Scanner",
       color: "from-accent-500 to-accent-600",
       icon: "🔍"
     },
     {
-      title: "Kidehiiri (Mouse Game)",
-      description: "Interactive gaming application with engaging gameplay mechanics. Features responsive design, dynamic user interactions, and modern development practices. Demonstrates full-stack development capabilities.",
-      technologies: ["JavaScript", "React", "Game Development", "UI/UX"],
+      title: "Kidehiiri - Automated Ticket Buyer",
+      description: "Intelligent ticket acquisition application for Kide.app events. Monitors availability in real-time and automatically reserves tickets with fallback modes. Features ML-powered event scoring using heuristics and Random Forest classification to rate events as BUY/MAYBE/SKIP with confidence indicators.",
+      technologies: ["React", "TypeScript", "Node.js", "Python", "ML/AI"],
       link: "https://github.com/Murtsi/Kidehiiri-public",
       color: "from-warm-500 to-warm-600",
-      icon: "🎮"
+      icon: "🎫"
     },
     {
       title: "React Resume Website",
-      description: "Modern, responsive portfolio website built with Next.js and React. Features dark mode toggle, smooth animations, professional design, and optimized performance. Showcases experience, skills, and projects with interactive elements.",
+      description: "Modern, responsive portfolio website built with Next.js and React. Features dark mode toggle, smooth animations, professional design, and optimized performance. Showcases experience, skills, and projects with interactive elements and vibrant accent colors.",
       technologies: ["React", "Next.js", "Tailwind CSS", "JavaScript"],
       link: "https://github.com/Murtsi",
       color: "from-primary-500 to-primary-600",
