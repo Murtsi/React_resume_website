@@ -16,12 +16,10 @@
     "@heroicons/react": "^2.0.18",
     "@vercel/analytics": "^1.4.0",
     "@vercel/speed-insights": "^1.2.0",
-    "firebase": "^10.7.0",
     "framer-motion": "^10.16.16",
     "next": "^15.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.0.1",
     "react-intersection-observer": "^9.13.0",
     "typescript": "^5.3.3"
   },

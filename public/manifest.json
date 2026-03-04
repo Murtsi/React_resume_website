@@ -1,0 +1,16 @@
+{
+  "name": "Antti Murtokangas Portfolio",
+  "short_name": "Antti M.",
+  "description": "Portfolio of Antti Murtokangas - Automation Engineering Student & Fiber Optic Specialist",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#e8825f",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}
