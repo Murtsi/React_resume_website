@@ -47,13 +47,13 @@ export default function HeroSection({ t }) {
 
           {/* Badges */}
           <div className="flex flex-wrap gap-3">
-            <span className="inline-block px-4 py-2 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded-lg text-sm font-semibold border border-accent-200 dark:border-accent-800">
+            <span className="inline-block px-4 py-2 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded-lg text-sm font-semibold border border-accent-200 dark:border-accent-800 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer animate-slide-up" style={{ animationDelay: '0.1s' }}>
               {t.hero.badge1}
             </span>
-            <span className="inline-block px-4 py-2 bg-warm-100 dark:bg-warm-900/30 text-warm-700 dark:text-warm-300 rounded-lg text-sm font-semibold border border-warm-200 dark:border-warm-800">
+            <span className="inline-block px-4 py-2 bg-warm-100 dark:bg-warm-900/30 text-warm-700 dark:text-warm-300 rounded-lg text-sm font-semibold border border-warm-200 dark:border-warm-800 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer animate-slide-up" style={{ animationDelay: '0.2s' }}>
               {t.hero.badge2}
             </span>
-            <span className="inline-block px-4 py-2 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded-lg text-sm font-semibold border border-accent-200 dark:border-accent-800">
+            <span className="inline-block px-4 py-2 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded-lg text-sm font-semibold border border-accent-200 dark:border-accent-800 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer animate-slide-up" style={{ animationDelay: '0.3s' }}>
               {t.hero.badge3}
             </span>
           </div>
@@ -76,11 +76,12 @@ export default function HeroSection({ t }) {
               ].map((tool, idx) => (
                 <span
                   key={tool}
-                  className={`inline-block px-4 py-2 text-sm font-medium rounded-lg border transition-all hover:shadow-md ${
+                  className={`inline-block px-4 py-2 text-sm font-medium rounded-lg border transition-all hover:shadow-md hover:scale-110 cursor-pointer animate-slide-up ${
                     idx % 2 === 0
                       ? 'bg-accent-50 dark:bg-accent-900/20 text-accent-700 dark:text-accent-300 border-accent-200 dark:border-accent-700 hover:bg-accent-100 dark:hover:bg-accent-900/30'
                       : 'bg-warm-50 dark:bg-warm-900/20 text-warm-700 dark:text-warm-300 border-warm-200 dark:border-warm-700 hover:bg-warm-100 dark:hover:bg-warm-900/30'
                   }`}
+                  style={{ animationDelay: `${0.4 + idx * 0.05}s` }}
                 >
                   {tool}
                 </span>
