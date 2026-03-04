@@ -7,7 +7,6 @@ import WhatICanOfferSection from "../components/WhatICanOfferSection";
 import OffersSection from "../components/OffersSection";
 import GitHubProjectsSection from "../components/GitHubProjectsSection";
 import ExperienceEducationSection from "../components/ExperienceEducationSection";
-import TestimonialsSection from "../components/TestimonialsSection";
 import ContactSection from "../components/ContactSection";
 import { translations } from "../utils/translations";
 
@@ -52,7 +51,6 @@ export default function Home() {
           <OffersSection t={t} />
           <GitHubProjectsSection />
           <ExperienceEducationSection t={t} />
-          <TestimonialsSection />
           <ContactSection t={t} />
         </main>
       </div>
