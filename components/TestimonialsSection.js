@@ -26,15 +26,15 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section id="testimonials" ref={testimonialsRef} className={`py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900 ${testimonialsInView ? 'animate-fade-in' : 'opacity-0'}`}>
+    <section id="testimonials" ref={testimonialsRef} className={`py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-slate-800 dark:to-slate-900 ${testimonialsInView ? 'animate-fade-in' : 'opacity-0'}`}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className="mb-20 text-center">
+          <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
             What Colleagues Say
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Testimonials from professionals I&apos;ve worked with across fiber optics, automation, and production environments.
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Testimonials from professionals across fiber optics, automation, and production environments.
           </p>
         </div>
 
@@ -43,30 +43,30 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-slate-800 dark:to-slate-700 border border-gray-200 dark:border-slate-600 hover:shadow-lg transition-all duration-300"
+              className="group p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:border-primary-500 dark:hover:border-primary-400 hover:shadow-2xl transition-all duration-300"
             >
               {/* Stars */}
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 mb-5">
                 {[...Array(5)].map((_, i) => (
                   <StarIcon key={i} className="w-5 h-5 text-yellow-400" />
                 ))}
               </div>
 
               {/* Quote */}
-              <p className="text-gray-700 dark:text-gray-200 mb-6 italic leading-relaxed">
+              <p className="text-gray-700 dark:text-gray-200 mb-8 italic leading-relaxed text-sm">
                 &quot;{testimonial.quote}&quot;
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3 border-t border-gray-200 dark:border-slate-600 pt-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white font-bold">
+              <div className="flex items-center gap-4 border-t border-gray-200 dark:border-slate-700 pt-5">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white font-bold text-sm shadow-lg group-hover:scale-110 transition-transform">
                   {testimonial.initials}
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900 dark:text-white text-sm">
+                  <p className="font-bold text-gray-900 dark:text-white text-sm">
                     {testimonial.author}
                   </p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">
+                  <p className="text-xs text-primary-600 dark:text-primary-400 font-medium">
                     {testimonial.role}
                   </p>
                 </div>

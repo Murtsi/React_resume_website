@@ -39,27 +39,29 @@ export default function WhatICanOfferSection({ t }) {
     <section
       id="offers"
       ref={sectionRef}
-      className={`py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800 ${
+      className={`py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-slate-800 dark:to-slate-900 ${
         sectionInView ? 'animate-fade-in' : 'opacity-0'
       }`}
     >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16">
+        <div className="mb-20">
           <div className="flex items-center gap-3 mb-4">
-            <SparklesIcon className="w-8 h-8 text-primary-600 dark:text-primary-400" />
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
-              {t.offers.title}
-            </h2>
+            <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+              <SparklesIcon className="w-6 h-6" />
+            </div>
           </div>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
+          <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            {t.offers.title}
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
             {t.offers.intro}
           </p>
         </div>
 
         {/* Core Technical Competencies */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+        <div className="mb-20">
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-10">
             {t.offers.competencies}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -68,15 +70,17 @@ export default function WhatICanOfferSection({ t }) {
               return (
                 <div
                   key={index}
-                  className="relative p-6 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-lg transition-all duration-300 group"
+                  className="relative p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-2xl transition-all duration-300 group overflow-hidden"
                 >
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-primary-50 dark:bg-primary-900/10 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-300" />
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary-50 dark:bg-primary-900/10 rounded-full -mr-12 -mt-12 group-hover:scale-[2] transition-transform duration-500" />
                   <div className="relative">
-                    <Icon className="w-8 h-8 text-primary-600 dark:text-primary-400 mb-4" />
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-100 to-primary-50 dark:from-primary-900/30 dark:to-primary-800/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                      <Icon className="w-7 h-7 text-primary-600 dark:text-primary-400" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                       {competency.title}
                     </h4>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                       {competency.description}
                     </p>
                   </div>
@@ -88,17 +92,17 @@ export default function WhatICanOfferSection({ t }) {
 
         {/* Strategic Professional Attributes */}
         <div>
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-10">
             {t.offers.attributes}
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {professionalAttributes.map((attribute, index) => (
               <div
                 key={index}
-                className="flex gap-4 p-4 rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-md transition-all duration-300"
+                className="flex gap-4 p-5 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-lg transition-all duration-300 group"
               >
-                <CheckCircleIcon className="w-6 h-6 text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5" />
-                <p className="text-gray-700 dark:text-gray-200">
+                <CheckCircleIcon className="w-6 h-6 text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
                   {attribute}
                 </p>
               </div>
