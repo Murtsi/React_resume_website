@@ -64,26 +64,34 @@ export default function ExperienceEducationSection() {
   ];
 
   const education = [
-    { 
-      degree: "Bachelor's Degree in Automation Engineering", 
-      school: "Seinäjoki University of Applied Sciences",
-      year: "2021 - Present",
-      status: "In Progress"
+    {
+      degree: "Bachelor's Degree in Automation Engineering (240 credits)",
+      school: "Seinäjoki University of Applied Sciences (SeAMK)",
+      year: "2021 - 2025",
+      status: "In Progress",
+      details: [
+        "240-credit 4-year program combining mechanical design, electrical engineering, and industrial automation",
+        "Specialization in Mechanical/Electrical Automation with focus on PLC programming and SCADA systems",
+        "Expertise in CAD design, Codesys V3.5, Eplan, Cognex machine vision, and Visual Components production simulation",
+        "Core competencies: control circuits, programmable logic controllers, process automation, industrial robotics",
+        "Practical hands-on experience in modern automation laboratories with industry-standard equipment",
+        "Two internships and capstone thesis project as part of curriculum"
+      ]
     },
-    { 
-      degree: "Automation in Wind Power Sector", 
+    {
+      degree: "Automation in Wind Power Sector",
       school: "Professional Development Course",
       year: "2024",
       status: "Completed"
     },
-    { 
-      degree: "Leadership Training", 
+    {
+      degree: "Leadership Training",
       school: "Military Police Officer Programme",
       year: "2019-2020",
       status: "Completed"
     },
-    { 
-      degree: "Vocational Qualification in Business Information Technology", 
+    {
+      degree: "Vocational Qualification in Business Information Technology",
       school: "Järviseutu Vocational Institute",
       year: "2015-2018",
       status: "Completed"
@@ -191,15 +199,25 @@ export default function ExperienceEducationSection() {
                   {/* Timeline dot */}
                   <div className="hidden md:block absolute left-0 top-6 w-4 h-4 rounded-full bg-accent-600 dark:bg-accent-500 border-4 border-white dark:border-slate-900 shadow-sm z-10 group-hover:scale-125 transition-transform" />
 
-                  <div className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-accent-600 dark:hover:border-accent-500 shadow-sm hover:shadow-md transition-all duration-300">
+                  <div className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-accent-600 dark:hover:border-accent-500 shadow-sm hover:shadow-md transition-all duration-300 group hover:scale-105 transform">
                     <div className="flex justify-between items-start gap-3">
                       <div className="flex-1">
-                        <p className="font-bold text-gray-900 dark:text-gray-100 text-lg">
+                        <p className="font-bold text-gray-900 dark:text-gray-100 text-lg group-hover:text-accent-600 dark:group-hover:text-accent-300 transition-colors">
                           {edu.degree}
                         </p>
                         <p className="text-sm text-accent-700 dark:text-accent-300 font-semibold mt-1">
                           {edu.school}
                         </p>
+                        {edu.details && (
+                          <ul className="mt-3 space-y-1.5 text-sm">
+                            {edu.details.map((detail, i) => (
+                              <li key={i} className="text-gray-600 dark:text-gray-400 leading-relaxed flex items-start">
+                                <span className="text-accent-600 mr-2 mt-0.5 flex-shrink-0">•</span>
+                                <span>{detail}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                         <div className="flex items-center gap-2 mt-3">
                           <span className={`text-xs font-semibold px-3 py-1 rounded ${edu.status === 'In Progress' ? 'bg-accent-100 dark:bg-accent-900/40 text-accent-700 dark:text-accent-300' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'}`}>
                             {edu.status}
