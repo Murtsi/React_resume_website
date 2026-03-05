@@ -17,12 +17,12 @@ describe('HeroSection', () => {
 
   it('renders Get In Touch CTA link', () => {
     render(<HeroSection t={t} />);
-    expect(screen.getByText('Get In Touch →')).toBeInTheDocument();
+    expect(screen.getByText('Get In Touch')).toBeInTheDocument();
   });
 
   it('renders Download CV link', () => {
     render(<HeroSection t={t} />);
-    expect(screen.getByText('Download CV (Finnish)')).toBeInTheDocument();
+    expect(screen.getByText('Download CV')).toBeInTheDocument();
   });
 
   it('renders social links with aria labels', () => {
