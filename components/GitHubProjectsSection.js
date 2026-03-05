@@ -1,134 +1,122 @@
 import { useInView } from 'react-intersection-observer';
-import {
-  CodeBracketIcon,
-  StarIcon,
-  CodeBracketSquareIcon,
-} from '@heroicons/react/24/outline';
+import { ArrowUpRightIcon } from '@heroicons/react/24/outline';
+
+const projects = [
+  {
+    index: '01',
+    title: 'API Scanner',
+    year: '2024',
+    description: 'Client-side web security auditing tool. Detects 49+ secret patterns (AWS keys, JWTs, tokens), analyzes headers, and performs active security testing including SQL injection, XSS, and path traversal — all without external data transmission.',
+    technologies: ['React', 'TypeScript', 'Vite', 'Security'],
+    link: 'https://github.com/Murtsi/API-Scanner',
+  },
+  {
+    index: '02',
+    title: 'Kidehiiri — Automated Ticket Buyer',
+    year: '2024',
+    description: 'Intelligent ticket acquisition for Kide.app events. Monitors availability in real-time, auto-reserves with fallback modes. ML-powered event scoring using heuristics and Random Forest classification (BUY / MAYBE / SKIP).',
+    technologies: ['React', 'TypeScript', 'Node.js', 'Python', 'ML'],
+    link: 'https://github.com/Murtsi/Kidehiiri-public',
+  },
+  {
+    index: '03',
+    title: 'React Resume Website',
+    year: '2025',
+    description: 'This portfolio — built with Next.js, React, and Tailwind CSS. Dark mode, smooth scroll, animated stats, and a Nordic minimalist redesign. Deployed on Vercel.',
+    technologies: ['Next.js', 'React', 'Tailwind', 'JavaScript'],
+    link: 'https://github.com/Murtsi',
+  },
+];
 
 export default function GitHubProjectsSection() {
-  const { ref: sectionRef, inView: sectionInView } = useInView({ triggerOnce: true });
-
-  const projects = [
-    {
-      title: "API Scanner",
-      description: "Client-side web security auditing tool that identifies vulnerabilities and exposed secrets without external data transmission. Detects 49+ secret patterns (AWS keys, tokens, JWTs), analyzes headers and bundles, and performs active security testing including SQL/NoSQL injection, XSS, path traversal detection.",
-      technologies: ["React", "TypeScript", "Vite", "Security", "Web Security"],
-      link: "https://github.com/Murtsi/API-Scanner",
-      color: "from-accent-500 to-accent-600",
-      icon: "🔍"
-    },
-    {
-      title: "Kidehiiri - Automated Ticket Buyer",
-      description: "Intelligent ticket acquisition application for Kide.app events. Monitors availability in real-time and automatically reserves tickets with fallback modes. Features ML-powered event scoring using heuristics and Random Forest classification to rate events as BUY/MAYBE/SKIP with confidence indicators.",
-      technologies: ["React", "TypeScript", "Node.js", "Python", "ML/AI"],
-      link: "https://github.com/Murtsi/Kidehiiri-public",
-      color: "from-warm-500 to-warm-600",
-      icon: "🎫"
-    },
-    {
-      title: "React Resume Website",
-      description: "Modern, responsive portfolio website built with Next.js and React. Features dark mode toggle, smooth animations, professional design, and optimized performance. Showcases experience, skills, and projects with interactive elements and vibrant accent colors.",
-      technologies: ["React", "Next.js", "Tailwind CSS", "JavaScript"],
-      link: "https://github.com/Murtsi",
-      color: "from-primary-500 to-primary-600",
-      icon: "🌐"
-    }
-  ];
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <section
       id="projects"
-      ref={sectionRef}
-      className={`py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-primary-50 to-white dark:from-slate-900 dark:via-primary-950/20 dark:to-slate-900 ${
-        sectionInView ? 'animate-fade-in' : 'opacity-0'
-      }`}
+      className="py-28 px-6 lg:px-8 bg-cream-200 dark:bg-navy-800 relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="mb-20 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-lg flex items-center justify-center text-white shadow-sm">
-              <CodeBracketIcon className="w-6 h-6" />
-            </div>
-          </div>
-          <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Showcasing real-world projects demonstrating technical expertise, problem-solving, and full-stack development capabilities.
+      {/* Watermark */}
+      <span className="section-number absolute right-6 top-16 select-none pointer-events-none hidden lg:block">
+        03
+      </span>
+
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <div className="mb-16" ref={ref}>
+          <p className="text-xs font-medium uppercase tracking-widest text-primary-500 dark:text-primary-400 mb-4">
+            Selected Work
           </p>
+          <h2 className="font-cormorant font-light text-5xl text-cream-900 dark:text-cream-100">
+            Projects
+          </h2>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {projects.map((project, index) => (
+        {/* Project list */}
+        <div className="space-y-0">
+          {projects.map((project, i) => (
             <a
-              key={index}
+              key={i}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group h-full"
+              className={`group block border-t border-cream-400 dark:border-navy-500 py-10 transition-opacity duration-700 ${
+                inView ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <div className="h-full rounded-lg overflow-hidden bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-accent-500 dark:hover:border-accent-400 transition-all duration-300 hover:shadow-lg hover:scale-105 transform cursor-pointer">
-                {/* Project Header with Color */}
-                <div className={`h-32 bg-gradient-to-br ${project.color} p-6 flex items-end justify-between relative overflow-hidden`}>
-                  <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity" style={{backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3), transparent 50%)'}} />
-                  <h3 className="text-2xl font-bold text-white relative z-10">{project.title}</h3>
-                  <span className="text-3xl relative z-10 group-hover:scale-125 transition-transform">{project.icon}</span>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-12">
+                {/* Index + year */}
+                <div className="lg:col-span-2 flex lg:flex-col gap-4 lg:gap-2">
+                  <span className="font-cormorant font-light text-2xl text-cream-400 dark:text-navy-400 group-hover:text-primary-500 dark:group-hover:text-primary-400 transition-colors">
+                    {project.index}
+                  </span>
+                  <span className="text-xs font-medium text-cream-500 dark:text-navy-300 self-center lg:self-start">
+                    {project.year}
+                  </span>
                 </div>
 
-                {/* Content */}
-                <div className="p-6 space-y-4">
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                {/* Title */}
+                <div className="lg:col-span-4">
+                  <h3 className="font-cormorant font-light text-2xl text-cream-900 dark:text-cream-100 group-hover:text-primary-500 dark:group-hover:text-primary-400 transition-colors duration-300 flex items-start gap-2">
+                    {project.title}
+                    <ArrowUpRightIcon className="w-4 h-4 mt-1.5 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+                  </h3>
+                </div>
+
+                {/* Description + tags */}
+                <div className="lg:col-span-6 space-y-4">
+                  <p className="text-sm text-cream-700 dark:text-navy-200 leading-relaxed">
                     {project.description}
                   </p>
-
-                  {/* Technologies */}
-                  <div className="pt-2 space-y-3">
-                    <p className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Tech Stack
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="inline-block px-3 py-1 bg-gradient-to-r from-gray-100 to-gray-50 dark:from-slate-700 dark:to-slate-600 text-gray-700 dark:text-gray-200 rounded-full text-xs font-semibold border border-gray-200 dark:border-slate-600 group-hover:border-primary-400 dark:group-hover:border-primary-400 transition-colors"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* CTA */}
-                  <div className="pt-4 border-t border-gray-200 dark:border-slate-700">
-                    <div className="flex items-center gap-2 text-accent-600 dark:text-accent-400 font-semibold group-hover:gap-3 transition-all">
-                      View on GitHub
-                      <CodeBracketSquareIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs font-medium uppercase tracking-wider text-cream-600 dark:text-navy-300 border border-cream-400 dark:border-navy-500 px-2.5 py-1"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
             </a>
           ))}
+          <div className="border-t border-cream-400 dark:border-navy-500" />
         </div>
 
-        {/* GitHub CTA */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex flex-col items-center gap-4 p-8 bg-gradient-to-r from-accent-50 to-warm-50 dark:from-accent-900/20 dark:to-warm-900/20 rounded-lg border border-accent-200 dark:border-accent-800">
-            <p className="text-lg text-gray-700 dark:text-gray-200 font-semibold">
-              Explore more projects on GitHub
-            </p>
-            <a
-              href="https://github.com/Murtsi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-            >
-              <CodeBracketSquareIcon className="w-5 h-5" />
-              Visit GitHub Profile
-            </a>
-          </div>
+        {/* GitHub link */}
+        <div className="mt-12">
+          <a
+            href="https://github.com/Murtsi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-cream-700 dark:text-navy-200 hover:text-primary-500 dark:hover:text-primary-400 transition-colors border-b border-cream-400 dark:border-navy-400 pb-0.5"
+          >
+            All Projects on GitHub
+            <ArrowUpRightIcon className="w-3.5 h-3.5" />
+          </a>
         </div>
       </div>
     </section>
