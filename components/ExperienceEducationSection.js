@@ -1,276 +1,199 @@
 import { useInView } from 'react-intersection-observer';
-import { AcademicCapIcon, BriefcaseIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
+
+const workExperience = [
+  {
+    title: 'Network Specialist — Technical Support',
+    company: 'Leading Fiber Optic Operator',
+    year: '2025 – Present',
+    description: 'Fiber optic network infrastructure support using iMaster, Altiplano (Nokia OSS), Optopro Fiber, and Keycom. Fault detection, analysis, and customer technical resolution.',
+  },
+  {
+    title: 'Production Supervisor',
+    company: 'Olvi Oyj',
+    year: '2023',
+    description: 'Beverage production line supervision, automation system control, process optimization, quality control, and team leadership.',
+  },
+  {
+    title: 'Production Line Operator',
+    company: 'Keitele Timber Oy',
+    year: 'Summer 2022',
+    description: 'PLC-controlled automated line operation, parameter optimization, and fault resolution in high-throughput production environment.',
+  },
+  {
+    title: 'Assembler',
+    company: 'Tikli Group Oy',
+    year: '2018, 2021',
+    description: 'Smoke extraction system assembly, quality assurance, and fire protection installation.',
+  },
+  {
+    title: 'IT Support',
+    company: 'Alajärvi High School',
+    year: '2017 – 2018',
+    description: 'IT infrastructure maintenance, server management, Google Workspace administration, and user support.',
+  },
+];
+
+const education = [
+  {
+    degree: "Bachelor's in Automation Engineering",
+    school: 'SeAMK — Seinäjoki University of Applied Sciences',
+    year: 'Ongoing',
+    status: 'In Progress',
+  },
+  {
+    degree: 'Automation in Wind Power Sector',
+    school: 'Professional Development Course',
+    year: '2024',
+    status: 'Completed',
+  },
+  {
+    degree: 'Leadership Training — Military Police Officer',
+    school: 'Finnish Defence Forces',
+    year: '2019–2020',
+    status: 'Completed',
+  },
+  {
+    degree: 'Vocational Qualification in Business IT',
+    school: 'Järviseutu Vocational Institute',
+    year: '2015–2018',
+    status: 'Completed',
+  },
+];
+
+const languages = [
+  { name: 'Finnish',  level: 'Native',       pct: 100 },
+  { name: 'English',  level: 'Fluent',        pct: 95  },
+  { name: 'German',   level: 'Intermediate',  pct: 60  },
+  { name: 'Estonian', level: 'Intermediate',  pct: 55  },
+];
+
+function TimelineRow({ title, subtitle, year, note, status, delay, inView }) {
+  return (
+    <div
+      className={`border-t border-cream-300 dark:border-navy-500 py-6 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 transition-opacity duration-700 ${
+        inView ? 'opacity-100' : 'opacity-0'
+      }`}
+      style={{ transitionDelay: delay }}
+    >
+      <div className="sm:col-span-8">
+        <p className="text-base font-medium text-cream-900 dark:text-cream-100">{title}</p>
+        <p className="text-xs font-medium uppercase tracking-wider text-primary-500 dark:text-primary-400 mt-1">
+          {subtitle}
+        </p>
+        {note && (
+          <p className="text-sm text-cream-600 dark:text-navy-300 mt-2 leading-relaxed">{note}</p>
+        )}
+      </div>
+      <div className="sm:col-span-4 sm:text-right">
+        <span className="text-xs font-medium text-cream-500 dark:text-navy-300">{year}</span>
+        {status && (
+          <span className={`block mt-1 text-xs font-medium uppercase tracking-wider ${
+            status === 'In Progress'
+              ? 'text-primary-500 dark:text-primary-400'
+              : 'text-cream-500 dark:text-navy-400'
+          }`}>
+            {status}
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function ExperienceEducationSection() {
-  const { ref: workRef, inView: workInView } = useInView({ triggerOnce: true });
-  const { ref: educationRef, inView: educationInView } = useInView({ triggerOnce: true });
-  const { ref: languageRef, inView: languageInView } = useInView({ triggerOnce: true });
-
-  const workExperience = [
-    { 
-      title: "Network Specialist - Technical Support", 
-      company: "Leading Fiber Optic Operator",
-      year: "2025 - Present",
-      description: [
-        "Fiber optic network infrastructure design, deployment, and maintenance",
-        "Utilizing advanced platforms: iMaster, Altiplano (Nokia OSS), Optopro Fiber, and Keycom",
-        "Customer service and technical troubleshooting in fiber network issues",
-        "Fault detection, analysis and rapid resolution"
-      ]
-    },
-    { 
-      title: "Production Supervisor", 
-      company: "Olvi Oyj",
-      year: "2023",
-      description: [
-        "Beverage production line supervision and automation system control",
-        "Process automation management and troubleshooting",
-        "Production equipment adjustment and optimization",
-        "Quality control and team cooperation"
-      ]
-    },
-    { 
-      title: "Production Line Operator", 
-      company: "Keitele Timber Oy",
-      year: "Summer 2022",
-      description: [
-        "Automated production line control and monitoring",
-        "PLC-controlled system adjustment and parameter optimization",
-        "Quick analysis and resolution of fault situations",
-        "Production efficiency monitoring and safety protocol compliance"
-      ]
-    },
-    { 
-      title: "Assembler", 
-      company: "Tikli Group Oy",
-      year: "Summer 2018, 2021",
-      description: [
-        "Smoke extraction system assembly and testing",
-        "Quality assurance and fire protection installation expertise",
-        "Technical documentation interpretation and compliance"
-      ]
-    },
-    { 
-      title: "IT Support", 
-      company: "Alajärvi High School",
-      year: "2017 - 2018",
-      description: [
-        "IT infrastructure maintenance and technical support",
-        "Server management and Google Workspace administration",
-        "Network environment maintenance and user support",
-        "Digital content production and technical problem-solving"
-      ]
-    }
-  ];
-
-  const education = [
-    {
-      degree: "Bachelor's Degree in Automation Engineering",
-      school: "Seinäjoki University of Applied Sciences (SeAMK)",
-      year: "Ongoing",
-      status: "In Progress",
-      details: [
-        "Comprehensive program combining mechanical design, electrical engineering, and industrial automation",
-        "Specialization in Mechanical/Electrical Automation with focus on PLC programming and SCADA systems",
-        "Advanced skills: CAD design, Codesys V3.5 Sp17, Eplan electrical design, Cognex machine vision, Visual Components production simulation",
-        "Core competencies: control circuits, programmable logic controllers, process automation, industrial robotics, automation engineering principles",
-        "Hands-on experience in modern automation laboratories with industry-standard equipment and real-world automation projects"
-      ]
-    },
-    {
-      degree: "Automation in Wind Power Sector",
-      school: "Professional Development Course",
-      year: "2024",
-      status: "Completed"
-    },
-    {
-      degree: "Leadership Training",
-      school: "Military Police Officer Programme",
-      year: "2019-2020",
-      status: "Completed"
-    },
-    {
-      degree: "Vocational Qualification in Business Information Technology",
-      school: "Järviseutu Vocational Institute",
-      year: "2015-2018",
-      status: "Completed"
-    }
-  ];
-
-  const languages = [
-    { flag: "🇬🇧", name: "English", level: "Fluent", proficiency: 95 },
-    { flag: "🇫🇮", name: "Finnish", level: "Native", proficiency: 100 },
-    { flag: "🇩🇪", name: "German", level: "Intermediate", proficiency: 60 },
-    { flag: "🇪🇪", name: "Estonian", level: "Intermediate", proficiency: 55 }
-  ];
+  const { ref: workRef,  inView: workInView  } = useInView({ triggerOnce: true, threshold: 0.05 });
+  const { ref: eduRef,   inView: eduInView   } = useInView({ triggerOnce: true, threshold: 0.05 });
+  const { ref: langRef,  inView: langInView  } = useInView({ triggerOnce: true, threshold: 0.05 });
 
   return (
-    <section id="portfolio" className="py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900">
-      <div className="max-w-6xl mx-auto">
-        {/* Section title */}
-        <div className="mb-20">
-          <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Experience & Education
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
-            Professional experience and educational background shaping my technical expertise
+    <section id="portfolio" className="py-28 px-6 lg:px-8 relative overflow-hidden">
+      <span className="section-number absolute -left-4 top-16 select-none pointer-events-none hidden lg:block">
+        04
+      </span>
+
+      <div className="max-w-5xl mx-auto space-y-24">
+
+        {/* Work History */}
+        <div ref={workRef}>
+          <p className="text-xs font-medium uppercase tracking-widest text-primary-500 dark:text-primary-400 mb-4">
+            Experience
           </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Work Experience */}
-          <div
-            ref={workRef}
-            className={`space-y-6 ${workInView ? 'animate-fade-in' : 'opacity-0'}`}
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center text-white shadow-sm">
-                <BriefcaseIcon className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Work Experience
-              </h3>
-            </div>
-
-            <div className="space-y-4 relative">
-              {/* Timeline line */}
-              <div className="absolute left-[7px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-primary-600 to-transparent dark:from-primary-500 dark:to-transparent hidden md:block" />
-
-              {workExperience.map((job, index) => (
-                <div
-                  key={index}
-                  className="group relative pl-0 md:pl-8"
-                >
-                  {/* Timeline dot */}
-                  <div className="hidden md:block absolute left-0 top-6 w-4 h-4 rounded-full bg-primary-600 dark:bg-primary-500 border-4 border-white dark:border-slate-900 shadow-sm z-10 group-hover:scale-125 transition-transform" />
-
-                  <div className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-primary-600 dark:hover:border-primary-500 shadow-sm hover:shadow-md transition-all duration-300">
-                    <div className="flex justify-between items-start gap-3">
-                      <div className="flex-1">
-                        <p className="font-bold text-gray-900 dark:text-gray-100 text-lg">
-                          {job.title}
-                        </p>
-                        <p className="text-sm text-primary-700 dark:text-primary-300 font-semibold mt-1">
-                          {job.company}
-                        </p>
-                        <ul className="mt-3 space-y-1.5">
-                          {job.description.map((item, i) => (
-                            <li key={i} className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex items-start">
-                              <span className="text-primary-600 mr-2 mt-0.5 flex-shrink-0">•</span>
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <span className="text-xs font-semibold text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/30 px-3 py-1 rounded whitespace-nowrap">
-                        {job.year}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Education */}
-          <div
-            ref={educationRef}
-            className={`space-y-6 ${educationInView ? 'animate-fade-in' : 'opacity-0'}`}
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-lg flex items-center justify-center text-white shadow-sm">
-                <AcademicCapIcon className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Education
-              </h3>
-            </div>
-
-            <div className="space-y-4 relative">
-              {/* Timeline line */}
-              <div className="absolute left-[7px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-accent-600 to-transparent dark:from-accent-500 dark:to-transparent hidden md:block" />
-
-              {education.map((edu, index) => (
-                <div
-                  key={index}
-                  className="group relative pl-0 md:pl-8"
-                >
-                  {/* Timeline dot */}
-                  <div className="hidden md:block absolute left-0 top-6 w-4 h-4 rounded-full bg-accent-600 dark:bg-accent-500 border-4 border-white dark:border-slate-900 shadow-sm z-10 group-hover:scale-125 transition-transform" />
-
-                  <div className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-accent-600 dark:hover:border-accent-500 shadow-sm hover:shadow-md transition-all duration-300 group hover:scale-105 transform">
-                    <div className="flex justify-between items-start gap-3">
-                      <div className="flex-1">
-                        <p className="font-bold text-gray-900 dark:text-gray-100 text-lg group-hover:text-accent-600 dark:group-hover:text-accent-300 transition-colors">
-                          {edu.degree}
-                        </p>
-                        <p className="text-sm text-accent-700 dark:text-accent-300 font-semibold mt-1">
-                          {edu.school}
-                        </p>
-                        {edu.details && (
-                          <ul className="mt-3 space-y-1.5 text-sm">
-                            {edu.details.map((detail, i) => (
-                              <li key={i} className="text-gray-600 dark:text-gray-400 leading-relaxed flex items-start">
-                                <span className="text-accent-600 mr-2 mt-0.5 flex-shrink-0">•</span>
-                                <span>{detail}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                        <div className="flex items-center gap-2 mt-3">
-                          <span className={`text-xs font-semibold px-3 py-1 rounded ${edu.status === 'In Progress' ? 'bg-accent-100 dark:bg-accent-900/40 text-accent-700 dark:text-accent-300' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'}`}>
-                            {edu.status}
-                          </span>
-                        </div>
-                      </div>
-                      <span className="text-xs font-semibold text-accent-700 dark:text-accent-300 bg-accent-100 dark:bg-accent-900/30 px-3 py-1 rounded whitespace-nowrap">
-                        {edu.year}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <h2 className="font-cormorant font-light text-5xl text-cream-900 dark:text-cream-100 mb-12">
+            Work History
+          </h2>
+          <div>
+            {workExperience.map((job, i) => (
+              <TimelineRow
+                key={i}
+                title={job.title}
+                subtitle={job.company}
+                note={job.description}
+                year={job.year}
+                delay={`${i * 60}ms`}
+                inView={workInView}
+              />
+            ))}
+            <div className="border-t border-cream-300 dark:border-navy-500" />
           </div>
         </div>
 
-        {/* Languages Section */}
-        <div
-          ref={languageRef}
-          className={`mt-16 ${languageInView ? 'animate-fade-in' : 'opacity-0'}`}
-        >
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-12 bg-gradient-to-br from-warm-500 to-warm-600 rounded-lg flex items-center justify-center text-white shadow-sm">
-              <GlobeAltIcon className="w-6 h-6" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Language Skills
-            </h3>
+        {/* Education */}
+        <div ref={eduRef}>
+          <p className="text-xs font-medium uppercase tracking-widest text-primary-500 dark:text-primary-400 mb-4">
+            Education
+          </p>
+          <h2 className="font-cormorant font-light text-5xl text-cream-900 dark:text-cream-100 mb-12">
+            Academic Background
+          </h2>
+          <div>
+            {education.map((edu, i) => (
+              <TimelineRow
+                key={i}
+                title={edu.degree}
+                subtitle={edu.school}
+                year={edu.year}
+                status={edu.status}
+                delay={`${i * 60}ms`}
+                inView={eduInView}
+              />
+            ))}
+            <div className="border-t border-cream-300 dark:border-navy-500" />
           </div>
+        </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {languages.map((lang, index) => (
+        {/* Languages */}
+        <div ref={langRef}>
+          <p className="text-xs font-medium uppercase tracking-widest text-primary-500 dark:text-primary-400 mb-4">
+            Languages
+          </p>
+          <h2 className="font-cormorant font-light text-5xl text-cream-900 dark:text-cream-100 mb-12">
+            Communication
+          </h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {languages.map((lang, i) => (
               <div
-                key={index}
-                className="group p-6 bg-white dark:bg-slate-800 rounded-lg border-2 border-warm-100 dark:border-warm-900/30 hover:border-warm-400 dark:hover:border-warm-600 shadow-sm hover:shadow-md transition-all duration-300 text-center bg-gradient-to-b from-white via-white to-warm-50 dark:from-slate-800 dark:via-slate-800 dark:to-slate-800"
+                key={i}
+                className={`transition-opacity duration-700 ${langInView ? 'opacity-100' : 'opacity-0'}`}
+                style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <span className="text-4xl block mb-3 group-hover:scale-110 transition-transform">{lang.flag}</span>
-                <p className="font-bold text-gray-900 dark:text-gray-100 text-lg">
+                <p className="font-cormorant font-light text-3xl text-cream-900 dark:text-cream-100 mb-1">
                   {lang.name}
                 </p>
-                <p className="text-sm text-warm-700 dark:text-warm-300 font-semibold mt-1 mb-3">
+                <p className="text-xs font-medium uppercase tracking-widest text-cream-600 dark:text-navy-300 mb-3">
                   {lang.level}
                 </p>
-                <div className="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
+                {/* Thin animated progress line */}
+                <div className="w-full h-px bg-cream-300 dark:bg-navy-500 relative">
                   <div
-                    className="bg-gradient-to-r from-warm-500 to-warm-600 h-2 rounded-full transition-all duration-500"
-                    style={{ width: `${lang.proficiency}%` }}
+                    className="absolute left-0 top-0 h-px bg-primary-500 dark:bg-primary-400 transition-all duration-1000"
+                    style={{ width: langInView ? `${lang.pct}%` : '0%' }}
                   />
                 </div>
               </div>
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );
