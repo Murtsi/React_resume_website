@@ -8,10 +8,10 @@ const workExperience = [
     description: 'Fiber optic network infrastructure support using iMaster, Altiplano (Nokia OSS), Optopro Fiber, and Keycom. Fault detection, analysis, and customer technical resolution.',
   },
   {
-    title: 'Production Supervisor',
+    title: 'Production Operator',
     company: 'Olvi Oyj',
     year: '2023',
-    description: 'Beverage production line supervision, automation system control, process optimization, quality control, and team leadership.',
+    description: 'Beverage production line operation, monitoring automation systems, process parameter control, and troubleshooting routine production issues.',
   },
   {
     title: 'Production Line Operator',

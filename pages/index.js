@@ -10,7 +10,7 @@ import ContactSection from "../components/ContactSection";
 import { translations } from "../utils/translations";
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
   useEffect(() => {
