@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Navigation from "../components/Navigation";
 import HeroSection from "../components/HeroSection";
 import QuickStatsSection from "../components/QuickStatsSection";
-import WhatICanOfferSection from "../components/WhatICanOfferSection";
 import OffersSection from "../components/OffersSection";
 import GitHubProjectsSection from "../components/GitHubProjectsSection";
 import ExperienceEducationSection from "../components/ExperienceEducationSection";
@@ -90,7 +89,6 @@ export default function Home() {
         <main>
           <HeroSection t={t} />
           <QuickStatsSection />
-          <WhatICanOfferSection t={t} />
           <OffersSection t={t} />
           <GitHubProjectsSection />
           <ExperienceEducationSection t={t} />
