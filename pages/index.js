@@ -10,7 +10,7 @@ import ContactSection from "../components/ContactSection";
 import { translations } from "../utils/translations";
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
   useEffect(() => {
@@ -20,8 +20,10 @@ export default function Home() {
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
+      document.body.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
+      document.body.classList.remove('dark');
     }
   }, [darkMode]);
 
@@ -83,7 +85,7 @@ export default function Home() {
         />
       </Head>
 
-      <div className="bg-white dark:bg-slate-900">
+      <div className="min-h-screen bg-cream-100 dark:bg-navy-700 text-cream-900 dark:text-cream-100">
         <Navigation darkMode={darkMode} setDarkMode={setDarkMode} />
         
         <main>
