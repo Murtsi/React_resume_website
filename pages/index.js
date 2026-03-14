@@ -89,7 +89,7 @@ export default function Home() {
         <Navigation darkMode={darkMode} setDarkMode={setDarkMode} />
         
         <main>
-          <HeroSection t={t} />
+          <HeroSection t={t} darkMode={darkMode} />
           <QuickStatsSection />
           <OffersSection t={t} />
           <GitHubProjectsSection />

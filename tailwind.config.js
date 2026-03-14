@@ -103,11 +103,17 @@ module.exports = {
         '2xl': '12px',
       },
       animation: {
-        'fade-in':    'fadeIn 0.9s ease-out both',
-        'slide-up':   'slideUp 0.7s ease-out both',
-        'reveal':     'reveal 0.8s cubic-bezier(0.16,1,0.3,1) both',
-        'float':      'float 4s ease-in-out infinite',
+        'fade-in':        'fadeIn 0.9s ease-out both',
+        'slide-up':       'slideUp 0.7s ease-out both',
+        'reveal':         'reveal 0.8s cubic-bezier(0.16,1,0.3,1) both',
+        'float':          'float 4s ease-in-out infinite',
         'underline-grow': 'underlineGrow 0.3s ease-out both',
+        'shimmer':        'shimmer 2s linear infinite',
+        'pulse-glow':     'pulseGlow 2.8s ease-in-out infinite',
+        'gradient-shift': 'gradientShift 5s ease infinite',
+        'orb-float':      'orbFloat 9s ease-in-out infinite',
+        'orb-float-slow': 'orbFloat 14s ease-in-out infinite',
+        'scan-line':      'scanLine 3s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -129,6 +135,30 @@ module.exports = {
         underlineGrow: {
           '0%':   { transform: 'scaleX(0)' },
           '100%': { transform: 'scaleX(1)' },
+        },
+        shimmer: {
+          '0%':   { backgroundPosition: '-200% center' },
+          '100%': { backgroundPosition:  '200% center' },
+        },
+        pulseGlow: {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(196, 103, 74, 0)' },
+          '50%':      { boxShadow: '0 0 18px 4px rgba(196, 103, 74, 0.35)' },
+        },
+        gradientShift: {
+          '0%':   { backgroundPosition: '0% 50%' },
+          '50%':  { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+        orbFloat: {
+          '0%, 100%': { transform: 'translateY(0) translateX(0) scale(1)' },
+          '33%':      { transform: 'translateY(-30px) translateX(15px) scale(1.05)' },
+          '66%':      { transform: 'translateY(15px) translateX(-20px) scale(0.97)' },
+        },
+        scanLine: {
+          '0%':   { top: '-2px', opacity: '0' },
+          '10%':  { opacity: '1' },
+          '90%':  { opacity: '1' },
+          '100%': { top: '100%', opacity: '0' },
         },
       },
     },

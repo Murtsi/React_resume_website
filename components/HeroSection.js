@@ -1,6 +1,7 @@
-import { EnvelopeIcon, LinkIcon, CodeBracketSquareIcon } from '@heroicons/react/24/outline';
+import { EnvelopeIcon, LinkIcon, CodeBracketSquareIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
+import AnimatedBackground from './AnimatedBackground';
 
-export default function HeroSection({ t }) {
+export default function HeroSection({ t, darkMode }) {
   const socialLinks = [
     { href: "mailto:antti.murtsi@gmail.com",                           icon: EnvelopeIcon,          label: "Email",    ariaLabel: "Send email to Antti" },
     { href: "https://www.linkedin.com/in/antti-murtokangas-562725158/", icon: LinkIcon,              label: "LinkedIn", ariaLabel: "Visit LinkedIn profile" },
@@ -9,18 +10,37 @@ export default function HeroSection({ t }) {
 
   return (
     <section className="min-h-screen flex flex-col justify-center px-6 lg:px-8 pt-24 pb-20 relative overflow-hidden">
-      {/* Faint section watermark */}
+
+      {/* ── Particle constellation background ── */}
+      <AnimatedBackground className="absolute inset-0 w-full h-full" />
+
+      {/* ── Ambient glow orbs ── */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full
+                   bg-primary-500/10 dark:bg-primary-600/8 blur-3xl animate-orb-float"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 -left-24 w-80 h-80 rounded-full
+                   bg-navy-400/8 dark:bg-navy-300/5 blur-3xl animate-orb-float-slow"
+        style={{ animationDelay: '4s' }}
+      />
+
+      {/* ── Faint section watermark ── */}
       <span className="section-number absolute right-6 top-1/2 -translate-y-1/2 select-none pointer-events-none hidden lg:block">
         01
       </span>
 
-      <div className="max-w-5xl mx-auto w-full">
+      {/* ── Content (sits above canvas via z-10) ── */}
+      <div className="max-w-5xl mx-auto w-full relative z-10">
+
         {/* Label */}
         <p className="text-xs font-medium uppercase tracking-widest text-primary-500 dark:text-primary-400 mb-8 animate-fade-in">
           Portfolio — 2026
         </p>
 
-        {/* Name — large, light weight Cormorant */}
+        {/* Name */}
         <div className="overflow-hidden mb-6">
           <h1
             className="font-cormorant font-light text-7xl lg:text-8xl text-cream-900 dark:text-cream-100 leading-none animate-reveal"
@@ -30,13 +50,16 @@ export default function HeroSection({ t }) {
           </h1>
         </div>
 
-        {/* Thin rule */}
+        {/* Gradient thin rule */}
         <div
-          className="nordic-divider mb-8 animate-fade-in"
-          style={{ animationDelay: '0.25s' }}
+          className="mb-8 h-px w-full animate-fade-in"
+          style={{
+            animationDelay: '0.25s',
+            background: 'linear-gradient(90deg, #c4674a 0%, transparent 70%)',
+          }}
         />
 
-        {/* Role + description — split layout on desktop */}
+        {/* Role + description */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-14">
           <div className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
             <p className="text-xl font-light text-cream-900 dark:text-cream-100 leading-snug">
@@ -50,7 +73,7 @@ export default function HeroSection({ t }) {
           </div>
         </div>
 
-        {/* CTAs + social — horizontal row */}
+        {/* CTAs + social */}
         <div
           className="flex flex-wrap items-center gap-6 animate-slide-up"
           style={{ animationDelay: '0.5s' }}
@@ -61,7 +84,7 @@ export default function HeroSection({ t }) {
               e.preventDefault();
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="inline-flex items-center gap-2 px-7 py-3 bg-primary-500 hover:bg-primary-600 dark:bg-primary-500 dark:hover:bg-primary-400 text-white text-sm font-medium tracking-wide transition-colors duration-200"
+            className="btn-glow inline-flex items-center gap-2 px-7 py-3 bg-primary-500 hover:bg-primary-600 dark:bg-primary-500 dark:hover:bg-primary-400 text-white text-sm font-medium tracking-wide transition-colors duration-200"
           >
             Get In Touch
           </a>
@@ -98,6 +121,18 @@ export default function HeroSection({ t }) {
             })}
           </div>
         </div>
+      </div>
+
+      {/* ── Scroll indicator ── */}
+      <div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-fade-in"
+        style={{ animationDelay: '1.2s' }}
+        aria-hidden="true"
+      >
+        <span className="text-xs font-medium uppercase tracking-widest text-cream-400 dark:text-navy-400">
+          Scroll
+        </span>
+        <ChevronDownIcon className="w-4 h-4 text-cream-400 dark:text-navy-400 animate-bounce" />
       </div>
     </section>
   );

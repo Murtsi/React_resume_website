@@ -67,6 +67,35 @@ h4, h5, h6 {
   50%       { transform: translateY(-8px); }
 }
 
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 103, 74, 0); }
+  50%       { box-shadow: 0 0 18px 4px rgba(196, 103, 74, 0.35); }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0)   translateX(0)   scale(1); }
+  33%       { transform: translateY(-30px) translateX(15px) scale(1.05); }
+  66%       { transform: translateY(15px) translateX(-20px) scale(0.97); }
+}
+
+@keyframes scanLine {
+  0%   { top: -2px; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar       { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -119,4 +148,48 @@ button { cursor: pointer; }
 
 .dark .nordic-divider {
   background: #1E3347;
+}
+
+/* Shimmer tag — subtle iridescent sweep on hover */
+.tag-shimmer {
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.tag-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(196, 103, 74, 0.18) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.tag-shimmer:hover::after {
+  transform: scaleX(1);
+}
+
+/* CTA button glow — applied to primary buttons */
+.btn-glow {
+  animation: pulseGlow 2.8s ease-in-out infinite;
+}
+
+/* Preview image reveal */
+.preview-reveal {
+  opacity: 0;
+  transform: translateY(6px) scale(0.97);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+.group:hover .preview-reveal,
+.preview-trigger:hover .preview-reveal {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
 }
