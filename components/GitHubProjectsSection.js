@@ -59,11 +59,6 @@ function ProjectPreview({ project, show }) {
       `}
       style={{ minHeight: '120px' }}
     >
-      {/* Scan-line animation overlay */}
-      <div
-        aria-hidden="true"
-        className={`absolute left-0 right-0 h-px bg-primary-400/40 z-10 animate-scan-line pointer-events-none ${show ? '' : 'hidden'}`}
-      />
 
       {imgFailed ? (
         <a
