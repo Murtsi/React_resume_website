@@ -1,76 +1,124 @@
-# CLAUDE.md — Portfolio Context
+# CLAUDE.md — Portfolio Site Rules
+# Last updated: 2026-03-19
+# DO NOT IGNORE THIS FILE. Read it fully before touching any code.
 
-## Project
-Antti Murtokangas personal portfolio/resume website.
-- **Live**: https://www.anttimurtokangas.com
-- **Deploy**: Vercel (auto-deploy from `main`)
+## WHO THIS SITE IS FOR
+Antti Murtokangas
+- Automation Engineering student @ SEAMK
+- Fiber optic technician & technical support (day job)
+- ML/AI + backend developer (personal projects)
+- NOT a frontend developer. Frontend is a supporting skill only.
 
-## Stack
-- **Framework**: Next.js 15 (Pages Router, not App Router)
-- **UI**: Tailwind CSS 3.4 with custom design tokens
-- **Language**: JavaScript (no TypeScript despite `typescript` in devDeps — files are `.js`)
-- **Animations**: Tailwind custom keyframes + `react-intersection-observer` for scroll triggers
-- **Icons**: `@heroicons/react` (24/outline) — do NOT use `react-icons`
-- **Analytics**: `@vercel/analytics` + `@vercel/speed-insights` in `_app.js`
-- **Testing**: Jest + Testing Library
+## MCP TOOL USAGE — MANDATORY
+Every time you make changes to this project, you MUST:
+1. Use `context7` to check for latest Next.js 15 / Tailwind v4 patterns FIRST
+2. Use `ui-ux-pro-max` for any design system or spacing decisions
+3. Use `frontend-design` for any layout or responsive grid changes
+4. Use `magic` for complex components (cards, timeline, skill matrix)
+Never write from memory. Always pull live docs via context7.
 
-## Architecture
-```
-pages/
-  index.js          — single-page app, all sections rendered here
-  _app.js           — analytics, global styles
-  _document.js      — HTML shell, Google Fonts
-components/         — one file per section, all receive `t` (translations) prop
-utils/translations.js — all copy/text in English, keyed as `translations['en']`
-styles/globals.css  — Tailwind + 11 custom keyframe animations
-public/             — static assets (CVs, images, fonts)
-```
+## DESIGN SYSTEM — DO NOT CHANGE THESE VALUES
+```css
+--bg-canvas:    #0D1117;
+--bg-surface:   #161B22;
+--border:       #21262D;
+--text-primary: #E6EDF3;
+--text-muted:   #8B949E;
+--accent-green: #3FB950;
+--accent-blue:  #58A6FF;
+--accent-amber: #D29922;
+--accent-purple:#BC8CFF;
+Fonts: JetBrains Mono (headings/labels/code), Inter (body only)
+NO serif fonts. NO display fonts. Ever.
 
-## Design Tokens (tailwind.config.js)
-- **Primary**: warm orange/brown (`primary-600` = `#e8825f`)
-- **Accent**: cool blue (`accent-500` = `#6fc7ff`)
-- **Warm**: vibrant orange (`warm-500` = `#ff7e1a`)
-- **Dark mode**: class-based via `document.documentElement.classList`
-- **Custom fonts**: `font-burtons` (display), `font-poppins` (headings), `font-sans` (Inter body)
+BANNED PATTERNS — NEVER REINTRODUCE THESE
+If you find any of these in the codebase, remove them immediately:
 
-## Active Components (rendered in index.js)
-1. `Navigation` — sticky nav, dark mode toggle, mobile hamburger
-2. `HeroSection` — hero with badges, tech stack, CTAs, social links
-3. `QuickStatsSection` — animated counters (3 stats)
-4. `WhatICanOfferSection` — competency cards + attributes (id: "offers")
-5. `OffersSection` — technical expertise with 4 cards (id: "about")
-6. `GitHubProjectsSection` — 3 featured projects (id: "projects")
-7. `ExperienceEducationSection` — work + education timelines (id: "portfolio")
-8. `ContactSection` — contact methods + footer (id: "contact")
+ Numbered section labels (01, 02, 03...)
 
-## Unused Components (do not use)
-- `TestimonialsSection.js` — not rendered, has static testimonial content
-- `SkillCard.js` — only used in unit test, no real usage
+ Animated counting stats
 
-## Key Conventions
-- Dark mode default: `useState(true)` in index.js
-- Scroll navigation: `document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })`
-- All external links: `target="_blank" rel="noopener noreferrer"`
-- Section IDs: `about`, `projects`, `portfolio`, `contact` (nav targets)
-- Animations: `animate-fade-in`, `animate-slide-up` Tailwind classes; delayed via inline `style={{ animationDelay }}`
+ "Let's Work Together" or any variation
 
-## SEO / Meta
-- Canonical: `https://www.anttimurtokangas.com`
-- OG image: `/omakuva.jpg` (800x800 profile photo)
-- JSON-LD: Person schema in index.js `<Head>`
-- `public/robots.txt` and `public/sitemap.xml` present
+ "What I Bring" or "I'm always looking for opportunities"
 
-## Performance Notes
-- `background.jpg` (3.7MB) is in public/ but NOT used anywhere — safe to delete
-- Font weights trimmed to Inter 400/500/600/700 + Poppins 600/700/800
-- No `next/image` currently used — consider for `omakuva.jpg` if added to UI
+ Serif or display fonts
 
-## Removed Dependencies
-- `firebase` — was imported but never used
-- `react-icons` — was imported but never used (use `@heroicons/react` instead)
-- After editing package.json, run: `npm install` to sync node_modules
+ Gradient blobs / particle canvas / glassmorphism
 
-## Test Status
-- `__tests__/Navigation.test.js` — tests `About`, `Projects`, `Experience`, `Contact` nav links
-- `__tests__/SkillCard.test.js` — tests unused SkillCard component
-- Run tests: `npm test`
+ Skill pill/badge tags
+
+ Dark navy + orange/terracotta color palette
+
+ Centered hero with photo + social icon row
+
+ Framer Motion, GSAP, or scroll-triggered animations
+
+ Ghost/watermark section numbers in the background
+
+COMPONENT RULES
+Project cards = terminal windows (3-dot title bar, monospace filename, dark surface)
+
+Experience = git log format (commit hash, date, role, tools on next line)
+
+Skills = const skills = {} code block with syntax highlighting colors
+
+Section headers = code comments (// or /* */ style) in accent-green
+
+CTA = terminal command style (> ./command) NOT a rounded button
+
+CONTENT HIERARCHY (most → least visual weight)
+ML/AI projects
+
+Fiber optic / tech support experience
+
+Automation engineering studies
+
+Backend skills
+
+Frontend skills (last — supporting role only)
+
+COPY RULES
+Write like a technical spec, not a marketing page
+
+No motivational fluff, no agency-speak
+
+Every sentence must be specific and factual
+
+If unsure what to write, leave a TODO comment — do NOT generate filler copy
+
+ANIMATION RULES
+CSS only. Allowed:
+
+Blinking cursor █ in hero
+
+Single border-trace on card :hover
+
+Smooth scroll
+Nothing else. No entrance animations. No JS-driven motion.
+
+TECH STACK
+Next.js 15 (App Router)
+
+Tailwind CSS v4
+
+TypeScript strict mode
+
+next/font for Google Fonts (JetBrains Mono + Inter)
+
+next/image for all images
+
+NO animation libraries
+
+NO canvas/WebGL backgrounds
+
+WHEN IN DOUBT
+Choose the MORE minimal and technical option.
+Ask: "Does this look like it came from an AI portfolio template?"
+If yes → remove it.
+
+text
+
+***
+
+The `CLAUDE.md` is the key part most people skip — without it, Claude forgets your rules the moment you start a new conversation and falls back to defaults. With this file in the repo root, it gets picked up automatically in every Claude Code session.
