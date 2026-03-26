@@ -10,7 +10,7 @@ const projects = [
     description: 'A terminal-based penetration testing framework that covers the full attack surface — from port scanning and service fingerprinting to injection, authentication, and credential discovery. What sets it apart is a self-learning engine that adapts across engagements, suppressing false positives and shifting payload priority based on what has actually worked before.',
     technologies: ['Python', 'Nmap', 'SQLite', 'OWASP'],
     link: '',
-    liveUrl: '/ghost-pentest-demo.png', // Local image in public/
+    liveUrl: '/pentest-tool.png', // Local image in public/
   },
   {
     index: '02',
@@ -47,8 +47,29 @@ function screenshotUrl(siteUrl) {
 }
 
 function ProjectPreview({ project, show }) {
+  // Always show the image for the pentesting tool, not clickable, no hover effect
   const [imgFailed, setImgFailed] = useState(false);
 
+  // Special handling for pentesting tool (not public)
+  if (project.title === 'Pentesting tool (Not public)') {
+    return (
+      <div
+        className={`hidden lg:block lg:col-span-3 relative overflow-hidden rounded-sm border border-cream-300 dark:border-navy-500 transition-all duration-500 ease-out ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}`}
+        style={{ minHeight: '120px' }}
+      >
+        <img
+          src={project.liveUrl}
+          alt="Pentesting tool screenshot"
+          className="w-full h-full object-cover object-top"
+          style={{ display: 'block', aspectRatio: '16/9' }}
+          onError={() => setImgFailed(true)}
+          loading="lazy"
+        />
+      </div>
+    );
+  }
+
+  // Default: show screenshot preview for other projects
   return (
     <div
       className={`
@@ -59,7 +80,6 @@ function ProjectPreview({ project, show }) {
       `}
       style={{ minHeight: '120px' }}
     >
-
       {imgFailed ? (
         <a
           href={project.liveUrl}
@@ -147,8 +167,8 @@ export default function GitHubProjectsSection() {
                     <ArrowUpRightIcon className="w-4 h-4 mt-1.5 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                   </h3>
 
-                  {/* Live site link (below title) */}
-                  {project.liveUrl && (
+                  {/* Live site link (below title) — only for public projects */}
+                  {project.liveUrl && project.title !== 'Pentesting tool (Not public)' && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
