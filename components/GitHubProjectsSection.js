@@ -5,17 +5,17 @@ import { ArrowUpRightIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 const projects = [
   {
     index: '01',
-    title: 'API Scanner',
-    year: '2024',
-    description: 'Client-side web security auditing tool. Detects 49+ secret patterns (AWS keys, JWTs, tokens), analyzes headers, and performs active security testing including SQL injection, XSS, and path traversal — all without external data transmission.',
-    technologies: ['React', 'TypeScript', 'Vite', 'Security'],
-    link: 'https://github.com/Murtsi/API-Scanner',
-    liveUrl: 'https://api-scanner-eta.vercel.app/',
+    title: 'Pentesting tool (Not public)',
+    year: '2026',
+    description: 'A terminal-based penetration testing framework that covers the full attack surface — from port scanning and service fingerprinting to injection, authentication, and credential discovery. What sets it apart is a self-learning engine that adapts across engagements, suppressing false positives and shifting payload priority based on what has actually worked before.',
+    technologies: ['Python', 'Nmap', 'SQLite', 'OWASP'],
+    link: '',
+    liveUrl: '/ghost-pentest-demo.png', // Local image in public/
   },
   {
     index: '02',
     title: 'Kidehiiri — Automated Ticket Buyer',
-    year: '2024',
+    year: '2026',
     description: 'Intelligent ticket acquisition for Kide.app events. Monitors availability in real-time, auto-reserves with fallback modes. ML-powered event scoring using heuristics and Random Forest classification (BUY / MAYBE / SKIP).',
     technologies: ['React', 'TypeScript', 'Node.js', 'Python', 'ML'],
     link: 'https://github.com/Murtsi/Kidehiiri-public',
