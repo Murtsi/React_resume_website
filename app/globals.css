@@ -1,0 +1,298 @@
+@import "tailwindcss";
+
+/* ── Theme custom properties ── */
+:root,
+[data-theme="dark"] {
+  --bg-canvas: #0D1117;
+  --bg-surface: #161B22;
+  --bg-elevated: #1C2128;
+  --border: #21262D;
+  /* Section surface overlays — semi-transparent so PixelSnow breathes through */
+  --section-bg: rgba(13, 17, 23, 0.91);
+  --hero-bg: rgba(13, 17, 23, 0.54);
+  --text-primary: #E6EDF3;
+  --text-secondary: #C9D1D9;
+  --text-muted: #8B949E;
+  --accent-green: #3FB950;
+  --accent-green-dim: rgba(63, 185, 80, 0.12);
+  --accent-blue: #58A6FF;
+  --accent-blue-dim: rgba(88, 166, 255, 0.12);
+  --accent-amber: #D29922;
+  --accent-purple: #BC8CFF;
+  --accent-purple-dim: rgba(188, 140, 255, 0.12);
+  --glow-green: 0 0 20px rgba(63, 185, 80, 0.1), 0 0 40px rgba(63, 185, 80, 0.04);
+  --shadow-card: 0 1px 3px rgba(0,0,0,.4), 0 4px 16px rgba(0,0,0,.3);
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+[data-theme="light"] {
+  --bg-canvas: #F6F8FA;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #F0F2F5;
+  --border: #D0D7DE;
+  --section-bg: rgba(246, 248, 250, 0.93);
+  --hero-bg: rgba(246, 248, 250, 0.6);
+  --text-primary: #1F2328;
+  --text-secondary: #424A53;
+  --text-muted: #636C76;
+  --accent-green: #1A7F37;
+  --accent-green-dim: rgba(26, 127, 55, 0.08);
+  --accent-blue: #0969DA;
+  --accent-blue-dim: rgba(9, 105, 218, 0.08);
+  --accent-amber: #9A6700;
+  --accent-purple: #8250DF;
+  --accent-purple-dim: rgba(130, 80, 223, 0.08);
+  --glow-green: 0 0 16px rgba(26, 127, 55, 0.06);
+  --shadow-card: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.05);
+}
+
+/* ── CSS property for conic gradient ── */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin-border {
+  to { --angle: 360deg; }
+}
+
+/* ── Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Z-index stack ──
+   Layer 0: PixelSnow (fixed, below all content)
+   Layer 1: main content sections (semi-transparent over the background)
+   Layer 50: nav (floating above content)
+  Layer 200: modal
+── */
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* All content sections: semi-transparent surface so PixelSnow shows faintly */
+main > section {
+  position: relative;
+  z-index: 1;
+  background: var(--section-bg);
+}
+
+/* Hero gets a lighter surface — more of the background visible */
+main > section#hero {
+  background: var(--hero-bg);
+}
+
+::selection {
+  background-color: var(--accent-green-dim);
+  color: var(--text-primary);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-canvas); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ── Keyframes ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Blinking cursor ── */
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+  color: var(--accent-green);
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background-color: var(--accent-green);
+  color: #0D1117;
+  border-color: var(--accent-green);
+  font-weight: 600;
+}
+.btn-primary:hover {
+  opacity: 0.88;
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  background-color: var(--bg-elevated);
+}
+
+/* ── Project card ── */
+.project-card {
+  position: relative;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -110%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.project-card:hover {
+  border-color: rgba(63, 185, 80, 0.3);
+  box-shadow: var(--glow-green), 0 8px 32px rgba(0,0,0,.2);
+  transform: translateY(-3px);
+}
+
+.project-card:hover::before {
+  left: 150%;
+}
+
+/* ── Link hover ── */
+.link-hover {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.link-hover:hover { color: var(--text-primary); }
+
+/* ── Contact card ── */
+.contact-card {
+  display: block;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.25rem;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.contact-card:hover {
+  border-color: var(--accent-green);
+  box-shadow: var(--glow-green);
+  transform: translateY(-1px);
+}
+
+/* ── Timeline ── */
+.timeline-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-green);
+  box-shadow: 0 0 8px rgba(63, 185, 80, 0.6);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* ── Modal ── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(6px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-panel {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 64px rgba(0,0,0,.55);
+}
+
+/* ── Tech bar ── */
+.tech-bar-track {
+  height: 4px;
+  background-color: var(--bg-elevated);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.tech-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Section divider ── */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+}
