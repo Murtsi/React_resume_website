@@ -69,7 +69,7 @@ export default function Contact() {
             marginBottom: '0.875rem',
           }}
         >
-          // contact
+          {`// contact`}
         </h2>
         <p
           style={{
