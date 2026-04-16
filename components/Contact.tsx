@@ -69,7 +69,7 @@ export default function Contact() {
             marginBottom: '0.875rem',
           }}
         >
-          {contact.headline}
+          // contact
         </h2>
         <p
           style={{
@@ -79,7 +79,7 @@ export default function Contact() {
             lineHeight: 1.65,
           }}
         >
-          {contact.intro}
+          Reach me by email or via LinkedIn and GitHub below.
         </p>
       </motion.div>
 

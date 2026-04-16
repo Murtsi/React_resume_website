@@ -22,11 +22,9 @@ export const hero = {
   ctaSecondary: { label: '> contact()', href: '#contact' },
 } as const
 
-export const profile = {
-  bio: `Automation Engineering student at SEAMK working as a fiber optic network support specialist. Daily tools include iMaster, Altiplano, Nokia OSS, and Keycom. Outside work and studies, I build AI pipelines, trading analysis tools, and backend systems in TypeScript, Python, and PostgreSQL.`,
-} as const
+// --- Types ---
 
-export interface TechBar {
+interface TechBar {
   label: string
   color: string
   value?: number
@@ -44,6 +42,21 @@ export interface Project {
   status: 'live' | 'in development'
 }
 
+interface ExperienceEntry {
+  role: string
+  company?: string
+  period: string
+  tools?: string[]
+}
+
+interface EducationEntry {
+  degree: string
+  institution: string
+  period: string
+}
+
+// --- Data ---
+
 export const projects: Project[] = [
   {
     id: 'kidehiiri',
@@ -55,26 +68,26 @@ export const projects: Project[] = [
     stack: ['TypeScript', 'PostgreSQL', 'Python', 'Docker', 'Railway'],
     techBars: [
       { label: 'TypeScript', value: 58, color: '#3178C6' },
-      { label: 'Python', value: 24, color: '#3572A5' },
-      { label: 'SQL', value: 12, color: '#C44536' },
+      { label: 'Python',     value: 24, color: '#3572A5' },
+      { label: 'SQL',        value: 12, color: '#C44536' },
       { label: 'Docker / Shell', value: 6, color: '#2EA043' },
     ],
     liveUrl: 'https://kidehiiri.fi',
-    githubUrl: 'https://github.com/Murtsi',
+    githubUrl: 'https://github.com/Murtsi/Kidehiiri-public',
     status: 'live',
   },
   {
     id: 'api-scanner',
-    name: 'API Scanner',
+    name: 'Pentesting Tool (Private)',
     description:
-      'Linux-focused pentesting tool for authorized assessments, reconnaissance, and reporting.',
+      'Linux-focused pentesting tool for authorized assessments with reconnaissance, adaptive local learning, and structured reporting.',
     fullDescription:
-      'Linux-focused pentesting tool for authorized assessments, reconnaissance, and reporting.',
+      'Linux-focused pentesting tool for authorized assessments with reconnaissance, adaptive local learning, and structured reporting.',
     stack: ['Node.js', 'TypeScript'],
     techBars: [
-      { label: 'TypeScript', value: 72, color: '#3178C6' },
-      { label: 'JavaScript', value: 18, color: '#F1E05A' },
-      { label: 'HTML', value: 10, color: '#E34C26' },
+      { label: 'TypeScript',  value: 72, color: '#3178C6' },
+      { label: 'JavaScript',  value: 18, color: '#F1E05A' },
+      { label: 'HTML',        value: 10, color: '#E34C26' },
     ],
     liveUrl: 'https://api-scanner-eta.vercel.app/',
     githubUrl: 'https://github.com/Murtsi',
@@ -85,13 +98,12 @@ export const projects: Project[] = [
     name: 'Portfolio',
     description: 'This site. Next.js 15, Tailwind CSS v4, and a technical editorial UI.',
     fullDescription:
-      'Personal portfolio built with Next.js 15 and TypeScript, with restrained motion and a technical editorial style.',
-    stack: ['Next.js 15', 'TypeScript', 'Tailwind v4', 'Framer Motion'],
+      'Personal portfolio built with Next.js 15 and TypeScript. Technical editorial style, no animation libraries.',
+    stack: ['Next.js 15', 'TypeScript', 'Tailwind v4'],
     techBars: [
-      { label: 'Next.js', color: '#8B949E' },
-      { label: 'TypeScript', color: '#3178C6' },
-      { label: 'Tailwind', color: '#06B6D4' },
-      { label: 'Framer Motion', color: '#D29922' },
+      { label: 'TypeScript', value: 60, color: '#3178C6' },
+      { label: 'Next.js',    value: 25, color: '#8B949E' },
+      { label: 'Tailwind',   value: 15, color: '#06B6D4' },
     ],
     liveUrl: null,
     githubUrl: 'https://github.com/Murtsi',
@@ -101,28 +113,20 @@ export const projects: Project[] = [
     id: 'tradingagents-finnish',
     name: 'AI / Market Data Experiment',
     description:
-      'Agent-Based Market Data Workflow and Market Data Automation experiment.',
+      'Agent-based market data workflow and automation experiment for Finnish markets.',
     fullDescription:
-      'AI / Market Data Experiment focused on agent-based market data workflows and automation.',
-    stack: ['Python', 'Agent workflows', 'Market data', 'Automation'],
+      'Agent-based market data workflow and automation experiment. Python pipelines processing Finnish market data.',
+    stack: ['Python', 'Agent workflows', 'Market data'],
     techBars: [
-      { label: 'Python', color: '#3572A5' },
-      { label: 'Market data', color: '#58A6FF' },
-      { label: 'Agent workflows', color: '#BC8CFF' },
-      { label: 'Automation', color: '#3FB950' },
+      { label: 'Python',          value: 70, color: '#3572A5' },
+      { label: 'Agent workflows', value: 20, color: '#BC8CFF' },
+      { label: 'Market data',     value: 10, color: '#58A6FF' },
     ],
     liveUrl: null,
     githubUrl: 'https://github.com/Murtsi/TradingAgents-Finnish',
     status: 'in development',
   },
 ]
-
-export interface ExperienceEntry {
-  role: string
-  company?: string
-  period: string
-  tools?: string[]
-}
 
 export const experience: ExperienceEntry[] = [
   {
@@ -132,7 +136,7 @@ export const experience: ExperienceEntry[] = [
     tools: ['iMaster', 'Altiplano', 'Nokia OSS', 'Keycom'],
   },
   {
-    role: 'Tuotantooperaattori',
+    role: 'Production Operator',
     company: 'Olvi',
     period: '2023',
   },
@@ -154,15 +158,9 @@ export const experience: ExperienceEntry[] = [
   },
 ]
 
-export interface EducationEntry {
-  degree: string
-  institution: string
-  period: string
-}
-
 export const education: EducationEntry[] = [
   {
-    degree: "Bachelor's in Automation Engineering — SEAMK",
+    degree: "Bachelor's in Automation Engineering",
     institution: 'SEAMK',
     period: 'ongoing',
   },
@@ -172,7 +170,7 @@ export const education: EducationEntry[] = [
     period: '2024',
   },
   {
-    degree: 'Leadership Training — Finnish Defence Forces',
+    degree: 'Leadership Training',
     institution: 'Finnish Defence Forces',
     period: '2019–2020',
   },
@@ -228,19 +226,10 @@ export const expertise = [
   },
 ] as const
 
-export const languages = [
-  { language: 'Finnish', level: 'native' },
-  { language: 'English', level: 'fluent' },
-  { language: 'German', level: 'intermediate' },
-  { language: 'Estonian', level: 'intermediate' },
-] as const
-
 export const contact = {
-  headline: 'Get in touch',
-  intro: 'Open to freelance work, collaboration, and interesting projects.',
   email: 'antti.murtsi@gmail.com',
   githubLabel: 'github.com/Murtsi',
   githubUrl: 'https://github.com/Murtsi',
-  linkedinLabel: 'linkedin.com/in/antti-murtokangas',
-  linkedinUrl: 'https://linkedin.com/in/antti-murtokangas',
+  linkedinLabel: 'linkedin.com/in/antti-murtokangas-562725158',
+  linkedinUrl: 'https://www.linkedin.com/in/antti-murtokangas-562725158/',
 } as const
