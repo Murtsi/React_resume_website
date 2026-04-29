@@ -1,14 +1,4 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { experience, education } from '@/lib/data'
-
-const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number]
-
-const item = {
-  hidden: { opacity: 0, x: -12 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.45, ease: EASE } },
-}
 
 export default function Experience() {
   return (
@@ -21,11 +11,7 @@ export default function Experience() {
         borderTop: '1px solid var(--border)',
       }}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.45 }}
+      <div
         style={{
           fontFamily: 'var(--font-mono)',
           fontSize: '11px',
@@ -35,7 +21,7 @@ export default function Experience() {
         }}
       >
         {'// experience & education'}
-      </motion.div>
+      </div>
 
       <div
         style={{
@@ -59,14 +45,7 @@ export default function Experience() {
             Work
           </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-60px' }}
-            variants={{
-              hidden: {},
-              show: { transition: { staggerChildren: 0.07 } },
-            }}
+          <div
             style={{
               position: 'relative',
               paddingLeft: '1.375rem',
@@ -77,12 +56,10 @@ export default function Experience() {
             }}
           >
             {experience.map((entry) => (
-              <motion.div
+              <div
                 key={`${entry.role}-${entry.period}`}
-                variants={item}
                 style={{ position: 'relative' }}
               >
-                {/* Timeline dot */}
                 <div
                   className="timeline-dot"
                   style={{
@@ -92,13 +69,7 @@ export default function Experience() {
                   }}
                 />
 
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '0.2rem',
-                  }}
-                >
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
                   <div
                     style={{
                       display: 'flex',
@@ -159,9 +130,9 @@ export default function Experience() {
                     </div>
                   )}
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Education */}
@@ -179,14 +150,7 @@ export default function Experience() {
             Education
           </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-60px' }}
-            variants={{
-              hidden: {},
-              show: { transition: { staggerChildren: 0.07 } },
-            }}
+          <div
             style={{
               position: 'relative',
               paddingLeft: '1.375rem',
@@ -197,12 +161,10 @@ export default function Experience() {
             }}
           >
             {education.map((entry) => (
-              <motion.div
+              <div
                 key={`${entry.degree}-${entry.period}`}
-                variants={item}
                 style={{ position: 'relative' }}
               >
-                {/* Timeline dot — purple accent for education */}
                 <div
                   style={{
                     position: 'absolute',
@@ -259,9 +221,9 @@ export default function Experience() {
                     {entry.institution}
                   </span>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

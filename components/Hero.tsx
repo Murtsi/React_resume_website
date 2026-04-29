@@ -1,58 +1,6 @@
-'use client'
-
-import { useEffect, useRef } from 'react'
 import { hero } from '@/lib/data'
 
 export default function Hero() {
-  const hasAnimated = useRef(false)
-
-  useEffect(() => {
-    if (hasAnimated.current) return
-    hasAnimated.current = true
-
-    import('animejs').then(({ createTimeline, utils }) => {
-      const stagger = utils.stagger
-
-      createTimeline({ defaults: { ease: 'outExpo' } })
-        .add('.hero-char', {
-          opacity: [0, 1],
-          translateY: [40, 0],
-          duration: 850,
-          delay: stagger(20),
-        })
-        .add(
-          '.hero-sub-line',
-          {
-            opacity: [0, 1],
-            translateY: [16, 0],
-            duration: 500,
-            delay: stagger(60),
-          },
-          '-=500',
-        )
-        .add(
-          '.hero-stat',
-          {
-            opacity: [0, 1],
-            translateY: [12, 0],
-            duration: 380,
-            delay: stagger(70),
-          },
-          '-=250',
-        )
-        .add(
-          '.hero-cta',
-          {
-            opacity: [0, 1],
-            translateY: [12, 0],
-            duration: 380,
-            delay: stagger(80),
-          },
-          '-=200',
-        )
-    })
-  }, [])
-
   return (
     <section
       id="hero"
@@ -85,23 +33,10 @@ export default function Hero() {
             whiteSpace: 'pre-wrap',
           }}
         >
-          {hero.name.split('').map((char, i) => (
-            <span
-              key={i}
-              className="hero-char"
-              style={{
-                display: 'inline-block',
-                opacity: 0,
-              }}
-            >
-              {char === ' ' ? '\u00A0' : char}
-            </span>
-          ))}
+          {hero.name}
           <span
-            className="cursor-blink hero-char"
+            className="cursor-blink"
             style={{
-              display: 'inline-block',
-              opacity: 0,
               fontWeight: 300,
               fontSize: '0.65em',
               marginLeft: '3px',
@@ -115,7 +50,6 @@ export default function Hero() {
 
         {/* Label */}
         <p
-          className="hero-sub-line"
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '11px',
@@ -123,7 +57,6 @@ export default function Hero() {
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
             marginBottom: '0.85rem',
-            opacity: 0,
           }}
         >
           {hero.label}
@@ -141,13 +74,11 @@ export default function Hero() {
           {hero.subtitle.map((line, i) => (
             <p
               key={i}
-              className="hero-sub-line"
               style={{
                 fontFamily: 'var(--font-sans)',
                 fontSize: 'clamp(13px, 1.4vw, 15px)',
                 color: 'var(--text-muted)',
                 lineHeight: 1.5,
-                opacity: 0,
               }}
             >
               {line}
@@ -165,7 +96,7 @@ export default function Hero() {
           }}
         >
           {hero.stats.map((stat, i) => (
-            <div key={i} className="hero-stat" style={{ opacity: 0 }}>
+            <div key={i}>
               <div
                 style={{
                   fontFamily: 'var(--font-mono)',
@@ -194,25 +125,16 @@ export default function Hero() {
 
         {/* CTAs */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.625rem' }}>
-          <a
-            href={hero.ctaPrimary.href}
-            className="btn btn-primary hero-cta"
-            style={{ opacity: 0 }}
-          >
+          <a href={hero.ctaPrimary.href} className="btn btn-primary">
             {hero.ctaPrimary.label}
           </a>
-          <a
-            href={hero.ctaSecondary.href}
-            className="btn btn-ghost hero-cta"
-            style={{ opacity: 0 }}
-          >
+          <a href={hero.ctaSecondary.href} className="btn btn-ghost">
             {hero.ctaSecondary.label}
           </a>
           <a
             href="/CV-Antti-Murtokangas.pdf"
             download="CV-Antti-Murtokangas.pdf"
-            className="btn btn-ghost hero-cta"
-            style={{ opacity: 0 }}
+            className="btn btn-ghost"
           >
             Download CV
           </a>

@@ -1,6 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { contact } from '@/lib/data'
 
 const links = [
@@ -35,11 +32,7 @@ export default function Contact() {
         borderTop: '1px solid var(--border)',
       }}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.45 }}
+      <div
         style={{
           fontFamily: 'var(--font-mono)',
           fontSize: '11px',
@@ -49,15 +42,9 @@ export default function Contact() {
         }}
       >
         {'// contact'}
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.5, delay: 0.05 }}
-        style={{ maxWidth: '32rem', marginBottom: '3rem' }}
-      >
+      <div style={{ maxWidth: '32rem', marginBottom: '3rem' }}>
         <h2
           style={{
             fontFamily: 'var(--font-mono)',
@@ -81,17 +68,10 @@ export default function Contact() {
         >
           Reach me by email or via LinkedIn and GitHub below.
         </p>
-      </motion.div>
+      </div>
 
       {/* Contact cards */}
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: '-60px' }}
-        variants={{
-          hidden: {},
-          show: { transition: { staggerChildren: 0.09 } },
-        }}
+      <div
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
@@ -101,16 +81,12 @@ export default function Contact() {
         }}
       >
         {links.map((link) => (
-          <motion.a
+          <a
             key={link.label}
             href={link.href}
             target={link.href.startsWith('mailto') ? undefined : '_blank'}
             rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
             className="contact-card"
-            variants={{
-              hidden: { opacity: 0, y: 16 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
-            }}
           >
             <div
               style={{
@@ -150,16 +126,12 @@ export default function Contact() {
             >
               {link.value}
             </div>
-          </motion.a>
+          </a>
         ))}
-      </motion.div>
+      </div>
 
       {/* Footer */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+      <div
         style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -177,7 +149,7 @@ export default function Contact() {
             color: 'var(--border)',
           }}
         >
-          {'// next.js 15 · tailwind v4 · framer motion'}
+          {'// next.js 15 · tailwind v4'}
         </span>
         <span
           style={{
@@ -188,7 +160,7 @@ export default function Contact() {
         >
           {new Date().getFullYear()}
         </span>
-      </motion.div>
+      </div>
     </section>
   )
 }

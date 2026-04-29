@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { projects } from '@/lib/data'
 import type { Project } from '@/lib/data'
 
@@ -51,7 +50,6 @@ function TechStrip({ items }: { items: Project['techBars'] }) {
   )
 }
 
-/* ── Project Card ── */
 function ProjectCard({
   project,
   onClick,
@@ -64,14 +62,8 @@ function ProjectCard({
   const visibleStack = project.stack.slice(0, 4)
 
   return (
-    <motion.div
-      whileHover={{ y: -3 }}
-      transition={{ duration: 0.2 }}
-      className="project-card"
-      onClick={onClick}
-    >
+    <div className="project-card" onClick={onClick}>
       <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
-        {/* Header */}
         <div
           style={{
             display: 'flex',
@@ -105,7 +97,6 @@ function ProjectCard({
           </span>
         </div>
 
-        {/* Description */}
         <p
           style={{
             fontFamily: 'var(--font-sans)',
@@ -119,7 +110,6 @@ function ProjectCard({
           {project.description}
         </p>
 
-        {/* Stack badges */}
         <div
           style={{
             display: 'flex',
@@ -135,12 +125,10 @@ function ProjectCard({
           ))}
         </div>
 
-        {/* Minimal segmented accent */}
         <div style={{ marginBottom: '1.2rem' }}>
           <TechStrip items={project.techBars} />
         </div>
 
-        {/* CTA */}
         <div
           style={{
             fontFamily: 'var(--font-mono)',
@@ -152,11 +140,10 @@ function ProjectCard({
           view details →
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
-/* ── Modal ── */
 function ProjectModal({
   project,
   onClose,
@@ -166,7 +153,6 @@ function ProjectModal({
 }) {
   const modalRef = useRef<HTMLDivElement>(null)
 
-  // Close on Escape
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
@@ -180,25 +166,13 @@ function ProjectModal({
   const visibleStack = project.stack.slice(0, 4)
 
   return (
-    <motion.div
+    <div
       className="modal-backdrop"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose()
       }}
     >
-      <motion.div
-        ref={modalRef}
-        className="modal-panel"
-        initial={{ opacity: 0, y: 32, scale: 0.97 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 24, scale: 0.97 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-      >
-        {/* Modal header */}
+      <div ref={modalRef} className="modal-panel">
         <div
           style={{
             display: 'flex',
@@ -263,9 +237,7 @@ function ProjectModal({
           </button>
         </div>
 
-        {/* Body */}
         <div style={{ padding: '1.25rem 1.5rem 1.5rem' }}>
-          {/* Description */}
           <p
             style={{
               fontFamily: 'var(--font-sans)',
@@ -278,7 +250,6 @@ function ProjectModal({
             {project.fullDescription}
           </p>
 
-          {/* Tech stack */}
           <div style={{ marginBottom: '1.75rem' }}>
             <div
               style={{
@@ -296,15 +267,14 @@ function ProjectModal({
               <TechStrip items={project.techBars} />
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem' }}>
-            {visibleStack.map((tech) => (
-              <span key={tech} className="badge">
-                {tech}
-              </span>
-            ))}
+              {visibleStack.map((tech) => (
+                <span key={tech} className="badge">
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Links */}
           <div style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap' }}>
             {project.liveUrl && (
               <a
@@ -328,25 +298,17 @@ function ProjectModal({
             </a>
           </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   )
 }
 
-/* ── Section ── */
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null)
 
-  // Lock body scroll when modal open
   useEffect(() => {
-    if (selected) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-    return () => {
-      document.body.style.overflow = ''
-    }
+    document.body.style.overflow = selected ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
   }, [selected])
 
   return (
@@ -359,11 +321,7 @@ export default function Projects() {
         borderTop: '1px solid var(--border)',
       }}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.45 }}
+      <div
         style={{
           fontFamily: 'var(--font-mono)',
           fontSize: '11px',
@@ -373,16 +331,9 @@ export default function Projects() {
         }}
       >
         {'// projects'}
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: '-60px' }}
-        variants={{
-          hidden: {},
-          show: { transition: { staggerChildren: 0.1 } },
-        }}
+      <div
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
@@ -390,23 +341,13 @@ export default function Projects() {
         }}
       >
         {projects.map((project) => (
-          <motion.div
-            key={project.id}
-            variants={{
-              hidden: { opacity: 0, y: 28 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
-            }}
-          >
-            <ProjectCard project={project} onClick={() => setSelected(project)} />
-          </motion.div>
+          <ProjectCard key={project.id} project={project} onClick={() => setSelected(project)} />
         ))}
-      </motion.div>
+      </div>
 
-      <AnimatePresence>
-        {selected && (
-          <ProjectModal project={selected} onClose={() => setSelected(null)} />
-        )}
-      </AnimatePresence>
+      {selected && (
+        <ProjectModal project={selected} onClose={() => setSelected(null)} />
+      )}
     </section>
   )
 }

@@ -8,8 +8,6 @@
   --bg-elevated: #1C2128;
   --border: #21262D;
   /* Section surface overlays — semi-transparent so PixelSnow breathes through */
-  --section-bg: rgba(13, 17, 23, 0.91);
-  --hero-bg: rgba(13, 17, 23, 0.54);
   --text-primary: #E6EDF3;
   --text-secondary: #C9D1D9;
   --text-muted: #8B949E;
@@ -31,8 +29,6 @@
   --bg-surface: #FFFFFF;
   --bg-elevated: #F0F2F5;
   --border: #D0D7DE;
-  --section-bg: rgba(246, 248, 250, 0.93);
-  --hero-bg: rgba(246, 248, 250, 0.6);
   --text-primary: #1F2328;
   --text-secondary: #424A53;
   --text-muted: #636C76;
@@ -82,28 +78,8 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ── Z-index stack ──
-   Layer 0: PixelSnow (fixed, below all content)
-   Layer 1: main content sections (semi-transparent over the background)
-   Layer 50: nav (floating above content)
-  Layer 200: modal
-── */
-
 main {
   position: relative;
-  z-index: 1;
-}
-
-/* All content sections: semi-transparent surface so PixelSnow shows faintly */
-main > section {
-  position: relative;
-  z-index: 1;
-  background: var(--section-bg);
-}
-
-/* Hero gets a lighter surface — more of the background visible */
-main > section#hero {
-  background: var(--hero-bg);
 }
 
 ::selection {

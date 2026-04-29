@@ -1,6 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { expertise } from '@/lib/data'
 
 const accentColors: Record<string, string> = {
@@ -8,22 +5,6 @@ const accentColors: Record<string, string> = {
   blue: 'var(--accent-blue)',
   amber: 'var(--accent-amber)',
   purple: 'var(--accent-purple)',
-}
-
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.07,
-    },
-  },
-}
-
-const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number]
-
-const item = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
 }
 
 export default function Expertise() {
@@ -37,11 +18,7 @@ export default function Expertise() {
         borderTop: '1px solid var(--border)',
       }}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.45 }}
+      <div
         style={{
           fontFamily: 'var(--font-mono)',
           fontSize: '11px',
@@ -51,13 +28,9 @@ export default function Expertise() {
         }}
       >
         {'// expertise'}
-      </motion.div>
+      </div>
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: '-60px' }}
+      <div
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
@@ -72,9 +45,8 @@ export default function Expertise() {
           const accent = accentColors[domain.accent] ?? 'var(--accent-green)'
 
           return (
-            <motion.div
+            <div
               key={domain.id}
-              variants={item}
               style={{
                 backgroundColor: 'var(--bg-surface)',
                 padding: '1.75rem',
@@ -83,7 +55,6 @@ export default function Expertise() {
                 gap: '0.875rem',
               }}
             >
-              {/* Domain label */}
               <div
                 style={{
                   fontFamily: 'var(--font-mono)',
@@ -96,7 +67,6 @@ export default function Expertise() {
                 {domain.label}
               </div>
 
-              {/* Description */}
               <p
                 style={{
                   fontFamily: 'var(--font-sans)',
@@ -109,7 +79,6 @@ export default function Expertise() {
                 {domain.description}
               </p>
 
-              {/* Tools */}
               <div
                 style={{
                   display: 'flex',
@@ -124,10 +93,10 @@ export default function Expertise() {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           )
         })}
-      </motion.div>
+      </div>
     </section>
   )
 }
