@@ -32,21 +32,7 @@ export default function Certifications() {
             href={cert.verifyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              display: 'block',
-              backgroundColor: 'var(--bg-surface)',
-              border: '1px solid var(--border)',
-              borderRadius: '6px',
-              padding: '1.25rem 1.5rem',
-              textDecoration: 'none',
-              transition: 'border-color 0.2s',
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--accent-blue)'
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--border)'
-            }}
+            className="cert-card"
           >
             <div
               style={{
