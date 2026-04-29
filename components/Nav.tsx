@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import ThemeToggle from '@/components/ThemeToggle'
 import { navLinks } from '@/lib/data'
 
 export default function Nav() {
@@ -77,53 +76,50 @@ export default function Nav() {
           {' Antti Murtokangas'}
         </a>
 
-        {/* Nav links + toggle */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.125rem', marginRight: '0.75rem' }}>
-            {navLinks.map((item) => {
-              const isActive = active === item.href.replace('#', '')
-              return (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  style={{
-                    position: 'relative',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '12px',
-                    color: isActive ? 'var(--text-primary)' : 'var(--text-muted)',
-                    textDecoration: 'none',
-                    padding: '0.375rem 0.625rem',
-                    borderRadius: '3px',
-                    transition: 'color 0.15s',
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isActive)
-                      (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-primary)'
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isActive)
-                      (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-muted)'
-                  }}
-                >
-                  {item.label}
-                  {isActive && (
-                    <span
-                      style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: '0.625rem',
-                        right: '0.625rem',
-                        height: '1px',
-                        background: 'var(--accent-green)',
-                        borderRadius: '1px',
-                      }}
-                    />
-                  )}
-                </a>
-              )
-            })}
-          </div>
-          <ThemeToggle />
+        {/* Nav links */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.125rem' }}>
+          {navLinks.map((item) => {
+            const isActive = active === item.href.replace('#', '')
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                style={{
+                  position: 'relative',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '12px',
+                  color: isActive ? 'var(--text-primary)' : 'var(--text-muted)',
+                  textDecoration: 'none',
+                  padding: '0.375rem 0.625rem',
+                  borderRadius: '3px',
+                  transition: 'color 0.15s',
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive)
+                    (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-primary)'
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive)
+                    (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-muted)'
+                }}
+              >
+                {item.label}
+                {isActive && (
+                  <span
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: '0.625rem',
+                      right: '0.625rem',
+                      height: '1px',
+                      background: 'var(--accent-green)',
+                      borderRadius: '1px',
+                    }}
+                  />
+                )}
+              </a>
+            )
+          })}
         </div>
       </div>
     </nav>

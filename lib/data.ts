@@ -1,6 +1,7 @@
 export const navLinks = [
   { label: 'expertise', href: '#expertise' },
   { label: 'projects', href: '#projects' },
+  { label: 'certifications', href: '#certifications' },
   { label: 'experience', href: '#experience' },
   { label: 'contact', href: '#contact' },
 ] as const
@@ -72,9 +73,9 @@ export const projects: Project[] = [
       { label: 'SQL',        value: 12, color: '#C44536' },
       { label: 'Docker / Shell', value: 6, color: '#2EA043' },
     ],
-    liveUrl: 'https://kidehiiri.fi',
+    liveUrl: 'https://kidehiiri.vercel.app/',
     githubUrl: 'https://github.com/Murtsi/Kidehiiri-public',
-    status: 'live',
+    status: 'in development',
   },
   {
     id: 'api-scanner',
@@ -225,6 +226,26 @@ export const expertise = [
     accent: 'green',
   },
 ] as const
+
+export interface Certification {
+  name: string
+  issuer: string
+  credentialId: string
+  certNumber: string
+  earnedOn: string
+  verifyUrl: string
+}
+
+export const certifications: Certification[] = [
+  {
+    name: 'Microsoft Certified: Azure Fundamentals',
+    issuer: 'Microsoft',
+    credentialId: '65AC4CE0150CFDCE',
+    certNumber: '91C416-68C3E2',
+    earnedOn: '2026-04-17',
+    verifyUrl: 'https://learn.microsoft.com/en-us/users/anttimurtokangas-5846/credentials/65ac4ce0150cfdce',
+  },
+]
 
 export const contact = {
   email: 'antti.murtsi@gmail.com',
