@@ -245,7 +245,7 @@ export const certifications: Certification[] = [
     certNumber: '91C416-68C3E2',
     earnedOn: '2026-04-17',
     verifyUrl: 'https://learn.microsoft.com/en-us/users/anttimurtokangas-5846/credentials/65ac4ce0150cfdce',
-    logo: '/logos/azure.svg',
+    logo: '/logos/microsoft.svg',
   },
   {
     name: 'Google: AI Specialization',
