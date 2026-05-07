@@ -45,7 +45,17 @@ export default function Certifications() {
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 {cert.logo ? (
-                  <img src={cert.logo} alt={`${cert.issuer} logo`} style={{ width: 48, height: 48, objectFit: 'contain' }} />
+                  <img
+                    src={cert.logo}
+                    alt={`${cert.issuer} logo`}
+                    style={{
+                      width: 32,
+                      height: 32,
+                      objectFit: 'contain',
+                      borderRadius: 6,
+                      display: 'block',
+                    }}
+                  />
                 ) : null}
                 <div>
                   <div
