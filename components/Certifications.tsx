@@ -37,32 +37,37 @@ export default function Certifications() {
             <div
               style={{
                 display: 'flex',
-                alignItems: 'flex-start',
+                alignItems: 'center',
                 justifyContent: 'space-between',
                 gap: '1rem',
                 flexWrap: 'wrap',
               }}
             >
-              <div>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '13px',
-                    fontWeight: 600,
-                    color: 'var(--text-primary)',
-                    marginBottom: '0.3rem',
-                  }}
-                >
-                  {cert.name}
-                </div>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '11px',
-                    color: 'var(--text-muted)',
-                  }}
-                >
-                  {cert.issuer} · ID: {cert.credentialId}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                {cert.logo ? (
+                  <img src={cert.logo} alt={`${cert.issuer} logo`} style={{ width: 48, height: 48, objectFit: 'contain' }} />
+                ) : null}
+                <div>
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '13px',
+                      fontWeight: 600,
+                      color: 'var(--text-primary)',
+                      marginBottom: '0.3rem',
+                    }}
+                  >
+                    {cert.name}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '11px',
+                      color: 'var(--text-muted)',
+                    }}
+                  >
+                    {cert.issuer} · ID: {cert.credentialId}
+                  </div>
                 </div>
               </div>
               <div style={{ textAlign: 'right', flexShrink: 0 }}>

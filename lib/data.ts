@@ -234,6 +234,7 @@ export interface Certification {
   certNumber: string
   earnedOn: string
   verifyUrl: string
+  logo?: string
 }
 
 export const certifications: Certification[] = [
@@ -244,6 +245,25 @@ export const certifications: Certification[] = [
     certNumber: '91C416-68C3E2',
     earnedOn: '2026-04-17',
     verifyUrl: 'https://learn.microsoft.com/en-us/users/anttimurtokangas-5846/credentials/65ac4ce0150cfdce',
+    logo: '/logos/azure.svg',
+  },
+  {
+    name: 'Google: AI Specialization',
+    issuer: 'Coursera / Google',
+    credentialId: 'UBM2ZJMEA8IN',
+    certNumber: '',
+    earnedOn: '',
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/specialization/UBM2ZJMEA8IN',
+    logo: '/logos/google.svg',
+  },
+  {
+    name: 'Google AI Essentials',
+    issuer: 'Credly / Google',
+    credentialId: 'd6785c33-8920-4cf3-8ff3-1c602940bf3d',
+    certNumber: 'd6785c33-8920-4cf3-8ff3-1c602940bf3d',
+    earnedOn: '',
+    verifyUrl: 'https://www.credly.com/badges/d6785c33-8920-4cf3-8ff3-1c602940bf3d/linked_in_profile',
+    logo: '/logos/google.svg',
   },
 ]
 
