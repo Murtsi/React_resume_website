@@ -50,6 +50,7 @@ export default function Nav() {
       }}
     >
       <div
+        className="nav-shell"
         style={{
           maxWidth: '72rem',
           margin: '0 auto',
@@ -63,7 +64,7 @@ export default function Nav() {
         {/* Wordmark */}
         <a
           href="#"
-          className="link-hover"
+          className="link-hover site-wordmark"
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '12px',
@@ -77,13 +78,14 @@ export default function Nav() {
         </a>
 
         {/* Nav links */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.125rem' }}>
+        <div className="nav-link-list" style={{ display: 'flex', alignItems: 'center', gap: '0.125rem' }}>
           {navLinks.map((item) => {
             const isActive = active === item.href.replace('#', '')
             return (
               <a
                 key={item.href}
                 href={item.href}
+                className="nav-link"
                 style={{
                   position: 'relative',
                   fontFamily: 'var(--font-mono)',

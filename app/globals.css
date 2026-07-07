@@ -202,6 +202,40 @@ main {
 }
 .link-hover:hover { color: var(--text-primary); }
 
+@media (max-width: 760px) {
+  .nav-shell {
+    padding-inline: 0.75rem !important;
+  }
+
+  .site-wordmark {
+    display: none;
+  }
+
+  .nav-link-list {
+    width: 100%;
+    justify-content: space-between;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-link-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-link {
+    font-size: 11px !important;
+    padding-inline: 0.38rem !important;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-link {
+    font-size: 10px !important;
+    padding-inline: 0.28rem !important;
+  }
+}
+
 /* ── Contact card ── */
 .contact-card {
   display: block;

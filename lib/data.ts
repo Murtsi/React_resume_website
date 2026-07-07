@@ -1,23 +1,24 @@
 export const navLinks = [
   { label: 'expertise', href: '#expertise' },
   { label: 'projects', href: '#projects' },
-  { label: 'certifications', href: '#certifications' },
+  { label: 'security', href: '#security' },
+  { label: 'certs', href: '#certifications' },
   { label: 'experience', href: '#experience' },
   { label: 'contact', href: '#contact' },
 ] as const
 
 export const hero = {
   name: 'Antti Murtokangas',
-  label: 'Automation Engineering Student · AI Systems · Backend',
+  label: 'Automation Engineering Student · AI Systems · AI Security',
   subtitle: [
     'Automation Engineering student at SEAMK.',
-    'Building AI pipelines, automation tools, and backend systems.',
-    'Working in fiber network support and developing practical technical solutions.',
+    'Building AI-assisted tools, automation workflows, and backend systems.',
+    'Exploring AI-assisted security research, LLM attack surfaces, and responsible disclosure.',
   ],
   stats: [
-    { value: '5+', label: 'domains' },
+    { value: '4', label: 'featured builds' },
     { value: '8+', label: 'years in tech' },
-    { value: '3+', label: 'live projects' },
+    { value: 'AI', label: 'security focus' },
   ],
   ctaPrimary: { label: '> view_projects()', href: '#projects' },
   ctaSecondary: { label: '> contact()', href: '#contact' },
@@ -43,6 +44,13 @@ export interface Project {
   status: 'live' | 'in development'
 }
 
+interface SecurityResearchEntry {
+  title: string
+  meta: string
+  focus: string
+  body: string
+}
+
 interface ExperienceEntry {
   role: string
   company?: string
@@ -60,74 +68,87 @@ interface EducationEntry {
 
 export const projects: Project[] = [
   {
-    id: 'kidehiiri',
-    name: 'Kidehiiri',
+    id: 'tarppi',
+    name: 'Tärppi',
     description:
-      'Real-time ticket monitoring platform with machine-learning based ticket scoring.',
+      'Event monitoring and ticket reservation assistant for Kide.app and Tiketti events.',
     fullDescription:
-      'Real-time ticket monitoring platform with ML scoring and a TypeScript/PostgreSQL backend.',
-    stack: ['TypeScript', 'PostgreSQL', 'Python', 'Docker', 'Railway'],
+      'React and TypeScript app for monitoring Kide.app and Tiketti events, scoring event relevance, reserving tickets to cart when sales open, and sending Telegram notifications. Backend runs on Railway with PostgreSQL persistence; frontend is deployed through Vercel.',
+    stack: ['React', 'TypeScript', 'PostgreSQL', 'Railway'],
     techBars: [
-      { label: 'TypeScript', value: 58, color: '#3178C6' },
-      { label: 'Python',     value: 24, color: '#3572A5' },
-      { label: 'SQL',        value: 12, color: '#C44536' },
-      { label: 'Docker / Shell', value: 6, color: '#2EA043' },
+      { label: 'TypeScript', value: 56, color: '#3178C6' },
+      { label: 'React',      value: 18, color: '#58A6FF' },
+      { label: 'SQL',        value: 16, color: '#C44536' },
+      { label: 'Railway',    value: 10, color: '#BC8CFF' },
     ],
     liveUrl: 'https://kidehiiri.vercel.app/',
     githubUrl: 'https://github.com/Murtsi/Kidehiiri-public',
     status: 'in development',
   },
   {
-    id: 'api-scanner',
-    name: 'Pentesting Tool (Private)',
+    id: 'tyohakuri',
+    name: 'Työhakuri',
     description:
-      'Linux-focused pentesting tool for authorized assessments with reconnaissance, adaptive local learning, and structured reporting.',
+      'AI job search copilot for the Finnish job market with recommendations and application analysis.',
     fullDescription:
-      'Linux-focused pentesting tool for authorized assessments with reconnaissance, adaptive local learning, and structured reporting.',
-    stack: ['Node.js', 'TypeScript'],
+      'Full-stack AI assistant for the Finnish job market. React dashboard, FastAPI backend, Supabase auth, Railway deployment, job ingestion, recommendation scoring, and LangGraph/Gemini-based analysis for tailoring applications while keeping the user in control.',
+    stack: ['React', 'FastAPI', 'Supabase', 'LangGraph'],
     techBars: [
-      { label: 'TypeScript',  value: 72, color: '#3178C6' },
-      { label: 'JavaScript',  value: 18, color: '#F1E05A' },
-      { label: 'HTML',        value: 10, color: '#E34C26' },
+      { label: 'TypeScript', value: 34, color: '#3178C6' },
+      { label: 'Python',     value: 30, color: '#3572A5' },
+      { label: 'AI / LLM',   value: 22, color: '#BC8CFF' },
+      { label: 'Supabase',   value: 14, color: '#3FB950' },
     ],
-    liveUrl: 'https://api-scanner-eta.vercel.app/',
+    liveUrl: null,
     githubUrl: 'https://github.com/Murtsi',
     status: 'in development',
   },
   {
-    id: 'portfolio',
-    name: 'Portfolio',
-    description: 'This site. Next.js 15, Tailwind CSS v4, and a technical editorial UI.',
-    fullDescription:
-      'Personal portfolio built with Next.js 15 and TypeScript. Technical editorial style, no animation libraries.',
-    stack: ['Next.js 15', 'TypeScript', 'Tailwind v4'],
-    techBars: [
-      { label: 'TypeScript', value: 60, color: '#3178C6' },
-      { label: 'Next.js',    value: 25, color: '#8B949E' },
-      { label: 'Tailwind',   value: 15, color: '#06B6D4' },
-    ],
-    liveUrl: null,
-    githubUrl: 'https://github.com/Murtsi',
-    status: 'live',
-  },
-  {
-    id: 'tradingagents-finnish',
-    name: 'AI / Market Data Experiment',
+    id: 'kauppaagentit',
+    name: 'KauppaAgentit',
     description:
-      'Agent-based market data workflow and automation experiment for Finnish markets.',
+      'Finnish market analysis agents for OMXH stocks with multi-agent research workflows.',
     fullDescription:
-      'Agent-based market data workflow and automation experiment. Python pipelines processing Finnish market data.',
-    stack: ['Python', 'Agent workflows', 'Market data'],
+      'Finnish adaptation of an agent-based market analysis framework for OMXH stocks. Includes Finnish prompts, CLI workflows, PostgreSQL storage, evaluation runs, and multi-agent roles for fundamentals, news, sentiment, technical analysis, risk, and portfolio decisions.',
+    stack: ['Python', 'PostgreSQL', 'Agent workflows', 'Market data'],
     techBars: [
-      { label: 'Python',          value: 70, color: '#3572A5' },
+      { label: 'Python',          value: 58, color: '#3572A5' },
       { label: 'Agent workflows', value: 20, color: '#BC8CFF' },
+      { label: 'SQL',             value: 12, color: '#C44536' },
       { label: 'Market data',     value: 10, color: '#58A6FF' },
     ],
     liveUrl: null,
     githubUrl: 'https://github.com/Murtsi/TradingAgents-Finnish',
     status: 'in development',
   },
+  {
+    id: 'pentesting-tool',
+    name: 'Pentesting Tool',
+    description:
+      'Private security CLI framework for authorized assessments and OWASP-oriented testing.',
+    fullDescription:
+      'Python-based penetration testing CLI framework for authorized assessments. Covers reconnaissance, service fingerprinting, vulnerability checks, JWT analysis, reporting, and OWASP-oriented testing. Kept private for security reasons.',
+    stack: ['Python', 'Security tooling', 'OWASP', 'CLI'],
+    techBars: [
+      { label: 'Python',    value: 64, color: '#3572A5' },
+      { label: 'Security',  value: 18, color: '#3FB950' },
+      { label: 'CLI',       value: 10, color: '#8B949E' },
+      { label: 'Reporting', value: 8, color: '#D29922' },
+    ],
+    liveUrl: null,
+    githubUrl: 'https://github.com/Murtsi',
+    status: 'in development',
+  },
 ]
+
+export const securityResearch: SecurityResearchEntry = {
+  title: 'Responsible Disclosure — SQL Injection',
+  meta: 'Coordinated disclosure · Public checkout flow · Finnish fitness platform',
+  focus:
+    'Research focus: AI-assisted security testing, responsible disclosure, and LLM/application security.',
+  body:
+    "Found and responsibly reported an unauthenticated SQL injection vulnerability in a Finnish fitness platform's public checkout flow. The issue was tied to promo-code validation and could have allowed payment bypass during membership signup. Reported through the operator's official channel under coordinated disclosure.",
+}
 
 export const experience: ExperienceEntry[] = [
   {
@@ -220,9 +241,10 @@ export const expertise = [
   },
   {
     id: 'security',
-    label: 'Security & Recon',
-    description: 'API vulnerability scanning, endpoint discovery, and basic security assessment tooling.',
-    tools: ['API scanning', 'Endpoint discovery', 'Exposure analysis'],
+    label: 'AI Security & AppSec Research',
+    description:
+      'AI-assisted vulnerability analysis, responsible disclosure, OWASP-oriented testing, and research into LLM attack surfaces such as prompt injection, tool misuse, jailbreaks, and data poisoning.',
+    tools: ['AI-assisted testing', 'OWASP', 'Prompt injection', 'LLM red teaming', 'Responsible disclosure'],
     accent: 'green',
   },
 ] as const

@@ -2,7 +2,7 @@
 
 ## Goal
 
-Refresh the portfolio content while keeping the site in English and preserving the existing technical editorial style.
+Refresh the portfolio content while keeping the site in English and preserving the existing technical editorial style. Lightly sharpen the positioning toward AI-assisted security research, AppSec, and LLM security interests.
 
 ## Project Section
 
@@ -24,6 +24,10 @@ The section should not reuse the project card pattern. It will be a single wide 
 > Found and responsibly reported an unauthenticated SQL injection vulnerability in a Finnish fitness platform's public checkout flow. The issue was tied to promo-code validation and could have allowed payment bypass during membership signup. Reported through the operator's official channel under coordinated disclosure.
 
 The fitness platform will not be named. The entry will not use badges; badges stay limited to project cards.
+
+## AI Security Positioning
+
+The page should make the user's interest in AI-based penetration testing, AI-assisted security research, LLM attack surfaces, prompt injection, jailbreaks, and data poisoning visible without making unsupported claims. This can be handled through the hero label and the existing expertise section.
 
 ## Data And Components
 
