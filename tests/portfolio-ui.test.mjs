@@ -73,3 +73,17 @@ test('Tarppi is the only featured project image', () => {
   assert.doesNotMatch(data, /pentest-tool-preview\.png/)
   assert.match(projects, /hero\.featured\.projectId/)
 })
+
+test('downloadable CV stays aligned with the current career direction', () => {
+  const source = read('scripts/generate_cv.py')
+
+  assert.match(source, /Automaatiotekniikan opiskelija ja Technical Support/)
+  assert.match(source, /AI- ja LLM-turvallisuuden tehtäviin/)
+  assert.match(source, /Agent Security Lab/)
+  assert.match(source, /Tärppi/)
+  assert.match(source, /SQL-injektio/)
+  assert.match(source, /Azure Fundamentals/)
+  assert.match(source, /antti-murtokangas-562725158/)
+  assert.doesNotMatch(source, /Verkkoasiantuntija/)
+  assert.doesNotMatch(source, /Next\.js 15|Hashcat|Airgeddon/)
+})
