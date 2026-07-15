@@ -1,4 +1,5 @@
 import { securityResearch } from '@/lib/data'
+import AgentSecurityTrace from '@/components/AgentSecurityTrace'
 
 export default function SecurityResearch() {
   return (
@@ -34,6 +35,8 @@ export default function SecurityResearch() {
           </p>
         </div>
       </article>
+
+      <AgentSecurityTrace />
     </section>
   )
 }

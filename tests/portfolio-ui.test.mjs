@@ -44,6 +44,19 @@ test('security case copy stays focused on the demonstrated finding', () => {
   assert.doesNotMatch(data, /LLM attack surfaces such as prompt injection/)
 })
 
+test('agent security trace stays interactive and clearly in development', () => {
+  const trace = read('components/AgentSecurityTrace.tsx')
+  const security = read('components/SecurityResearch.tsx')
+
+  assert.match(security, /<AgentSecurityTrace \/>/)
+  assert.match(trace, /In development/)
+  assert.match(trace, /Normal request/)
+  assert.match(trace, /Prompt injection/)
+  assert.match(trace, /Tool misuse/)
+  assert.match(trace, /aria-pressed=/)
+  assert.doesNotMatch(trace, /production-ready|automated vulnerability detection/i)
+})
+
 test('visible metadata no longer contains known stale claims', () => {
   assert.doesNotMatch(read('public/manifest.json'), /Fiber Optic Specialist/)
   assert.doesNotMatch(read('README.md'), /download CV button is currently removed/i)
