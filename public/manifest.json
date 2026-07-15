@@ -1,11 +1,11 @@
 {
   "name": "Antti Murtokangas Portfolio",
   "short_name": "Antti M.",
-  "description": "Portfolio of Antti Murtokangas - Automation Engineering Student & Fiber Optic Specialist",
+  "description": "Automation Engineering student at SEAMK with technical support experience and practical TypeScript and Python projects, including the live Tärppi event-monitoring service.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#e8825f",
+  "background_color": "#101418",
+  "theme_color": "#8bd5a3",
   "icons": [
     {
       "src": "/favicon.ico",

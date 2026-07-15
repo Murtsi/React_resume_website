@@ -4,105 +4,32 @@ export default function SecurityResearch() {
   return (
     <section
       id="security"
+      className="section-shell security-section"
       aria-labelledby="security-heading"
-      style={{
-        maxWidth: '72rem',
-        margin: '0 auto',
-        padding: '7rem 1.5rem',
-        borderTop: '1px solid var(--border)',
-      }}
     >
-      <div
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '11px',
-          color: 'var(--accent-green)',
-          letterSpacing: '0.08em',
-          marginBottom: '3rem',
-        }}
-      >
-        {'// security research'}
-      </div>
+      <header className="section-heading">
+        <span className="section-kicker" aria-hidden="true">{'// disclosure note'}</span>
+        <h2 id="security-heading">Security disclosure</h2>
+        <p>One SQL injection finding reported through the operator&apos;s official channel.</p>
+      </header>
 
-      <article
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '2rem',
-          padding: '2rem 0',
-          borderTop: '1px solid var(--border)',
-          borderBottom: '1px solid var(--border)',
-        }}
-      >
+      <article className="security-note" aria-labelledby="security-case-heading">
         <div>
-          <div
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '11px',
-              color: 'var(--accent-blue)',
-              letterSpacing: '0.06em',
-              marginBottom: '0.75rem',
-            }}
-          >
+          <div className="security-case-label">
             CASE NOTE
           </div>
 
-          <h2
-            id="security-heading"
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: 'clamp(1.25rem, 2vw, 1.75rem)',
-              fontWeight: 700,
-              color: 'var(--text-primary)',
-              lineHeight: 1.2,
-              textWrap: 'balance',
-              marginBottom: '0.875rem',
-            }}
-          >
+          <h3 id="security-case-heading">
             {securityResearch.title}
-          </h2>
+          </h3>
 
-          <p
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '11px',
-              color: 'var(--text-muted)',
-              lineHeight: 1.6,
-            }}
-          >
+          <p className="security-meta">
             {securityResearch.meta}
           </p>
         </div>
 
-        <div
-          style={{
-            maxWidth: '68ch',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-          }}
-        >
-          <p
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '13px',
-              color: 'var(--text-secondary)',
-              lineHeight: 1.75,
-              textWrap: 'pretty',
-            }}
-          >
-            {securityResearch.focus}
-          </p>
-
-          <p
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '14px',
-              color: 'var(--text-primary)',
-              lineHeight: 1.8,
-              textWrap: 'pretty',
-            }}
-          >
+        <div className="security-note-body">
+          <p>
             {securityResearch.body}
           </p>
         </div>

@@ -4,35 +4,25 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      style={{
-        maxWidth: '72rem',
-        margin: '0 auto',
-        padding: '7rem 1.5rem',
-        borderTop: '1px solid var(--border)',
-      }}
+      className="section-shell"
+      aria-labelledby="experience-heading"
     >
-      <div
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '11px',
-          color: 'var(--accent-green)',
-          letterSpacing: '0.08em',
-          marginBottom: '3rem',
-        }}
-      >
-        {'// experience & education'}
-      </div>
+      <header className="section-heading">
+        <span className="section-kicker" aria-hidden="true">{'// background'}</span>
+        <h2 id="experience-heading">Experience &amp; education</h2>
+        <p>Current technical support work, earlier production roles, and engineering studies.</p>
+      </header>
 
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
           gap: '4rem',
         }}
       >
         {/* Work experience */}
         <div>
-          <div
+          <h3
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '11px',
@@ -43,7 +33,7 @@ export default function Experience() {
             }}
           >
             Work
-          </div>
+          </h3>
 
           <div
             style={{
@@ -137,7 +127,7 @@ export default function Experience() {
 
         {/* Education */}
         <div>
-          <div
+          <h3
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '11px',
@@ -148,7 +138,7 @@ export default function Experience() {
             }}
           >
             Education
-          </div>
+          </h3>
 
           <div
             style={{

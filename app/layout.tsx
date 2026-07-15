@@ -18,15 +18,16 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Antti Murtokangas — AI Systems and Security Research',
+  title: 'Antti Murtokangas - Automation Engineering Student',
   description:
-    'Automation Engineering student at SEAMK building AI-assisted tools, backend systems, and security research workflows with an interest in LLM and AppSec topics.',
+    'Automation Engineering student at SEAMK with technical support experience and practical TypeScript and Python projects, including the live Tärppi event-monitoring service.',
   metadataBase: new URL('https://www.anttimurtokangas.com'),
+  manifest: '/manifest.json',
   alternates: { canonical: 'https://www.anttimurtokangas.com' },
   openGraph: {
-    title: 'Antti Murtokangas — AI Systems and Security Research',
+    title: 'Antti Murtokangas - Automation Engineering Student',
     description:
-      'Automation Engineering student at SEAMK building AI-assisted tools, backend systems, and security research workflows with an interest in LLM and AppSec topics.',
+      'Automation Engineering student at SEAMK with technical support experience and practical TypeScript and Python projects, including the live Tärppi event-monitoring service.',
     url: 'https://www.anttimurtokangas.com',
     siteName: 'Antti Murtokangas',
     type: 'website',

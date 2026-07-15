@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { certifications } from '@/lib/data'
 
 export default function Certifications() {
@@ -6,24 +7,14 @@ export default function Certifications() {
   return (
     <section
       id="certifications"
-      style={{
-        maxWidth: '72rem',
-        margin: '0 auto',
-        padding: '7rem 1.5rem',
-        borderTop: '1px solid var(--border)',
-      }}
+      className="section-shell"
+      aria-labelledby="certifications-heading"
     >
-      <div
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '11px',
-          color: 'var(--accent-green)',
-          letterSpacing: '0.08em',
-          marginBottom: '3rem',
-        }}
-      >
-        {'// certifications'}
-      </div>
+      <header className="section-heading">
+        <span className="section-kicker" aria-hidden="true">{'// credentials'}</span>
+        <h2 id="certifications-heading">Credentials &amp; courses</h2>
+        <p>Selected certificates with direct verification links.</p>
+      </header>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: '42rem' }}>
         {certifications.map((cert) => (
@@ -43,11 +34,22 @@ export default function Certifications() {
                 flexWrap: 'wrap',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  minWidth: 0,
+                  flex: '1 1 16rem',
+                }}
+              >
                 {cert.logo ? (
-                  <img
+                  <Image
                     src={cert.logo}
                     alt={`${cert.issuer} logo`}
+                    width={32}
+                    height={32}
+                    unoptimized
                     style={{
                       width: 32,
                       height: 32,
@@ -57,7 +59,7 @@ export default function Certifications() {
                     }}
                   />
                 ) : null}
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <div
                     style={{
                       fontFamily: 'var(--font-mono)',
@@ -74,6 +76,7 @@ export default function Certifications() {
                       fontFamily: 'var(--font-mono)',
                       fontSize: '11px',
                       color: 'var(--text-muted)',
+                      overflowWrap: 'anywhere',
                     }}
                   >
                     {cert.issuer} · ID: {cert.credentialId}
@@ -87,20 +90,22 @@ export default function Certifications() {
                     fontSize: '10px',
                     color: 'var(--accent-green)',
                     letterSpacing: '0.04em',
-                    marginBottom: '0.2rem',
+                    marginBottom: cert.earnedOn ? '0.2rem' : 0,
                   }}
                 >
                   ● verified
                 </div>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '10px',
-                    color: 'var(--text-muted)',
-                  }}
-                >
-                  {cert.earnedOn}
-                </div>
+                {cert.earnedOn && (
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '10px',
+                      color: 'var(--text-muted)',
+                    }}
+                  >
+                    {cert.earnedOn}
+                  </div>
+                )}
               </div>
             </div>
           </a>

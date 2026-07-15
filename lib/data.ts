@@ -1,53 +1,53 @@
 export const navLinks = [
-  { label: 'expertise', href: '#expertise' },
   { label: 'projects', href: '#projects' },
   { label: 'security', href: '#security' },
-  { label: 'certs', href: '#certifications' },
+  { label: 'expertise', href: '#expertise' },
   { label: 'experience', href: '#experience' },
+  { label: 'credentials', href: '#certifications' },
   { label: 'contact', href: '#contact' },
 ] as const
 
 export const hero = {
   name: 'Antti Murtokangas',
-  label: 'Automation Engineering Student · AI Systems · AI Security',
+  label: 'Automation Engineering Student · Technical Support',
   subtitle: [
-    'Automation Engineering student at SEAMK.',
-    'Building AI-assisted tools, automation workflows, and backend systems.',
-    'Exploring AI-assisted security research, LLM attack surfaces, and responsible disclosure.',
+    'I study Automation Engineering at SEAMK and work in technical support for fiber-network services.',
+    'Outside work and studies, I build TypeScript and Python applications. Tärppi is my latest live project.',
   ],
-  stats: [
-    { value: '4', label: 'featured builds' },
-    { value: '8+', label: 'years in tech' },
-    { value: 'AI', label: 'security focus' },
-  ],
-  ctaPrimary: { label: '> view_projects()', href: '#projects' },
-  ctaSecondary: { label: '> contact()', href: '#contact' },
+  featured: {
+    projectId: 'tarppi',
+    label: 'Live project',
+    status: 'tarppi.site',
+    title: 'Tärppi',
+    summary: 'Tracks Kide.app and Tiketti events. It can reserve selected tickets to cart when sales open and send Telegram alerts.',
+    href: '#projects',
+    linkLabel: 'View the project',
+  },
+  ctaPrimary: { label: 'View selected work', href: '#projects' },
+  ctaSecondary: { label: 'Get in touch', href: '#contact' },
 } as const
 
 // --- Types ---
-
-interface TechBar {
-  label: string
-  color: string
-  value?: number
-}
 
 export interface Project {
   id: string
   name: string
   description: string
   fullDescription: string
+  eyebrow?: string
+  outcome?: string
+  image?: string
+  imageAlt?: string
+  linkLabel?: string
   stack: string[]
-  techBars: TechBar[]
   liveUrl: string | null
   githubUrl: string
-  status: 'live' | 'in development'
+  status: 'live' | 'in development' | 'private'
 }
 
 interface SecurityResearchEntry {
   title: string
   meta: string
-  focus: string
   body: string
 }
 
@@ -70,35 +70,31 @@ export const projects: Project[] = [
   {
     id: 'tarppi',
     name: 'Tärppi',
+    eyebrow: 'Live build',
     description:
-      'Event monitoring and ticket reservation assistant for Kide.app and Tiketti events.',
+      'Live event monitor and ticket reservation assistant for Kide.app and Tiketti.',
     fullDescription:
-      'React and TypeScript app for monitoring Kide.app and Tiketti events, scoring event relevance, reserving tickets to cart when sales open, and sending Telegram notifications. Backend runs on Railway with PostgreSQL persistence; frontend is deployed through Vercel.',
+      'Tärppi is a React and TypeScript app that collects events from Kide.app and Tiketti, ranks them by relevance, tracks selected events, reserves tickets to cart when sales open, and sends Telegram notifications. The backend runs on Railway with PostgreSQL, and the web app is deployed through Vercel.',
+    outcome:
+      'Live at tarppi.site and connected to both ticket platforms.',
+    image: '/tarppi-preview.png',
+    imageAlt: 'Tärppi dashboard with event search, tracking, and Telegram notification controls',
+    linkLabel: 'Open Tärppi',
     stack: ['React', 'TypeScript', 'PostgreSQL', 'Railway'],
-    techBars: [
-      { label: 'TypeScript', value: 56, color: '#3178C6' },
-      { label: 'React',      value: 18, color: '#58A6FF' },
-      { label: 'SQL',        value: 16, color: '#C44536' },
-      { label: 'Railway',    value: 10, color: '#BC8CFF' },
-    ],
-    liveUrl: 'https://kidehiiri.vercel.app/',
+    liveUrl: 'https://www.tarppi.site/',
     githubUrl: 'https://github.com/Murtsi/Kidehiiri-public',
-    status: 'in development',
+    status: 'live',
   },
   {
     id: 'tyohakuri',
     name: 'Työhakuri',
+    eyebrow: 'In development',
     description:
-      'AI job search copilot for the Finnish job market with recommendations and application analysis.',
+      "Private prototype that collects Finnish job listings and compares them with a user's profile.",
     fullDescription:
-      'Full-stack AI assistant for the Finnish job market. React dashboard, FastAPI backend, Supabase auth, Railway deployment, job ingestion, recommendation scoring, and LangGraph/Gemini-based analysis for tailoring applications while keeping the user in control.',
+      'A React dashboard with a FastAPI backend, Supabase authentication, Railway deployment, and job ingestion. Experimental analysis with LangGraph and Gemini helps users review job fit and tailor applications.',
+    outcome: 'Private prototype in active development; no public demo or project repository.',
     stack: ['React', 'FastAPI', 'Supabase', 'LangGraph'],
-    techBars: [
-      { label: 'TypeScript', value: 34, color: '#3178C6' },
-      { label: 'Python',     value: 30, color: '#3572A5' },
-      { label: 'AI / LLM',   value: 22, color: '#BC8CFF' },
-      { label: 'Supabase',   value: 14, color: '#3FB950' },
-    ],
     liveUrl: null,
     githubUrl: 'https://github.com/Murtsi',
     status: 'in development',
@@ -106,17 +102,13 @@ export const projects: Project[] = [
   {
     id: 'kauppaagentit',
     name: 'KauppaAgentit',
+    eyebrow: 'Research build',
     description:
-      'Finnish market analysis agents for OMXH stocks with multi-agent research workflows.',
+      'Finnish adaptation of TradingAgents for experimenting with OMXH market analysis.',
     fullDescription:
-      'Finnish adaptation of an agent-based market analysis framework for OMXH stocks. Includes Finnish prompts, CLI workflows, PostgreSQL storage, evaluation runs, and multi-agent roles for fundamentals, news, sentiment, technical analysis, risk, and portfolio decisions.',
+      'A Finnish adaptation of the open-source TradingAgents framework. The repository adds Finnish prompts, CLI workflows, PostgreSQL storage, and evaluation runs for OMXH research.',
+    outcome: 'Public repository with Finnish prompts and evaluation runs.',
     stack: ['Python', 'PostgreSQL', 'Agent workflows', 'Market data'],
-    techBars: [
-      { label: 'Python',          value: 58, color: '#3572A5' },
-      { label: 'Agent workflows', value: 20, color: '#BC8CFF' },
-      { label: 'SQL',             value: 12, color: '#C44536' },
-      { label: 'Market data',     value: 10, color: '#58A6FF' },
-    ],
     liveUrl: null,
     githubUrl: 'https://github.com/Murtsi/TradingAgents-Finnish',
     status: 'in development',
@@ -124,30 +116,26 @@ export const projects: Project[] = [
   {
     id: 'pentesting-tool',
     name: 'Pentesting Tool',
+    eyebrow: 'Private security tooling',
     description:
-      'Private security CLI framework for authorized assessments and OWASP-oriented testing.',
+      'Private Python CLI for practicing security checks in authorized environments.',
     fullDescription:
-      'Python-based penetration testing CLI framework for authorized assessments. Covers reconnaissance, service fingerprinting, vulnerability checks, JWT analysis, reporting, and OWASP-oriented testing. Kept private for security reasons.',
-    stack: ['Python', 'Security tooling', 'OWASP', 'CLI'],
-    techBars: [
-      { label: 'Python',    value: 64, color: '#3572A5' },
-      { label: 'Security',  value: 18, color: '#3FB950' },
-      { label: 'CLI',       value: 10, color: '#8B949E' },
-      { label: 'Reporting', value: 8, color: '#D29922' },
-    ],
+      'A personal learning tool that groups basic reconnaissance, service checks, JWT inspection, and report generation into one workflow. Source remains private.',
+    outcome:
+      'Built for learning and authorized practice; source remains private.',
+    linkLabel: 'GitHub profile (source private)',
+    stack: ['Python', 'Security checks', 'CLI', 'Reporting'],
     liveUrl: null,
     githubUrl: 'https://github.com/Murtsi',
-    status: 'in development',
+    status: 'private',
   },
 ]
 
 export const securityResearch: SecurityResearchEntry = {
-  title: 'Responsible Disclosure — SQL Injection',
-  meta: 'Coordinated disclosure · Public checkout flow · Finnish fitness platform',
-  focus:
-    'Research focus: AI-assisted security testing, responsible disclosure, and LLM/application security.',
+  title: 'SQL injection in a checkout flow',
+  meta: 'Responsible disclosure · Finnish fitness platform',
   body:
-    "Found and responsibly reported an unauthenticated SQL injection vulnerability in a Finnish fitness platform's public checkout flow. The issue was tied to promo-code validation and could have allowed payment bypass during membership signup. Reported through the operator's official channel under coordinated disclosure.",
+    "I found an unauthenticated SQL injection in the promo-code validation of a public membership checkout. Testing showed it could be used to bypass payment. I reported the issue through the operator's official channel and coordinated the disclosure with them.",
 }
 
 export const experience: ExperienceEntry[] = [
@@ -206,45 +194,38 @@ export const education: EducationEntry[] = [
 export const expertise = [
   {
     id: 'fiber',
-    label: 'Fiber Operations',
-    description: 'Network fault diagnosis, service provisioning, and OSS platform operations for fiber infrastructure.',
+    label: 'Network Support',
+    description: 'Current technical support work includes fault diagnosis, service provisioning, and OSS tools in a fiber-operator environment.',
     tools: ['iMaster', 'Altiplano', 'Nokia OSS', 'OTDR', 'Keycom'],
     accent: 'green',
   },
   {
     id: 'automation',
     label: 'Industrial Automation',
-    description: 'PLC programming, SCADA systems, and electrical design for industrial and wind power environments.',
+    description: 'Coursework and hands-on exercises in PLC programming, SCADA, electrical design, machine vision, and simulation.',
     tools: ['Codesys', 'SCADA', 'Eplan', 'Cognex', 'Visual Components'],
     accent: 'blue',
   },
   {
-    id: 'ml',
-    label: 'Machine Learning & AI',
-    description: 'Building and deploying ML models, data pipelines, and AI-driven backend services.',
-    tools: ['Python', 'scikit-learn', 'Data pipelines', 'REST APIs', 'Model training'],
-    accent: 'purple',
-  },
-  {
-    id: 'trading-ai',
-    label: 'Trading Analysis / AI Finance',
-    description: 'Agent-based trading analysis, market data processing, and automation for Finnish market research.',
-    tools: ['Python', 'Market data', 'Agent workflows', 'Analysis automation', 'Research tooling'],
-    accent: 'green',
-  },
-  {
-    id: 'backend',
-    label: 'Backend Development',
-    description: 'Designing and shipping TypeScript/Node.js services with PostgreSQL, containerized with Docker.',
-    tools: ['Node.js', 'TypeScript', 'PostgreSQL', 'Docker', 'Railway'],
+    id: 'software',
+    label: 'Software Projects',
+    description: 'I use TypeScript, React, Python, FastAPI, and PostgreSQL in personal projects deployed through Railway or Vercel.',
+    tools: ['TypeScript', 'React', 'Python', 'FastAPI', 'PostgreSQL'],
     accent: 'amber',
   },
   {
+    id: 'ai',
+    label: 'Applied AI',
+    description: 'I have used Gemini, LangGraph, scikit-learn, and agent workflows in private prototypes and research projects.',
+    tools: ['Gemini', 'LangGraph', 'scikit-learn', 'Agent workflows'],
+    accent: 'purple',
+  },
+  {
     id: 'security',
-    label: 'AI Security & AppSec Research',
+    label: 'Application Security',
     description:
-      'AI-assisted vulnerability analysis, responsible disclosure, OWASP-oriented testing, and research into LLM attack surfaces such as prompt injection, tool misuse, jailbreaks, and data poisoning.',
-    tools: ['AI-assisted testing', 'OWASP', 'Prompt injection', 'LLM red teaming', 'Responsible disclosure'],
+      'My practical security experience is one responsibly disclosed SQL injection finding. I also maintain a private Python learning tool for authorized environments.',
+    tools: ['SQL injection', 'Responsible disclosure', 'Python'],
     accent: 'green',
   },
 ] as const

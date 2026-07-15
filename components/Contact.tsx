@@ -25,56 +25,20 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      style={{
-        maxWidth: '72rem',
-        margin: '0 auto',
-        padding: '7rem 1.5rem 6rem',
-        borderTop: '1px solid var(--border)',
-      }}
+      className="section-shell"
+      aria-labelledby="contact-heading"
     >
-      <div
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '11px',
-          color: 'var(--accent-green)',
-          letterSpacing: '0.08em',
-          marginBottom: '2.5rem',
-        }}
-      >
-        {'// contact'}
-      </div>
-
-      <div style={{ maxWidth: '32rem', marginBottom: '3rem' }}>
-        <h2
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 'clamp(1.5rem, 4vw, 2.25rem)',
-            fontWeight: 700,
-            color: 'var(--text-primary)',
-            letterSpacing: '-0.02em',
-            lineHeight: 1.1,
-            marginBottom: '0.875rem',
-          }}
-        >
-          {`// contact`}
-        </h2>
-        <p
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: '14px',
-            color: 'var(--text-muted)',
-            lineHeight: 1.65,
-          }}
-        >
-          Reach me by email or via LinkedIn and GitHub below.
-        </p>
-      </div>
+      <header className="section-heading">
+        <span className="section-kicker" aria-hidden="true">{'// contact'}</span>
+        <h2 id="contact-heading">Get in touch</h2>
+        <p>Email, GitHub, and LinkedIn.</p>
+      </header>
 
       {/* Contact cards */}
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 200px), 1fr))',
           gap: '0.75rem',
           maxWidth: '42rem',
           marginBottom: '5rem',
@@ -87,12 +51,15 @@ export default function Contact() {
             target={link.href.startsWith('mailto') ? undefined : '_blank'}
             rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
             className="contact-card"
+            aria-label={`${link.label}: ${link.value}`}
           >
             <div
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'baseline',
+                gap: '0.75rem',
+                flexWrap: 'wrap',
                 marginBottom: '0.5rem',
               }}
             >
@@ -107,6 +74,7 @@ export default function Contact() {
                 {link.label}
               </span>
               <span
+                aria-hidden="true"
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '10px',
@@ -121,7 +89,8 @@ export default function Contact() {
                 fontFamily: 'var(--font-mono)',
                 fontSize: '11px',
                 color: 'var(--text-muted)',
-                wordBreak: 'break-all',
+                overflowWrap: 'anywhere',
+                wordBreak: 'normal',
               }}
             >
               {link.value}
@@ -146,16 +115,16 @@ export default function Contact() {
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '11px',
-            color: 'var(--border)',
+            color: 'var(--text-muted)',
           }}
         >
-          {'// next.js 15 · tailwind v4'}
+          {'// next.js 16 · tailwind v4'}
         </span>
         <span
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '11px',
-            color: 'var(--border)',
+            color: 'var(--text-muted)',
           }}
         >
           {new Date().getFullYear()}

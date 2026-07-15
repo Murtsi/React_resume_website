@@ -11,29 +11,19 @@ export default function Expertise() {
   return (
     <section
       id="expertise"
-      style={{
-        maxWidth: '72rem',
-        margin: '0 auto',
-        padding: '7rem 1.5rem',
-        borderTop: '1px solid var(--border)',
-      }}
+      className="section-shell"
+      aria-labelledby="expertise-heading"
     >
-      <div
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '11px',
-          color: 'var(--accent-green)',
-          letterSpacing: '0.08em',
-          marginBottom: '3rem',
-        }}
-      >
-        {'// expertise'}
-      </div>
+      <header className="section-heading">
+        <span className="section-kicker" aria-hidden="true">{'// capabilities'}</span>
+        <h2 id="expertise-heading">Expertise</h2>
+        <p>Skills from current work, engineering studies, and personal projects.</p>
+      </header>
 
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
           gap: '1px',
           border: '1px solid var(--border)',
           borderRadius: '8px',
@@ -55,7 +45,7 @@ export default function Expertise() {
                 gap: '0.875rem',
               }}
             >
-              <div
+              <h3
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '11px',
@@ -65,7 +55,7 @@ export default function Expertise() {
                 }}
               >
                 {domain.label}
-              </div>
+              </h3>
 
               <p
                 style={{

@@ -10,6 +10,7 @@ export default function Nav() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 24)
+      if (window.scrollY < 160) setActive('')
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -34,6 +35,7 @@ export default function Nav() {
 
   return (
     <nav
+      aria-label="Primary navigation"
       style={{
         position: 'fixed',
         top: 0,
@@ -86,6 +88,7 @@ export default function Nav() {
                 key={item.href}
                 href={item.href}
                 className="nav-link"
+                aria-current={isActive ? 'location' : undefined}
                 style={{
                   position: 'relative',
                   fontFamily: 'var(--font-mono)',

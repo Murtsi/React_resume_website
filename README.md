@@ -33,4 +33,4 @@ npm run start
 
 ## Notes
 
-- The download CV button is currently removed until a final resume PDF is added.
+- A downloadable CV is available at `public/CV-Antti-Murtokangas.pdf`.

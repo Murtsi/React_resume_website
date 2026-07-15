@@ -1,146 +1,76 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
-import { projects } from '@/lib/data'
+import Image from 'next/image'
+import { useEffect, useRef, useState } from 'react'
+import { hero, projects } from '@/lib/data'
 import type { Project } from '@/lib/data'
 
-function TechStrip({ items }: { items: Project['techBars'] }) {
-  const visibleItems = items.slice(0, 4)
-  const hasRealValues =
-    visibleItems.length >= 3 &&
-    visibleItems.every((item) => typeof item.value === 'number' && item.value > 0)
-  const total = hasRealValues
-    ? visibleItems.reduce((sum, item) => sum + (item.value ?? 0), 0)
-    : 0
-
-  return (
-    <div
-      style={{
-        height: '5px',
-        width: '100%',
-        display: 'flex',
-        gap: '2px',
-        backgroundColor: 'var(--bg-elevated)',
-        border: '1px solid var(--border)',
-        borderRadius: '999px',
-        padding: '1px',
-        overflow: 'hidden',
-        opacity: 0.9,
-      }}
-    >
-      {visibleItems.map((item) => {
-        const width = hasRealValues
-          ? `${((item.value ?? 0) / total) * 100}%`
-          : `${100 / visibleItems.length}%`
-
-        return (
-          <span
-            key={item.label}
-            style={{
-              width,
-              height: '100%',
-              borderRadius: '999px',
-              backgroundColor: item.color,
-              opacity: 0.72,
-            }}
-          />
-        )
-      })}
-    </div>
-  )
+const statusLabels: Record<Project['status'], string> = {
+  live: 'Live',
+  'in development': 'In development',
+  private: 'Private',
 }
 
 function ProjectCard({
   project,
+  featured = false,
   onClick,
 }: {
   project: Project
+  featured?: boolean
   onClick: () => void
 }) {
   const statusColor = project.status === 'live' ? 'var(--accent-green)' : 'var(--accent-amber)'
-  const statusLabel = project.status === 'live' ? 'Live' : 'In Development'
-  const visibleStack = project.stack.slice(0, 4)
 
   return (
-    <div className="project-card" onClick={onClick}>
-      <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'space-between',
-            gap: '0.75rem',
-            marginBottom: '0.875rem',
-          }}
-        >
-          <h3
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '14px',
-              fontWeight: 600,
-              color: 'var(--text-primary)',
-            }}
-          >
-            {project.name}
-          </h3>
-          <span
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '10px',
-              color: statusColor,
-              flexShrink: 0,
-              paddingTop: '2px',
-              letterSpacing: '0.04em',
-            }}
-          >
-            ● {statusLabel}
+    <button
+      type="button"
+      className="project-card"
+      data-featured={featured ? 'true' : undefined}
+      onClick={onClick}
+      aria-haspopup="dialog"
+      aria-label={`View details for ${project.name}`}
+    >
+      {featured && project.image && (
+        <div className="project-card-image">
+          <Image
+            src={project.image}
+            alt={project.imageAlt ?? `${project.name} preview`}
+            fill
+            sizes="(min-width: 900px) 42vw, 100vw"
+          />
+        </div>
+      )}
+
+      <div className="project-card-body">
+        <div className="project-card-heading">
+          <div>
+            <span className="project-eyebrow">{project.eyebrow ?? statusLabels[project.status]}</span>
+            <h3>{project.name}</h3>
+          </div>
+          <span className="project-status" style={{ color: statusColor }}>
+            <span aria-hidden="true">●</span> {statusLabels[project.status]}
           </span>
         </div>
 
-        <p
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: '13px',
-            color: 'var(--text-muted)',
-            lineHeight: 1.65,
-            flex: 1,
-            marginBottom: '1.25rem',
-          }}
-        >
-          {project.description}
-        </p>
+        <p className="project-description">{project.description}</p>
 
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '0.35rem',
-            marginBottom: '0.7rem',
-          }}
-        >
-          {visibleStack.map((tech) => (
-            <span key={tech} className="badge">
-              {tech}
-            </span>
-          ))}
-        </div>
+        {project.outcome && <p className="project-outcome">{project.outcome}</p>}
 
-        <div style={{ marginBottom: '1.2rem' }}>
-          <TechStrip items={project.techBars} />
-        </div>
-
-        <div
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '11px',
-            color: 'var(--accent-blue)',
-            letterSpacing: '0.04em',
-          }}
-        >
-          view details →
+        <div className="project-card-footer">
+          <div className="project-stack" aria-label="Technology stack">
+            {project.stack.slice(0, 4).map((tech) => (
+              <span key={tech} className="badge">
+                {tech}
+              </span>
+            ))}
+          </div>
+          <span className="project-open-label">
+            View details <span aria-hidden="true">-&gt;</span>
+          </span>
         </div>
       </div>
-    </div>
+    </button>
   )
 }
 
@@ -152,122 +82,91 @@ function ProjectModal({
   onClose: () => void
 }) {
   const modalRef = useRef<HTMLDivElement>(null)
+  const closeRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
+    const previouslyFocused = document.activeElement as HTMLElement | null
+    closeRef.current?.focus()
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        onClose()
+        return
+      }
+
+      if (event.key !== 'Tab' || !modalRef.current) return
+
+      const focusable = Array.from(
+        modalRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      )
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
     }
+
     document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      previouslyFocused?.focus()
+    }
   }, [onClose])
 
-  const statusColor = project.status === 'live' ? 'var(--accent-green)' : 'var(--accent-amber)'
-  const statusLabel = project.status === 'live' ? 'Live' : 'In Development'
-  const visibleStack = project.stack.slice(0, 4)
+  const githubLabel =
+    project.status === 'private'
+      ? project.linkLabel ?? 'GitHub profile (source private)'
+      : project.githubUrl === 'https://github.com/Murtsi'
+        ? 'GitHub profile'
+        : 'Repository'
 
   return (
     <div
       className="modal-backdrop"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose()
+      onClick={(event) => {
+        if (event.target === event.currentTarget) onClose()
       }}
     >
-      <div ref={modalRef} className="modal-panel">
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'space-between',
-            padding: '1.5rem 1.5rem 0',
-            gap: '1rem',
-          }}
-        >
+      <div
+        ref={modalRef}
+        className="modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="project-dialog-title"
+        tabIndex={-1}
+      >
+        <div className="modal-header">
           <div>
-            <div
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '10px',
-                color: statusColor,
-                marginBottom: '0.375rem',
-                letterSpacing: '0.05em',
-              }}
-            >
-              ● {statusLabel}
-            </div>
-            <h2
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '18px',
-                fontWeight: 700,
-                color: 'var(--text-primary)',
-              }}
-            >
-              {project.name}
-            </h2>
+            <span className="project-eyebrow">{statusLabels[project.status]}</span>
+            <h2 id="project-dialog-title">{project.name}</h2>
           </div>
-
-          <button
-            onClick={onClose}
-            aria-label="Close"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '28px',
-              height: '28px',
-              borderRadius: '4px',
-              border: '1px solid var(--border)',
-              background: 'transparent',
-              color: 'var(--text-muted)',
-              cursor: 'pointer',
-              flexShrink: 0,
-              fontSize: '14px',
-              transition: 'border-color 0.15s, color 0.15s',
-            }}
-            onMouseEnter={(e) => {
-              ;(e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--text-muted)'
-              ;(e.currentTarget as HTMLButtonElement).style.color = 'var(--text-primary)'
-            }}
-            onMouseLeave={(e) => {
-              ;(e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--border)'
-              ;(e.currentTarget as HTMLButtonElement).style.color = 'var(--text-muted)'
-            }}
-          >
-            ✕
+          <button ref={closeRef} type="button" onClick={onClose} className="modal-close" aria-label="Close project details">
+            <span aria-hidden="true">x</span>
           </button>
         </div>
 
-        <div style={{ padding: '1.25rem 1.5rem 1.5rem' }}>
-          <p
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '13px',
-              color: 'var(--text-secondary)',
-              lineHeight: 1.7,
-              marginBottom: '1.75rem',
-            }}
-          >
-            {project.fullDescription}
-          </p>
+        <div className="modal-body">
+          {project.image && (
+            <div className="modal-image">
+              <Image src={project.image} alt={project.imageAlt ?? `${project.name} preview`} fill sizes="560px" />
+            </div>
+          )}
+          <p className="modal-description">{project.fullDescription}</p>
+          {project.outcome && <p className="modal-outcome">{project.outcome}</p>}
 
-          <div style={{ marginBottom: '1.75rem' }}>
-            <div
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '10px',
-                color: 'var(--text-muted)',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                marginBottom: '0.75rem',
-              }}
-            >
-              Tech stack
-            </div>
-            <div style={{ marginBottom: '0.75rem' }}>
-              <TechStrip items={project.techBars} />
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem' }}>
-              {visibleStack.map((tech) => (
+          <div className="modal-stack">
+            <span className="modal-label">Stack</span>
+            <div className="project-stack">
+              {project.stack.slice(0, 4).map((tech) => (
                 <span key={tech} className="badge">
                   {tech}
                 </span>
@@ -275,26 +174,14 @@ function ProjectModal({
             </div>
           </div>
 
-          <div style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap' }}>
+          <div className="modal-actions">
             {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-                style={{ fontSize: '12px', padding: '0.5rem 1rem' }}
-              >
-                Live ↗
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                {project.linkLabel ?? 'Open live app'} <span aria-hidden="true">-&gt;</span>
               </a>
             )}
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-ghost"
-              style={{ fontSize: '12px', padding: '0.5rem 1rem' }}
-            >
-              GitHub ↗
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+              {githubLabel} <span aria-hidden="true">-&gt;</span>
             </a>
           </div>
         </div>
@@ -305,49 +192,36 @@ function ProjectModal({
 
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null)
+  const featuredProject =
+    projects.find((project) => project.id === hero.featured.projectId) ?? projects[0]
+  const supportingProjects = projects.filter((project) => project.id !== featuredProject.id)
 
   useEffect(() => {
-    document.body.style.overflow = selected ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = selected ? 'hidden' : previousOverflow
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
   }, [selected])
 
   return (
-    <section
-      id="projects"
-      style={{
-        maxWidth: '72rem',
-        margin: '0 auto',
-        padding: '7rem 1.5rem',
-        borderTop: '1px solid var(--border)',
-      }}
-    >
-      <div
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '11px',
-          color: 'var(--accent-green)',
-          letterSpacing: '0.08em',
-          marginBottom: '3rem',
-        }}
-      >
-        {'// projects'}
+    <section id="projects" className="section-shell projects-section" aria-labelledby="projects-heading">
+      <header className="section-heading">
+        <span className="section-kicker" aria-hidden="true">{'// selected work'}</span>
+        <h2 id="projects-heading">Selected work</h2>
+        <p>A live service, private prototypes, and open-source experiments.</p>
+      </header>
+
+      <div className="featured-project-grid">
+        <ProjectCard project={featuredProject} featured onClick={() => setSelected(featuredProject)} />
+        <div className="supporting-projects">
+          {supportingProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} onClick={() => setSelected(project)} />
+          ))}
+        </div>
       </div>
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-          gap: '1rem',
-        }}
-      >
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} onClick={() => setSelected(project)} />
-        ))}
-      </div>
-
-      {selected && (
-        <ProjectModal project={selected} onClose={() => setSelected(null)} />
-      )}
+      {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
     </section>
   )
 }
