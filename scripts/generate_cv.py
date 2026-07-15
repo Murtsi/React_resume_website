@@ -357,12 +357,10 @@ def build_cv(output_path: Path) -> None:
         [
             [
                 Paragraph(
-                    "SEAMKin automaatiotekniikan opiskelija ja kuituverkkopalveluiden teknisen tuen "
-                    "työntekijä. Ratkon työssäni verkon käyttöönottoon, valvontaan ja vianhakuun "
-                    "liittyviä ongelmia. Vapaa-ajalla rakennan TypeScript- ja Python-sovelluksia. "
-                    "Tavoitteeni on siirtyä AI- ja LLM-turvallisuuden tehtäviin. Kehitteillä oleva "
-                    "Agent Security Lab keskittyy LLM-agenttien syötteiden, toimintarajojen ja "
-                    "työkalukutsujen turvallisuuteen.",
+                    "SEAMKin automaatiotekniikan opiskelija. Työskentelen kuituverkkopalveluiden "
+                    "teknisessä tuessa verkon käyttöönoton, valvonnan ja vianhaun parissa. "
+                    "Vapaa-ajalla rakennan TypeScript- ja Python-sovelluksia. Tavoitteeni on "
+                    "siirtyä AI- ja LLM-turvallisuuden tehtäviin.",
                     styles["profile"],
                 )
             ]
@@ -396,11 +394,7 @@ def build_cv(output_path: Path) -> None:
         ),
         (
             "AI ja LLM-turva",
-            "LangGraph, agenttityönkulut sekä prompt injection- ja työkalukutsuriskit (oppimisfokus)",
-        ),
-        (
-            "Sovellusturvallisuus",
-            "Vastuullinen haavoittuvuusraportointi, valtuutettu testaus ja yksityinen Python-työkalu",
+            "LangGraph, agenttityönkulut ja LLM-agenttien turvallisuus (oppimisfokus)",
         ),
         (
             "Automaatio",
@@ -490,9 +484,8 @@ def build_cv(output_path: Path) -> None:
             project_entry(
                 "Agent Security Lab",
                 "kehitteillä",
-                "Paikallinen konsepti LLM-agenttien epäluotettavien syötteiden, toimintarajojen ja "
-                "työkalukutsujen turvallisuuden tutkimiseen. Projekti on kehitteillä, ja sen nykyinen "
-                "painopiste on uhkamallien ja turvallisten toimintatapojen jäsentämisessä.",
+                "Työn alla oleva projekti LLM-agenttien syötteiden, toimintarajojen ja "
+                "työkalukutsujen turvallisuuden tutkimiseen.",
                 "AI/LLM security | prompt injection | tool misuse | agent boundaries",
                 styles,
             ),
@@ -508,49 +501,12 @@ def build_cv(output_path: Path) -> None:
                 "KauppaAgentit",
                 "tutkimusprojekti",
                 "TradingAgents-kehyksen suomalainen sovitus OMXH-markkina-analyysin kokeiluun. "
-                "Projektissa on suomalaiset promptit, CLI-työnkulut, PostgreSQL-tallennus ja arviointiajoja.",
+                "Sisältää suomalaiset promptit, CLI-työnkulut, PostgreSQL-tallennuksen ja arviointiajot.",
                 "Python | PostgreSQL | agenttityönkulut | GitHub",
-                styles,
-            ),
-            project_entry(
-                "Pentesting Tool",
-                "yksityinen",
-                "Python CLI valtuutetuissa ympäristöissä tehtäviin harjoituksiin. Työkalu kokoaa "
-                "perustason tiedustelun, palvelutarkistukset, JWT-tarkistuksen ja raportoinnin samaan työnkulkuun.",
-                "Python | authorized testing | private repository",
                 styles,
             ),
         ]
     )
-
-    story.extend(section_title("Käytännön tietoturvanäyttö", styles))
-    security_box = Table(
-        [
-            [
-                Paragraph(
-                    "Tunnistin julkisen jäsenyyden maksuprosessin tarjouskoodin tarkistuksesta ilman "
-                    "kirjautumista hyödynnettävän SQL-injektion. Löydös olisi mahdollistanut maksun "
-                    "ohittamisen. Raportoin havainnon vastuullisesti palvelun ylläpitäjälle.",
-                    styles["profile"],
-                )
-            ]
-        ],
-        colWidths=[doc.width],
-    )
-    security_box.setStyle(
-        TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, -1), PALE),
-                ("BOX", (0, 0), (-1, -1), 0.6, LINE),
-                ("LINEBEFORE", (0, 0), (0, -1), 3, TEAL),
-                ("LEFTPADDING", (0, 0), (-1, -1), 5 * mm),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 5 * mm),
-                ("TOPPADDING", (0, 0), (-1, -1), 3.5 * mm),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 3.5 * mm),
-            ]
-        )
-    )
-    story.append(security_box)
 
     story.extend(section_title("Koulutus", styles))
     story.extend(
@@ -586,16 +542,36 @@ def build_cv(output_path: Path) -> None:
         ]
     )
 
-    story.extend(section_title("Sertifikaatti ja kielet", styles))
+    story.extend(section_title("Sertifikaatit ja kielet", styles))
     info_table = Table(
         [
             [
-                Paragraph("Sertifikaatti", styles["skill_label"]),
+                Paragraph("Sertifikaatit", styles["skill_label"]),
                 Paragraph("Microsoft Certified: Azure Fundamentals (AZ-900)", styles["skill_value"]),
             ],
             [
+                Paragraph("", styles["skill_label"]),
+                Paragraph("Google: AI Specialization", styles["skill_value"]),
+            ],
+            [
+                Paragraph("", styles["skill_label"]),
+                Paragraph("Google AI Essentials", styles["skill_value"]),
+            ],
+            [
                 Paragraph("Kielet", styles["skill_label"]),
-                Paragraph("Suomi (äidinkieli) | Englanti (työkielitaso)", styles["skill_value"]),
+                Paragraph("Suomi (äidinkieli)", styles["skill_value"]),
+            ],
+            [
+                Paragraph("", styles["skill_label"]),
+                Paragraph("Englanti (kiitettävä)", styles["skill_value"]),
+            ],
+            [
+                Paragraph("", styles["skill_label"]),
+                Paragraph("Saksa (hyvä)", styles["skill_value"]),
+            ],
+            [
+                Paragraph("", styles["skill_label"]),
+                Paragraph("Viro (hyvä)", styles["skill_value"]),
             ],
         ],
         colWidths=[34 * mm, 133 * mm],

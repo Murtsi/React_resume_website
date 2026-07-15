@@ -81,9 +81,17 @@ test('downloadable CV stays aligned with the current career direction', () => {
   assert.match(source, /AI- ja LLM-turvallisuuden tehtäviin/)
   assert.match(source, /Agent Security Lab/)
   assert.match(source, /Tärppi/)
-  assert.match(source, /SQL-injektio/)
   assert.match(source, /Azure Fundamentals/)
+  assert.match(source, /Google: AI Specialization/)
+  assert.match(source, /Google AI Essentials/)
+  assert.match(source, /Suomi \(äidinkieli\)/)
+  assert.match(source, /Englanti \(kiitettävä\)/)
+  assert.match(source, /Saksa \(hyvä\)/)
+  assert.match(source, /Viro \(hyvä\)/)
   assert.match(source, /antti-murtokangas-562725158/)
   assert.doesNotMatch(source, /Verkkoasiantuntija/)
-  assert.doesNotMatch(source, /Next\.js 15|Hashcat|Airgeddon/)
+  assert.doesNotMatch(
+    source,
+    /Next\.js 15|Hashcat|Airgeddon|Sovellusturvallisuus|Pentesting Tool|Käytännön tietoturvanäyttö|SQL-injektio/,
+  )
 })
