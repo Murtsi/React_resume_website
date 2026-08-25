@@ -75,7 +75,7 @@ export default function Home() {
       </section>
 
       <section className="section-shell page-width" id="contact" data-reveal>
-        <div className="contact-band"><div><p className="eyebrow">Contact</p><h2>Have a practical problem to solve?</h2></div><a className="button button-primary" href={`mailto:${contact.email}`}>Email Antti <span aria-hidden="true">↗</span></a></div>
+        <div className="contact-band"><div><p className="eyebrow">Contact</p><h2>Have a practical problem to solve?</h2></div><a className="button button-primary" href={`mailto:${contact.email}`}>Email <span aria-hidden="true">↗</span></a></div>
         <footer className="footer-meta"><span>© {new Date().getFullYear()} Antti Murtokangas</span><span><a href={contact.githubUrl}>GitHub</a> · <a href={contact.linkedinUrl}>LinkedIn</a> · <Link href="/blog">Blog</Link></span></footer>
       </section>
     </main><div className="scroll-veil" aria-hidden="true" /></>

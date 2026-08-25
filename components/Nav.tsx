@@ -63,7 +63,7 @@ export default function Nav() {
       </div>
       <div className="mobile-menu" id="mobile-navigation" hidden={!menuOpen}>
         {links.map((link) => <Link key={link.href} href={link.href} aria-current={isCurrent(link.section) ? 'location' : undefined}>{link.label}</Link>)}
-        <a href="mailto:antti.murtsi@gmail.com">Email Antti</a>
+        <a href="mailto:antti.murtsi@gmail.com">Email</a>
       </div>
     </nav>
   )

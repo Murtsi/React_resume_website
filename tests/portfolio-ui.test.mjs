@@ -98,11 +98,19 @@ test('navigation keeps recruiter destinations available on mobile', () => {
   const css = read('app/globals.css')
   assert.match(nav, /className="menu-toggle"/)
   assert.match(nav, /aria-expanded=/)
-  assert.match(nav, /Email Antti/)
+  assert.match(nav, />Email<\/a>/)
   assert.match(nav, /href:\s*'\/#security'/)
   assert.match(nav, /aria-current=/)
   assert.match(css, /min-height:\s*44px/)
   assert.match(css, /\.mobile-menu/)
+})
+
+test('email actions use the concise label', () => {
+  const home = read('app/page.tsx')
+  const nav = read('components/Nav.tsx')
+  assert.match(home, />Email <span/)
+  assert.match(nav, />Email<\/a>/)
+  assert.doesNotMatch(`${home}\n${nav}`, /Email Antti/)
 })
 
 test('homepage exposes recruiter proof paths near relevant projects', () => {
