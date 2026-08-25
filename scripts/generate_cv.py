@@ -482,7 +482,6 @@ def build_cv(output_path: Path) -> None:
     story.extend(
         [
             project_entry(
-                "Agent Security Lab",
                 "kehitteillä",
                 "Työn alla oleva projekti LLM-agenttien syötteiden, toimintarajojen ja "
                 "työkalukutsujen turvallisuuden tutkimiseen.",

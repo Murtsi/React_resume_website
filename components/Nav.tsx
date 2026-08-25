@@ -1,131 +1,69 @@
 'use client'
 
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { navLinks } from '@/lib/data'
+
+const links = [
+  { label: 'Work', href: '/#work', section: 'work' },
+  { label: 'Disclosures', href: '/#security', section: 'security' },
+  { label: 'Experience', href: '/#experience', section: 'experience' },
+  { label: 'Credentials', href: '/#certifications', section: 'certifications' },
+  { label: 'Blog', href: '/blog', section: null },
+] as const
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false)
-  const [active, setActive] = useState('')
+  const pathname = usePathname()
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark')
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 24)
-      if (window.scrollY < 160) setActive('')
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    setTheme(document.documentElement.dataset.theme === 'light' ? 'light' : 'dark')
   }, [])
 
   useEffect(() => {
-    const sections = navLinks.map((l) => l.href.replace('#', ''))
+    setMenuOpen(false)
+    if (pathname !== '/') return
+
+    const sections = links.flatMap((link) => link.section ? [document.getElementById(link.section)] : []).filter(Boolean) as HTMLElement[]
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id)
-        })
-      },
-      { rootMargin: '-40% 0px -55% 0px' },
+      (entries) => entries.forEach((entry) => entry.isIntersecting && setActiveSection(entry.target.id)),
+      { rootMargin: '-30% 0px -62% 0px' },
     )
-    sections.forEach((id) => {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
-    })
+    sections.forEach((section) => observer.observe(section))
     return () => observer.disconnect()
-  }, [])
+  }, [pathname])
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const closeOnEscape = (event: KeyboardEvent) => event.key === 'Escape' && setMenuOpen(false)
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [menuOpen])
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark'
+    setTheme(nextTheme)
+    document.documentElement.dataset.theme = nextTheme
+    localStorage.setItem('portfolio-theme', nextTheme)
+  }
+
+  const isCurrent = (section: string | null) => section === null ? pathname.startsWith('/blog') : pathname === '/' && activeSection === section
 
   return (
-    <nav
-      aria-label="Primary navigation"
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        borderBottom: `1px solid ${scrolled ? 'var(--border)' : 'transparent'}`,
-        backgroundColor: scrolled
-          ? 'color-mix(in srgb, var(--bg-canvas) 88%, transparent)'
-          : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
-        transition: 'background-color 0.3s ease, border-color 0.3s ease',
-      }}
-    >
-      <div
-        className="nav-shell"
-        style={{
-          maxWidth: '72rem',
-          margin: '0 auto',
-          padding: '0 1.5rem',
-          height: '52px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        {/* Wordmark */}
-        <a
-          href="#"
-          className="link-hover site-wordmark"
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '12px',
-            color: 'var(--text-muted)',
-            textDecoration: 'none',
-            letterSpacing: '0.02em',
-          }}
-        >
-          <span style={{ color: 'var(--accent-green)' }}>~</span>
-          {' Antti Murtokangas'}
-        </a>
-
-        {/* Nav links */}
-        <div className="nav-link-list" style={{ display: 'flex', alignItems: 'center', gap: '0.125rem' }}>
-          {navLinks.map((item) => {
-            const isActive = active === item.href.replace('#', '')
-            return (
-              <a
-                key={item.href}
-                href={item.href}
-                className="nav-link"
-                aria-current={isActive ? 'location' : undefined}
-                style={{
-                  position: 'relative',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '12px',
-                  color: isActive ? 'var(--text-primary)' : 'var(--text-muted)',
-                  textDecoration: 'none',
-                  padding: '0.375rem 0.625rem',
-                  borderRadius: '3px',
-                  transition: 'color 0.15s',
-                }}
-                onMouseEnter={(e) => {
-                  if (!isActive)
-                    (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-primary)'
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive)
-                    (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-muted)'
-                }}
-              >
-                {item.label}
-                {isActive && (
-                  <span
-                    style={{
-                      position: 'absolute',
-                      bottom: 0,
-                      left: '0.625rem',
-                      right: '0.625rem',
-                      height: '1px',
-                      background: 'var(--accent-green)',
-                      borderRadius: '1px',
-                    }}
-                  />
-                )}
-              </a>
-            )
-          })}
+    <nav className="site-nav" aria-label="Primary navigation">
+      <div className="nav-inner">
+        <Link className="wordmark" href="/" aria-label="Antti Murtokangas, portfolio home">AM<span>.</span></Link>
+        <div className="nav-links">
+          {links.map((link) => <Link key={link.href} href={link.href} aria-current={isCurrent(link.section) ? 'location' : undefined}>{link.label}</Link>)}
         </div>
+        <button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen((open) => !open)}>{menuOpen ? 'Close' : 'Menu'}</button>
+        <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="Toggle color theme" aria-pressed={theme === 'light'}>{theme === 'light' ? 'Dark' : 'Light'} <span aria-hidden="true">◐</span></button>
+      </div>
+      <div className="mobile-menu" id="mobile-navigation" hidden={!menuOpen}>
+        {links.map((link) => <Link key={link.href} href={link.href} aria-current={isCurrent(link.section) ? 'location' : undefined}>{link.label}</Link>)}
+        <a href="mailto:antti.murtsi@gmail.com">Email Antti</a>
       </div>
     </nav>
   )

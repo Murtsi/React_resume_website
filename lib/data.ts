@@ -42,13 +42,8 @@ export interface Project {
   stack: string[]
   liveUrl: string | null
   githubUrl: string
+  repositoryPublic?: boolean
   status: 'live' | 'in development' | 'private'
-}
-
-interface SecurityResearchEntry {
-  title: string
-  meta: string
-  body: string
 }
 
 interface ExperienceEntry {
@@ -74,7 +69,7 @@ export const projects: Project[] = [
     description:
       'Live event monitor and ticket reservation assistant for Kide.app and Tiketti.',
     fullDescription:
-      'Tärppi is a React and TypeScript app that collects events from Kide.app and Tiketti, ranks them by relevance, tracks selected events, reserves tickets to cart when sales open, and sends Telegram notifications. The backend runs on Railway with PostgreSQL, and the web app is deployed through Vercel.',
+      'Tärppi tracks Kide.app and Tiketti events, reserves selected tickets when sales open, and sends Telegram alerts. The React and TypeScript app runs on Vercel with a Railway and PostgreSQL backend.',
     outcome:
       'Live at tarppi.site and connected to both ticket platforms.',
     image: '/tarppi-preview.png',
@@ -83,6 +78,7 @@ export const projects: Project[] = [
     stack: ['React', 'TypeScript', 'PostgreSQL', 'Railway'],
     liveUrl: 'https://www.tarppi.site/',
     githubUrl: 'https://github.com/Murtsi/Kidehiiri-public',
+    repositoryPublic: true,
     status: 'live',
   },
   {
@@ -111,6 +107,7 @@ export const projects: Project[] = [
     stack: ['Python', 'PostgreSQL', 'Agent workflows', 'Market data'],
     liveUrl: null,
     githubUrl: 'https://github.com/Murtsi/TradingAgents-Finnish',
+    repositoryPublic: true,
     status: 'in development',
   },
   {
@@ -130,13 +127,6 @@ export const projects: Project[] = [
     status: 'private',
   },
 ]
-
-export const securityResearch: SecurityResearchEntry = {
-  title: 'SQL injection in a checkout flow',
-  meta: 'Responsible disclosure · Finnish fitness platform',
-  body:
-    "I found an unauthenticated SQL injection in the promo-code validation of a public membership checkout. Testing showed it could be used to bypass payment. I reported the issue through the operator's official channel and coordinated the disclosure with them.",
-}
 
 export const experience: ExperienceEntry[] = [
   {
@@ -195,28 +185,28 @@ export const expertise = [
   {
     id: 'fiber',
     label: 'Network Support',
-    description: 'Current technical support work includes fault diagnosis, service provisioning, and OSS tools in a fiber-operator environment.',
+    description: 'I diagnose fiber service faults, provision services, and work with operator OSS tools.',
     tools: ['iMaster', 'Altiplano', 'Nokia OSS', 'OTDR', 'Keycom'],
     accent: 'green',
   },
   {
     id: 'automation',
     label: 'Industrial Automation',
-    description: 'Coursework and hands-on exercises in PLC programming, SCADA, electrical design, machine vision, and simulation.',
+    description: 'My coursework includes PLC programming, SCADA, electrical design, machine vision, and simulation.',
     tools: ['Codesys', 'SCADA', 'Eplan', 'Cognex', 'Visual Components'],
     accent: 'blue',
   },
   {
     id: 'software',
     label: 'Software Projects',
-    description: 'I use TypeScript, React, Python, FastAPI, and PostgreSQL in personal projects deployed through Railway or Vercel.',
+    description: 'I build TypeScript and Python projects with React, FastAPI, and PostgreSQL.',
     tools: ['TypeScript', 'React', 'Python', 'FastAPI', 'PostgreSQL'],
     accent: 'amber',
   },
   {
     id: 'ai',
     label: 'Applied AI',
-    description: 'I have used Gemini, LangGraph, scikit-learn, and agent workflows in private prototypes and research projects.',
+    description: 'I use Gemini, LangGraph, and agent workflows in personal prototypes.',
     tools: ['Gemini', 'LangGraph', 'scikit-learn', 'Agent workflows'],
     accent: 'purple',
   },
