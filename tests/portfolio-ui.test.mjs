@@ -134,6 +134,7 @@ test('disclosure article includes concise verified case facts', () => {
   assert.match(blog, /facts:/)
   assert.match(blog, /Status', value: 'Patched'/)
   assert.match(article, /article-facts/)
+  assert.doesNotMatch(blog, /Recommended fix|After the report/)
 })
 
 test('reduced motion preserves navigation feedback', () => {
@@ -176,7 +177,7 @@ test('public disclosure is factual, scoped, and based on the supplied report', (
   assert.match(blog, /CWE-89/)
   assert.match(blog, /data protection officer/)
   assert.match(blog, /No customer data was accessed/)
-  assert.match(blog, /parameterized quer/)
+  assert.match(blog, /affected path was later patched/i)
   assert.match(blog, /Status', value: 'Patched'/)
   assert.doesNotMatch(blog, /Remediation not confirmed|has not been confirmed/)
   assert.doesNotMatch(blog, /OR 1=1|data exfiltration|authentication bypass|Finnish fitness chain|\[Your Name\]/i)

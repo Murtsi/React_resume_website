@@ -52,20 +52,6 @@ export const blogPosts: BlogPost[] = [
           'The affected path was later patched.',
         ],
       },
-      {
-        heading: 'Recommended fix',
-        paragraphs: [
-          'The primary fix is to use parameterized queries or prepared statements for every database operation that includes user input. Strict server-side validation of campaign-code formats is useful as an additional control, but it should not replace parameterization.',
-          'Generic user-facing errors and internal security logging would also make the checkout safer to operate and easier to monitor.',
-        ],
-      },
-      {
-        heading: 'After the report',
-        paragraphs: [
-          'The biggest lesson was knowing when to stop. Once I could show the issue and its effect, continued testing would have created more risk without helping the operator fix it.',
-          'Since then, I start security reviews by looking for places where unauthenticated input reaches a database or affects payment logic. That gives me a clearer test boundary before I begin.',
-        ],
-      },
     ],
   },
 ]
