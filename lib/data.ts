@@ -75,7 +75,7 @@ export const projects: Project[] = [
     image: '/tarppi-preview.png',
     imageAlt: 'Tärppi dashboard with event search, tracking, and Telegram notification controls',
     linkLabel: 'Open Tärppi',
-    stack: ['React', 'TypeScript', 'PostgreSQL', 'Railway'],
+    stack: ['React', 'TypeScript', 'PostgreSQL', 'Railway', 'Vite', 'Playwright'],
     liveUrl: 'https://www.tarppi.site/',
     githubUrl: 'https://github.com/Murtsi/Kidehiiri-public',
     repositoryPublic: true,
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     fullDescription:
       'A React dashboard with a FastAPI backend, Supabase authentication, Railway deployment, and job ingestion. Experimental analysis with LangGraph and Gemini helps users review job fit and tailor applications.',
     outcome: 'Private prototype in active development; no public demo or project repository.',
-    stack: ['React', 'FastAPI', 'Supabase', 'LangGraph'],
+    stack: ['React', 'FastAPI', 'Supabase', 'LangGraph', 'Redis', 'Docker'],
     liveUrl: null,
     githubUrl: 'https://github.com/Murtsi',
     status: 'in development',
@@ -111,17 +111,17 @@ export const projects: Project[] = [
     status: 'in development',
   },
   {
-    id: 'pentesting-tool',
-    name: 'Pentesting Tool',
-    eyebrow: 'Private security tooling',
+    id: 'security-recon',
+    name: 'Security Reconnaissance Tool',
+    eyebrow: 'Private security research',
     description:
-      'Private Python CLI for practicing security checks in authorized environments.',
+      'Private security reconnaissance console for authorized security assessments and research.',
     fullDescription:
-      'A personal learning tool that groups basic reconnaissance, service checks, JWT inspection, and report generation into one workflow. Source remains private.',
+      'A full-stack security tool combining passive reconnaissance with active testing capabilities. Built with React and TypeScript frontend, FastAPI backend, PostgreSQL database, and Redis for distributed rate limiting. Features automated triage, evidence verification, and comprehensive reporting. Designed for authorized security research in controlled environments.',
     outcome:
-      'Built for learning and authorized practice; source remains private.',
+      'Active development. Source remains private for operational security.',
     linkLabel: 'GitHub profile (source private)',
-    stack: ['Python', 'Security checks', 'CLI', 'Reporting'],
+    stack: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker'],
     liveUrl: null,
     githubUrl: 'https://github.com/Murtsi',
     status: 'private',
@@ -199,8 +199,8 @@ export const expertise = [
   {
     id: 'software',
     label: 'Software Projects',
-    description: 'I build TypeScript and Python projects with React, FastAPI, and PostgreSQL.',
-    tools: ['TypeScript', 'React', 'Python', 'FastAPI', 'PostgreSQL'],
+    description: 'I build TypeScript and Python projects with React, FastAPI, and PostgreSQL. I use Docker for deployment, Redis for caching, and modern tools like Vite and Tailwind.',
+    tools: ['TypeScript', 'React', 'Python', 'FastAPI', 'PostgreSQL', 'Docker', 'Redis', 'Vite', 'Tailwind'],
     accent: 'amber',
   },
   {
@@ -214,9 +214,9 @@ export const expertise = [
     id: 'security',
     label: 'Application Security',
     description:
-      'My practical security experience is one responsibly disclosed SQL injection finding. I also maintain a private Python learning tool for authorized environments.',
-    tools: ['SQL injection', 'Responsible disclosure', 'Python'],
-    accent: 'green',
+      'I build security reconnaissance tools for authorized assessments and have disclosed vulnerabilities responsibly. My work combines automated reconnaissance, evidence verification, and systematic triage.',
+    tools: ['Security research', 'Reconnaissance', 'Responsible disclosure', 'FastAPI'],
+    accent: 'red',
   },
 ] as const
 

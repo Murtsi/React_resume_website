@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Nav from '@/components/Nav'
+import ZoomableImage from '@/components/ZoomableImage'
 import { blogPosts } from '@/lib/blog'
 
 export function generateStaticParams() {
@@ -23,7 +24,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <Link className="back-link" href="/blog">← All field notes</Link>
       <header className="article-header" data-reveal><p className="eyebrow">{post.date} · {post.category} · {post.readTime}</p><h1>{post.title}</h1><p>{post.summary}</p></header>
       <dl className="article-facts" aria-label="Disclosure summary">{post.facts.map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>
-      <article className="article-body">{post.sections.map((section) => <section key={section.heading} data-reveal><h2>{section.heading}</h2>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</section>)}</article>
+      <article className="article-body">{post.sections.map((section) => <section key={section.heading} data-reveal><h2>{section.heading}</h2>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{section.image && <figure className="article-image"><ZoomableImage src={section.image} alt={section.imageAlt || ''} width={1400} height={800} quality={90} loading="lazy" sizes="(max-width: 900px) calc(100vw - 32px), 900px" />{section.imageAlt && <figcaption>{section.imageAlt}</figcaption>}</figure>}</section>)}</article>
       <footer className="article-footer"><Link href="/blog">More field notes</Link><Link href="/">Portfolio home</Link></footer>
     </main></>
   )
