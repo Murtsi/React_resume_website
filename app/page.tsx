@@ -46,7 +46,7 @@ export default function Home() {
       </section>
 
       <section className="section-shell page-width split-section" id="security" data-reveal>
-        <SectionHeading index="02" title="Security disclosures" detail="Published reports with sensitive details left out." />
+        <SectionHeading index="02" title="Blog posts and bug hunting" detail="Technical write-ups from the field." />
         <BlogPostLink className="disclosure-row" href={`/blog/${blogPosts[0].slug}`}>
           <span className="row-index">01</span>
           <div><p className="eyebrow">{blogPosts[0].date}</p><h3>{blogPosts[0].title}</h3></div>
