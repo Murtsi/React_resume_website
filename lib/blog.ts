@@ -134,7 +134,7 @@ export const blogPosts: BlogPost[] = [
           'The system is live at tarppi.site and has been reserving tickets successfully since launch.',
         ],
         image: '/blog/tarppi-dashboard.png',
-        imageAlt: 'Tärppi dashboard showing event tracking, backend status, and reservation controls',
+        imageAlt: 'Tärppi dashboard showing Helsinki event listings, event lookup, and Telegram notification setup',
       },
       {
         heading: 'Architecture',
